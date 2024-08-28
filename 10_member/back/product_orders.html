@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
+  <title>好寵你 | 產品訂單資訊</title>
+
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/back_header.css">
+  <link rel="stylesheet" href="../../css/orders.css">
+
+
+  <script src="../../js/bootstrap.bundle.js"></script>
+
+  <!-- 使用CDN引入bootstrap-icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- 字型字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+  <script src="../../js/jquery-3.7.1.js" data-auto-replace-svg="nest"></script>
+  <!-- React -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+
+</head>
+
+<body>
+  <header id="navbar" class="sticky-top headerbackPage"></header>
+
+
+  <main id="root">
+    
+  </main>
+  <!-- <div id="modal_show"></div> -->
+
+
+  <script type="text/babel">
+    $(".headerbackPage").load("../../99_Huei/header_back.html");
+
+    let myReactRoot = ReactDOM.createRoot(document.getElementById('root'));
+    // let myReactRoot_modal_show = ReactDOM.createRoot(document.getElementById('modal_show'));
+
+    const MyContext = React.createContext();
+
+
+    //狀態查詢
+    function Status_Select({ product_order: { data, setStatus } }) {
+      function handleSelectChange() {
+        // console.log(event.target.value);    
+        setStatus(event.target.value);
+      }
+
+      return (
+        <select className="form-select" defaultValue='' aria-label="Default select example" onChange={handleSelectChange}>
+          <option style={{ display: "none", visibility: "hidden" }}>訂單狀態</option>
+          <option value="all">全部訂單</option>
+          <option value="1">未完成</option>
+          <option value="2">已完成</option>
+          <option value="0">取消訂單</option>
+        </select>
+      )
+
+
+
+    }
+
+
+    function Order_Detail() {
+      let { click_value_id, orderdata_ref, setchoose_orderdata, setmstatus } = React.useContext(MyContext);
+      // console.log(event.target);
+      //eff ?
+      // let { setmain_view } = React.useContext(MyContext)
+      let [orderdata_select, setorderdata_select] = React.useState([]);
+      let [productInfo, setproductInfo] = React.useState([]);
+      // let [savecount, setsavecount] = React.useState(0);
+
+      React.useEffect(function () {
+
+        let orderdata_result = [];
+        orderdata_result = orderdata_ref.current.filter(value => value.id == click_value_id);
+        // orderdata_select.current=orderdata_result;
+        // console.log('orderdata_select', orderdata_select.current);
+        setorderdata_select(orderdata_result);
+
+
+        async function getproductData(productData) {
+
+          let [temp] = productData;
+          let { order_number } = temp;
+          let response = await fetch('http://localhost/happypet/happypet_back/public/api/orders_detail_search',
+            {
+              method: "POST",
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                "order_number": order_number
+              })
+            }
+          );
+          let data = await response.json()
+          setproductInfo(data);
+        }
+
+        getproductData(orderdata_result);
+
+      }, [click_value_id])
+
+
+      //千分位轉換
+      function numberComma(num = '') {
+        let comma = /\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g
+        return num.toString().replace(comma, ',')
+      }
+
+      //訂單狀態 Model裡
+      function Select_status({ order_status }) {
+
+        return (
+          <div className="col-3 mt-2">
+            <select className="form-select" id="status_value" defaultValue={order_status} aria-label="Default select example">
+              <option value="1">未完成</option>
+              <option value="2">已完成</option>
+              <option value="0">取消訂單</option>
+            </select>
+          </div>
+        )
+      }
+
+
+      function Text_area({ note }) {
+
+        // console.log('note');defaultValue={note}
+        let handleChangeNote = () => {
+          // console.log(event.target.value);
+          // $('#note_str').foucs();
+        }
+
+        return (
+          <div className="input-group align-middle col-12">
+            <span className="text-center align-middle d-flex align-items-center ">備註：</span>
+            <textarea id="note_str" onChange={handleChangeNote} defaultValue={note} className="form-control mx-3" aria-label="With textarea"></textarea>
+          </div>
+        )
+
+      }
+      const toastLiveExample = document.getElementById('liveToast')
+      const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+
+      //我是儲存按鈕
+      function handleClickSaveNote() {
+        async function save_info() {
+          let response = await fetch(`http://localhost/happypet/happypet_back/public/api/orders/note_update/${order_number}`,
+            {
+              method: "PUT",
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                "order_status": status_value.value,
+                "note": note_str.value ? note_str.value : ''
+              })
+            });
+        }
+        save_info();      
+        setmstatus(status_value.value);
+        settxtnote(note_str.value);
+
+
+        let [orderdata_temp] = orderdata_select;
+        orderdata_temp.order_status = status_value.value;
+        orderdata_temp.note = note_str.value;
+        setchoose_orderdata(orderdata_temp);
+
+      }
+
+      //傳入order_data 解構
+      let [orderdata] = orderdata_select;
+      let { ...temp } = orderdata;
+      let { id, order_number, user_name, user_phone, pay, total, consignee_name,
+        consignee_phone, send_address, user_email, send, order_status, note } = temp;
+      let [txtnote, settxtnote] = React.useState(note);
+      // settxtnote();
+      console.log('note', txtnote);
+      return (
+        <React.Fragment>
+          
+          <div className="modal-body row ">
+            {/* 訂單管理資訊  */}
+            <span className="col-6">訂單編號：{order_number}</span>
+            <span className="col-6">會員姓名：{user_name}</span>
+            <span className="col-6">會員電話：{user_phone}</span>
+            <span className="col-6">會員信箱：{user_email}</span>
+            <span className="col-6">付款方式：{pay}</span>
+            <span className="col-6">總計： NT ${numberComma(total)}</span>
+            <span className="col-6">收件人姓名：{consignee_name}</span>
+            <span className="col-6">收件人電話：{consignee_phone}</span>
+            <span className="col-6">寄送方式：{send}</span>
+            <span className="col-6">收件地址：{send_address}</span>
+            {/* 商品呈現 */}
+            <table className="table text-center align-middle justify-content-center col-12">
+              <thead>
+                <tr>
+                  <th className="col-1">產品圖</th>
+                  <th className="col-2">產品編號</th>
+                  <th className="col-2">產品名稱</th>
+                  <th className="col-2">規格</th>
+                  <th className="col-1">單價</th>
+                  <th className="col-1">數量</th>
+                  <th className="col-1">小計</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  productInfo.map((value) => {
+                    let { product_id, product_pic, price, quantity, series_name, flavor, weight, style, size } = value;
+                    // let product_pic_temp = atob(product_pic);
+                    // console.log('product_pic_temp', product_pic_temp);
+                    const dataUrl = `data:image/png;base64,${product_pic}`;
+                    let subtotal = (price * quantity);
+                    // console.log('subtotal',subtotal);
+                    //規格
+                    function Specification(flavor, weight, style, size) {
+                      let sp = [];
+                      // str = str + (flavor ? <p> 口味： {flavor} </p> : '');
+                      sp.push(flavor ? `口味： ${flavor}` : '');
+                      sp.push(weight ? `淨重： ${weight}` : '');
+                      sp.push(style ? `款式： ${style}` : '');
+                      sp.push(size ? `尺寸： ${size}` : '');
+                      // console.log('str', sp);
+                      return sp;
+                    }
+
+                    return (
+                      <tr key={product_id}>
+                        <td><img src={dataUrl} className="w-100" /></td>
+                        <td>{product_id}</td>
+                        <td>{series_name}</td>
+                        <td className=" align-middle align-items-center fs-5">{Specification(flavor, weight, style, size).map(value => <p className=" fs-6 fw-light">{value}</p>)}</td>
+                        <td>$ {numberComma(price)}</td>
+                        <td>{quantity}</td>
+                        <td>$ {numberComma(subtotal)}</td>
+                      </tr>
+                    )
+                  })
+                }
+
+              </tbody>
+            </table>
+
+            <Text_area note={note} settxtnote={settxtnote} />
+
+            <Select_status order_status={order_status} />
+
+
+            <div className="col-8 position-relative">
+              <button className="btn position-absolute bottom-0 end-0 mt-2" onClick={handleClickSaveNote}>儲存</button>
+            </div>
+          </div>
+        
+        </React.Fragment>
+      )
+    }
+
+
+
+    function Model() {
+
+      return (
+        <React.Fragment>
+          {/* 彈出視窗 Modal */}
+          <div className="modal fade bd-example-modal-lg" id="shelves_dialog" tabIndex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h4 className="modal-title">訂單管理</h4>
+                  <button type="button" className="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+                </div>
+
+                <Order_Detail />
+
+              </div>
+            </div>
+          </div>
+        </React.Fragment>
+      )
+    }
+
+    function Main() {
+
+      let [orderData, setOrderData] = React.useState([]);
+      let [status, setStatus] = React.useState('all');
+      let [searchOrdernumber, setsearchOrdernumber] = React.useState('');
+      const orderdata_ref = React.useRef([]);
+      let [click_value_id, setclick_value_id] = React.useState(0);
+      let [choose_orderdata, setchoose_orderdata] = React.useState([]);
+      let [mstatus, setmstatus] = React.useState(0);
+
+
+      // const [main_view, setmain_view] = React.useState(0);
+
+
+      React.useEffect(function () {
+
+        async function getData() {
+          let response = await fetch('http://localhost/happypet/happypet_back/public/api/orders_search',
+            {
+              method: "POST",
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                "status": status,
+                "searchOrdernumber": searchOrdernumber ? `%${searchOrdernumber}%` : ''
+              })
+            }
+          );
+          let data = await response.json()
+          // console.log(data);
+          setOrderData(data)
+          orderdata_ref.current = data;
+
+        }
+        getData();
+
+      }, [status, searchOrdernumber])
+
+      // console.log('mstatus',mstatus);
+
+      //訂單查詢
+      function Search_order() {
+
+        let handleClickSearchOrder = () => {
+          console.log('handleClickSearchOrder', search_order.value);
+          setsearchOrdernumber(search_order.value);
+        }
+
+        return (
+          <React.Fragment>
+            <label htmlFor="search_order" className="text-center fs-5 ps-5 my-2">訂單編號：</label>
+            <input type="text" id="search_order" defaultValue={searchOrdernumber} />
+            <a onClick={handleClickSearchOrder}><i className="px-2 fs-5 bi bi-search"></i></a>
+          </React.Fragment>
+        )
+      }
+
+
+      //table 結果呈現
+      function Result_({ orderData }) {
+
+        let [result_data, setresult_data] = React.useState(orderData);
+
+        React.useEffect(function () {
+
+          console.log('Result_', choose_orderdata.note);
+          console.log('orderData', orderData);
+          let new_orderdata_temp = orderData.filter(function (value) {
+            return value.id != choose_orderdata.id ? value : ''
+          });
+          new_orderdata_temp.push(choose_orderdata)
+          console.log('norderdata', new_orderdata_temp);
+          orderData = [...new_orderdata_temp]
+          // setresult_data(new_orderdata_temp);
+          // return function () {
+          //   setresult_data(norderdata);
+          // }
+
+        }, [mstatus])
+
+        function status(order_status) {
+          if (order_status == 0) { return '取消訂單' }
+          else if (order_status == 1) { return '未完成' }
+          else if (order_status == 2) { return '已完成' }
+        }
+
+        let handleClickTable = () => {
+          //找編號id
+          setclick_value_id(event.target.parentNode.firstChild.innerText);
+        }
+
+        //.toISOString().split('T')[0]
+        return (
+          <React.Fragment>
+            {
+              result_data.map((data => {
+                let { id, order_number, user_name, user_phone, order_status, create_time } = data
+
+                return (
+                  <tr key={id} className="click_order" data-bs-toggle="modal" data-bs-target="#shelves_dialog" onClick={handleClickTable}>
+                    <td style={{"display":"none"}}  >{id}</td>
+                    <td>{order_number}</td>
+                    <td>{user_name}</td>
+                    <td>{user_phone}</td>
+                    <td>{status(order_status)}</td>
+                    <td>{new Date(create_time).toISOString().split('T')[0].replaceAll('-', '/')}</td>
+                  </tr>
+                )
+              }))
+            }</React.Fragment>
+
+        )
+      }
+
+      return (
+        <React.Fragment>
+          <div className="container position-relative">
+            <div className="container row">
+              <h2 className="col-12 mt-3">產品訂單資訊</h2>
+              <div className="col-6">
+                {/* 這裡是訂單查詢 */}
+                <Search_order />
+              </div>
+              <div className="col-4"></div>
+              {/* 這裡是狀態select */}
+              <div className="col-2 end-0 ">
+                <Status_Select product_order={{ data: orderdata_ref, setStatus }} />
+              </div>
+            </div>
+            <table className="table table-striped table-hover text-center align-middle justify-content-center">
+              <thead className="text-center">
+                <tr>
+                  <th style={{"display":"none"}}  scope="col">編號</th>
+                  <th scope="col">訂單編號</th>
+                  <th scope="col">會員姓名</th>
+                  <th scope="col">手機號碼</th>
+                  <th scope="col">訂單狀態</th>
+                  <th scope="col">訂單成立時間</th>
+                </tr>
+              </thead>
+              <tbody>
+                <Result_ orderData={orderdata_ref.current} />
+              </tbody>
+            </table>
+          </div>
+          <MyContext.Provider value={{ orderdata_ref, click_value_id, setchoose_orderdata, setmstatus }} >
+            <Model />
+          </MyContext.Provider>
+          <div className="position-absolute button-0 end-0 p-2" style={{ "z-index": "5" }}>
+            <div id="liveToast" className="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+              <div className="toast-body fs-5 text-center"></div>
+            </div>
+          </div>
+        </React.Fragment>
+
+      )
+    }
+
+    myReactRoot.render(
+      <React.Fragment>
+        <Main />
+      </React.Fragment>
+    );
+
+
+  </script>
+
+</body>
+
+</html>

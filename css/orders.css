@@ -1,0 +1,74 @@
+.order_time_check:hover {
+    color: white;
+    background-color: var(--color-primary);
+}
+
+.cursor_pointer {
+    cursor: pointer;
+}
+
+h5 {
+    background-color: #cbe9dd;
+    padding: 10px;
+}
+
+.primarycolor {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+
+.secondcolor {
+    background-color: #e4b0b4;
+    color: #fff;
+
+}
+
+.myContainer {
+    width: 45%;
+}
+
+h2 {
+    margin: 20px 0;
+    font-weight: bold;
+    color: rgb(28, 151, 167);
+    color: #8897a8;
+    color: var(--color-primary);
+}
+
+.ons_input {
+    width: 65px;
+    outline: none;
+    border-style: none;
+    background-color: transparent;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    --bs-table-accent-bg: #cbe9dd;
+    /* background-color: #cbe9dd; */
+
+}
+
+/* .table-striped>tbody tr:hover {
+    background-color: #cbe9dd;
+    --bs-table-accent-bg: var(--color-primary); 
+} */
+
+p{
+    margin: 0;
+}
+
+.sp_img{
+    width: 120px;
+}
+/* 購物車數量(紅圈) */
+header .nav_icon .cart_quantity{
+    bottom: 2px;
+    right: -2px;
+    font-size: .8rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    color: #fff;
+}

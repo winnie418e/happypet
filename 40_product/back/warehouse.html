@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>入庫</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <!-- 使用CDN引入bootstrap-icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- 後台header -->
+    <link rel="stylesheet" href="../../css/back_header.css">
+    <link rel="stylesheet" href="../../css/warehouse.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="../../js/jquery-3.7.1.js"></script>
+    <script src="../../js/bootstrap.bundle.js"></script>
+
+    <!-- React -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+<body>
+    <header id="navbar" class="sticky-top ">
+        <div class="member nav_icon">
+            <a href="#" id="logout_btn">登出</a>
+        </div>
+        <div class="row align-items-center container-xl">
+            <div class="text-center col-xxl-3 col-xl-3 col-lg-12 col-md-12 col-ms-12 col-12">
+                <a class="" href="../../00_index/back/index_back.html">
+                    <img class="nav-logo m-2" src="../../img/LOGO.png" alt="">
+                </a>
+            </div>
+            <div class="col-xxl-9 col-xl-9 col-lg-12 col-md-12 col-ms-12 col-12">
+                <ul class="nav justify-content-center text-center">
+                    <li class="col-3 mt-3 mb-3 dropdown">
+                        <a href="" data-toggle="dropdown" class="dropdown-toggle" role="button" id="header_beauty"
+                            data-bs-toggle="dropdown" aria-expanded="false">美容預約</a>
+                        <ul class="dropdown-menu nav_drop" aria-labelledby="header_beauty">
+                            <li><a href="../../20_beauty/back/beauty_back.html" class="dropdown-item" id="beauty1">美容預約表</a></li>
+                        </ul>
+                    </li>
+                    <li class="col-3 mt-3 mb-3 dropdown">
+                        <a href="" data-toggle="dropdown" class="dropdown-toggle" role="button" id="header_hotel"
+                            data-bs-toggle="dropdown" aria-expanded="false">寵物住宿</a>
+                        <ul class="dropdown-menu nav_drop" aria-labelledby="header_hotel">
+                            <li><a href="../../30_hotel/back/order_back.html" class="dropdown-item" id="hotel1">旅館訂單</a></li>
+                            <li><a href="../../30_hotel/back/hotel_today_back.html" class="dropdown-item" id="hotel2">當日住宿</a></li>
+                        </ul>
+                    </li>
+                    <li class="col-3 mt-3 mb-3 dropdown">
+                        <a href="" data-toggle="dropdown" class="dropdown-toggle" role="button" id="header_product"
+                            data-bs-toggle="dropdown" aria-expanded="false">產品專區</a>
+                        <ul class="dropdown-menu nav_drop" aria-labelledby="header_product">
+                            <li><a href="http://localhost/happypet/happypet_front/40_product/back/main_info.html" class="dropdown-item" id="product1">產品主要內容</a></li>
+                            <li><a href="http://localhost/happypet/happypet_front/40_product/back/detail_info.html" class="dropdown-item" id="product2">產品詳細資訊</a></li>
+                            <li><a href="http://localhost/happypet/happypet_front/40_product/back/warehouse.html" class="dropdown-item" id="product3">產品入庫</a></li>
+                            <li><a href="http://localhost/happypet/happypet_front/40_product/back/on_shelves.html" class="dropdown-item" id="product4">上架中產品</a></li>
+                            <li><a href="http://localhost/happypet/happypet_front/40_product/back/remove_shelves.html" class="dropdown-item" id="product5">未上架產品</a></li>
+                        </ul>
+                    </li>
+                    <li class="col-3 mt-3 mb-3 dropdown">
+                        <a href="" data-toggle="dropdown" class="dropdown-toggle" role="button"
+                            id="header_product_order" data-bs-toggle="dropdown" aria-expanded="false">產品訂單</a>
+                        <ul class="dropdown-menu nav_drop" aria-labelledby="header_product_order">
+                            <li><a href="../../10_member/back/product_orders.html" class="dropdown-item" id="product_order1">產品訂單資訊</a></li>
+                            <li><a href="../../10_member/back/member_orders.html" class="dropdown-item" id="product_order2">會員訂單紀錄</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <!-- <div class="m-auto  myContainer py-3">
+        <h2 class="m-0 py-3">產品入庫</h2>
+        <form id="pdWarehouse" method="post" enctype="multipart/form-data" class="position-relative">
+
+            <table class="table  table-striped align-middle">
+                <tbody>
+                    <tr>
+                        <th scope="row">產品料號</th>
+                        <td colspan="4"><input type="text" name="productID" id="productID"> <i class="bi bi-search"></i></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">產品名稱</th>
+                        <td colspan="4" id="pdName" class="position-relative"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">製造日期</th>
+                        <td id=""><input type="date" name="mfd" id="pdMfd" ></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">有效日期</th>
+                        <td ><input type="date" name="exp" id="pdExp" ></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">進貨數量(販賣最小單位：包、罐、個)</th>
+                        <td ><input type="text" name="inventory" id="inventory"></td>
+                    </tr>
+                    <tr>
+                       <th scope="row">進貨日期</th>
+                        <td ><input type="text" name="restockDate" id="restockDate" readonly></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="insertBtn" class="position-absolute " >確認</button>
+        </form>
+    </div> -->
+    
+    <!-- 彈出視窗 -->
+    <!-- Modal -->
+    <!-- <div class="modal fade " id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p id="alertMsg" class="m-0"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-bs-dismiss="modal">確認</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+        let myReactRoot = ReactDOM.createRoot(document.getElementById('root'));
+        // let myContext =  React.createContext();
+        
+        function AlertModal({messageObj}){
+            // let {showMsg,message,setMessage} = React.useContext(myContext)
+            let {showMsg,message,setMessage} = messageObj
+            // console.log(showMsg)
+       
+            return(
+                <React.Fragment>
+                    <div className="modal fade " id="myModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-body">
+                                <p id="alertMsg" className="m-0">{message}</p>
+                            </div>
+                            <div className="modal-footer">
+                            <button type="button" className="btn" data-bs-dismiss="modal">確認</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </React.Fragment>
+            )
+        }
+        function WarehouseApp(){
+            let [productName,setProductName] = React.useState('');
+            let [message,setMessage] = React.useState('');
+            let [querying,setQuerying] = React.useState(false);
+            function showMsg(msg){
+                $('#myModal').modal('show')
+                // $('#alertMsg').text(msg)
+                setMessage(msg)
+            }
+            function queryProduct(){
+                setQuerying(true)
+                let pdWarehouseFormData = new FormData(document.getElementById('pdWarehouse'));
+                pdWarehouseFormData.append('action', 'fetch');
+                console.log('pdWarehouseFormData',pdWarehouseFormData)
+                console.log('productID.value',productID.value)
+                fetch(`http://localhost/happypet/happypet_back/public/api/product_back/warehouse `,{
+                    method:'post',
+                    body:pdWarehouseFormData
+                })
+                .then(response=>{
+                    return response.json()
+                })
+                .then(data=>{
+                    setQuerying(false);
+                    console.log('我是data',data)
+                    // data.full_name ? pdName.innerText = data.full_name :  pdName.innerText = data.error;
+                    data.full_name ? setProductName(data.full_name) : setProductName(data.error);
+                    
+                })
+            }
+            let datObj = new Date()
+            let [dateFormat,setDateFormat] = React.useState(`${ datObj.getFullYear() }/${ (datObj.getMonth()+1).toString().padStart(2,0) }/${ (datObj.getDate()).toString().padStart(2,0) }`)
+            function addStockQuantity(event){
+               
+                    event.preventDefault();
+                    let pdWarehouseFormData = new FormData(document.getElementById('pdWarehouse'));
+                    pdWarehouseFormData.append('action', 'insert');
+                    // fetch('http://localhost/testpet/public/api/product_back/warehouse',{
+                    fetch('http://localhost/happypet/happypet_back/public/api/product_back/warehouse',{
+                        method:'post',
+                        body:pdWarehouseFormData
+                    })
+                    .then(response=>{
+                        return response.json()
+                    })
+                    .then(data=>{
+                        if (data.message) {
+                            console.log(data.message);
+                            showMsg(data.message)
+                            $('input').each((_,elem)=>{
+                                elem.value = ''
+                            })
+                            setProductName('')
+                            setTimeout(()=>{
+                                // location.reload()// 刷新頁面
+                            },1500)
+                        } else if (data.error) {
+                            showMsg(data.error)
+                        }
+                    })
+                
+            }
+            return(
+                <React.Fragment>
+                    <div className="m-auto  myContainer py-3">
+                        <h2 className="m-0 py-3">產品入庫</h2>
+                        <form id="pdWarehouse" method="post" encType="multipart/form-data" className="position-relative">
+                            <table className="table table-striped align-middle">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">產品料號</th>
+                                        <td ><input type="text" name="productID" id="productID"/> <i className="bi bi-search" onClick={queryProduct}></i></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">產品名稱</th>
+                                        <td  id="pdName" className="position-relative">
+                                            {
+                                                querying ? (<span className="position-relative">
+                                                    查詢中<i className="bi bi-battery position-absolute"></i>
+                                                    <i className="bi bi-battery-half position-absolute"></i>
+                                                    <i className="bi bi-battery-full position-absolute"></i>
+                                                    </span>) : productName
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">製造日期</th>
+                                        <td><input type="date" name="mfd" id="pdMfd" /></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">有效日期</th>
+                                        <td><input type="date" name="exp" id="pdExp" /></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">進貨數量(販賣最小單位：包、罐、個)</th>
+                                        <td><input type="text" name="inventory" id="inventory"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">進貨日期</th>
+                                        <td><input type="text" name="restockDate" value={dateFormat} readOnly/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button className="position-absolute" onClick={addStockQuantity} type="button">確認</button>
+                        </form>
+                    </div>
+                    <AlertModal messageObj={{message,setMessage,showMsg}}/>
+                </React.Fragment>
+
+            )
+        }
+        myReactRoot.render(<WarehouseApp />);
+
+    </script>
+    <!-- <script src="../../js/warehouse.js"></script> -->
+    <!-- <script>
+        let insertBtn = document.getElementById('insertBtn');
+        window.onload = ()=>{
+            let myModal = document.getElementById('myModal')
+            let myInput = document.getElementById('myInput')
+
+            let datObj = new Date()
+            let dateFormat = `${ datObj.getFullYear() }-${ (datObj.getMonth()+1).toString().padStart(2,0) }-${ (datObj.getDate()).toString().padStart(2,0) }`
+            console.log(dateFormat)
+            restockDate.value = dateFormat
+        
+            function showMsg(msg){
+                $('#myModal').modal('show')
+                $('#alertMsg').text(msg)
+            }
+            $('.bi-search').click(()=>{
+                pdName.innerHTML = '<span class="position-relative">查詢中<i class="bi bi-battery position-absolute"></i><i class="bi bi-battery-half position-absolute"></i><i class="bi bi-battery-full position-absolute"></i></span>';
+                let pdWarehouseFormData = new FormData(document.getElementById('pdWarehouse'));
+                pdWarehouseFormData.append('action', 'fetch');
+                console.log('pdWarehouseFormData',pdWarehouseFormData)
+                console.log('productID.value',productID.value)
+               // productID.onchange = ()=>{
+                fetch(`http://localhost/testpet/public/api/product_back/warehouse `,{
+                    method:'post',
+                    body:pdWarehouseFormData
+                })
+                .then(response=>{
+                    // console.log(response)
+                    // return response.text()
+                    return response.json()
+                })
+                .then(data=>{
+                    console.log('我是data',data)
+                    data.full_name ? pdName.innerText = data.full_name :  pdName.innerText = data.error;
+                    
+                })
+
+            })
+            // }
+           
+            insertBtn.onclick = (event)=>{
+                event.preventDefault();
+                let pdWarehouseFormData = new FormData(document.getElementById('pdWarehouse'));
+                pdWarehouseFormData.append('action', 'insert');
+                fetch('http://localhost/testpet/public/api/product_back/warehouse',{
+                    method:'post',
+                    body:pdWarehouseFormData
+                })
+                .then(response=>{
+                    if (!response.ok) {
+                        throw new Error(`伺服器錯誤: ${response.statusText}`);
+                    }
+                    // console.log(response)
+                    // return response.text()
+                    return response.json()
+                })
+                .then(data=>{
+                    // alert(data)
+                    console.log('我是data1',data)
+                    showMsg(data.message)
+
+                   
+                })
+            }
+        }
+    </script> -->
+</body>
+</html>

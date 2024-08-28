@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>好寵你 | 寵物全方位服務網站</title>
+
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/header_footer.css" />
+    <link rel="stylesheet" href="../../css/hotel_front.css" />
+    <script src="../../js/bootstrap.bundle.js"></script>
+
+    <!-- 使用CDN引入bootstrap-icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- 字型字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <!-- Header -->
+    <!-- Header -->
+    <!-- Header -->
+    <!-- Header -->
+
+    <header id="navbar" class="sticky-top">
+      <div class="member nav_icon">
+        <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"
+          ><i class="bi-person"></i
+        ></a>
+        <a
+          href="http://localhost/happypet/happypet_front/40_product/front/shopping_cart.html"
+          class="position-relative"
+        >
+          <i class="bi-cart"></i>
+          <span
+            class="cart_quantity position-absolute text-center d-none"
+          ></span>
+        </a>
+      </div>
+      <div class="row align-items-center container-xl">
+        <div
+          class="text-center col-xxl-3 col-xl-3 col-lg-12 col-md-12 col-ms-12 col-12"
+        >
+          <a
+            class=""
+            href="http://localhost/happypet/happypet_front/00_index/index.html"
+          >
+            <img class="nav-logo m-2" src="../../img/LOGO.png" alt="" />
+          </a>
+        </div>
+        <div class="col-xxl-9 col-xl-9 col-lg-12 col-md-12 col-ms-12 col-12">
+          <ul class="nav justify-content-center text-center">
+            <li class="col-3 mt-3 mb-3">
+              <a
+                class="p-2"
+                href="http://localhost/happypet/happypet_front/20_beauty/beauty_front1.html"
+                >美容預約</a
+              >
+            </li>
+            <li class="col-3 mt-3 mb-3">
+              <a
+                class="p-2"
+                href="http://localhost/happypet/happypet_front/30_hotel/front/hotel.html"
+                >寵物住宿</a
+              >
+            </li>
+            <li class="col-3 mt-3 mb-3">
+              <a
+                class="p-2"
+                href="http://localhost/happypet/happypet_front/40_product/front/product.html?category=df"
+                >產品專區</a
+              >
+            </li>
+            <li class="col-3 mt-3 mb-3">
+              <a
+                class="p-2"
+                href="http://localhost/happypet/happypet_front/50_vet/vet.html"
+                >獸醫門診</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <!-- 會員登入Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">會員登入</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="formLoginCustomer" class="row g-3" novalidate>
+              <div class="col-md-12">
+                <label for="" class="form-label">電子信箱 / e-mail :</label>
+                <input
+                  name="login_email"
+                  type="email"
+                  class="form-control"
+                  required
+                />
+                <div class="invalid-feedback">請輸入正確格式</div>
+              </div>
+              <div class="col-md-12">
+                <label for="" class="form-label">密碼 / password :</label>
+                <input
+                  name="login_password"
+                  type="password"
+                  class="form-control"
+                  required
+                  minlength="8"
+                  maxlength="16"
+                  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,16}$"
+                />
+                <div class="invalid-feedback">
+                  請輸入8~16個字元且包含數字、英文字母大小寫及特殊符號的密碼
+                </div>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-secondary" type="reset">取消</button>
+                <button
+                  class="btn btn-success"
+                  type="submit"
+                  id="btnLoginCustomer"
+                >
+                  登入
+                </button>
+              </div>
+            </form>
+            <!-- <form>
+                    <div class="mb-3">
+                        <label for="recipient-name1" class="col-form-label">電子信箱 / e-mail :</label>
+                        <input type="email" class="form-control" id="recipient-name1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name2" class="col-form-label">密碼 / password :</label>
+                        <input type="password" class="form-control" id="recipient-name2">
+                    </div>
+                </form> -->
+          </div>
+          <div class="modal-footer">
+            <p>
+              <a href="#">忘記密碼?</a>&ensp;或&ensp;<a
+                href="../10_member/member_register.html"
+                >註冊會員</a
+              >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            </p>
+            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">離開</button>
+                <button type="button" class="btn btn-success">登入</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 會員登入Modal end-->
+
+    <!-- Header end -->
+    <!-- Header end -->
+    <!-- Header end -->
+    <!-- Header end -->
+    <!-- Header end -->
+
+    <!-- progress -->
+    <div class="container">
+      <div class="progress-container d-flex mt-5 pb-5 fs-4 fw-bold">
+        <div class="progress-step">
+          <div
+            class="progress-circle justify-content-center align-items-center d-inline-flex rounded-circle"
+          >
+            1
+          </div>
+          <div class="progress-label mt-2">查詢空房</div>
+        </div>
+        <div class="progress-step active">
+          <div
+            class="progress-circle justify-content-center align-items-center d-inline-flex rounded-circle"
+          >
+            2
+          </div>
+          <div class="progress-label mt-2">訂房明細</div>
+        </div>
+        <div class="progress-step">
+          <div
+            class="progress-circle justify-content-center align-items-center d-inline-flex rounded-circle"
+          >
+            3
+          </div>
+          <div class="progress-label mt-2">訂購完成</div>
+        </div>
+      </div>
+    </div>
+    <!-- order -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <table class="table align-middle">
+            <h1 class="fs-1 text-start mb-4 fw-bold text-secondary">
+              訂房明細<i class="bi bi-clipboard2-check"></i>
+            </h1>
+            <thead class="mythead fs-3">
+              <tr>
+                <th scope="col">住宿期間</th>
+                <th scope="col">房型</th>
+                <th scope="col">數量</th>
+                <th scope="col">寵物名稱</th>
+                <th scope="col">同房數</th>
+                <th scope="col">晚數</th>
+                <th scope="col">小計</th>
+                <th scope="col">刪除</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTable" class="fs-4"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="text-end">
+        <span class="fs-2">總金額：NT$1,200</span>
+      </div>
+    </div>
+    <!-- notice -->
+    <div class="container mt-5">
+      <div calss="question">
+        <h2 class="myh2 p-3 fs-2 mb-4" onclick="toggleText('myp1')">
+          <i class="bi bi-chevron-down"></i>
+          入住與退宿
+        </h2>
+
+        <div id="myp1">
+          <p class="fs-5 pt-3 pb-5 lh-lg">
+            ．
+            住宿計費以「日期」計費，超過退宿時間視為自動多留宿一天，或每小時收取100元安親費。<br />
+            ．
+            毛主人於住宿期滿後未前來辦理退宿，將視為同意續住直至再住滿兩周，聯繫毛主人仍未接回得依動物保護法動物棄養相關規定處理毛旅客，並收取額外延長住宿費用。<br />
+            ． 入住前，請飼主配合館內人員，進行常規外觀皮毛檢查。
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="myh3 p-3 fs-2 mb-4" onclick="toggleText('myp2')">
+          <i class="bi bi-chevron-down"></i>
+          入住期間飲食與用水
+        </h3>
+        <div id="myp2">
+          <p class="fs-5 pt-3 pb-4 pb-5 lh-lg">
+            ．毛旅客於飲食、飲水上若有特殊需求務必於入住前詳細告知，以提供更好住宿環境。
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="myh4 p-3 fs-2 mb-4" onclick="toggleText('myp3')">
+          <i class="bi bi-chevron-down"></i>
+          健康與安全
+        </h4>
+        <div id="myp3">
+          <p class="fs-5 pt-3 pb-4 pb-5 lh-lg">
+            <span class="warning-text"
+              >#
+              經確認毛旅客身上有跳蚤、壁蝨...等高度傳染力疾病害蟲，將聯繫毛主人當日接回，並酌收環境清潔消毒費用5000元，入住相關優惠則視實際住宿天數而定，若無法立即接回，將視當日房間使用狀況隔離毛旅客，衍伸相關房間住宿費用由毛主人全額負擔且不得有議。</span
+            ><br />
+            ．若毛旅客有怕生、情緒敏感兇悍、對味道敏感、已知毛齡超過10歲、曾被診斷疾病過、或其他健康需求，於入住前請毛主人誠實告知，於備註欄中填寫註記加強照護及觀察。<br />
+            ．入住期間毛旅客若有用藥需求(含口服藥、皮膚用藥、眼滴劑、耳滴劑或其他健康食品)，毛主人須主動告知，並提供寵物名稱、藥物名稱、劑量劑型、給藥途徑、給藥時間供查核。<br />
+            <br />
+            ． 為維護毛旅客住宿品質及健康，恕不接受以下狀況毛旅客入住:<br />
+            1. 發情中、懷孕中及產後兩個月內貓旅客。<br />
+            2. 剛從寵物醫院出院14天內以及動物收容所離開14天以內貓旅客。<br />
+            3. 一年內未曾接種過預防針、狂犬疫苗或剛注射預防針未滿七天者。<br />
+            4.
+            已知患有高度傳染疾病、皮膚相關疾病或其他心肺肝腎重大疾病貓旅客住宿期間若有發情之情形，好寵你得以額外隔離貓旅客，並酌收相關用。若未確實告知有關毛孩疾病健康史，或接種疫苗產生相關傳染疾病，造成自家毛孩旅客或其他館內毛孩傷亡，將由毛主人全權負責。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- check -->
+    <div class="container text-end custom-container">
+      <button id="orderMoreRooms" class="btn btn-outline-secondary btn-lg me-3">
+        訂購更多房間
+      </button>
+      <button
+        id="nextStep"
+        class="btn btn-outline-secondary btn-lg"
+        data-bs-toggle="modal"
+        data-bs-target="#orderModal"
+      >
+        確認訂購
+      </button>
+    </div>
+
+    <div class="modal" tabindex="-1" id="orderModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fs-6">通知框</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body fs-4 fw-bold text-center">
+            <p>訂購完成！</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              關閉
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              data-bs-dismiss="modal"
+            >
+              確定
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 引入購物車數量 -->
+    <script src="../../js/queryQuantity.js"></script>
+    <script src="../../js/hotelorder.js"></script>
+    <!-- 引用登入功能的後端JS檔 -->
+    <script src="../../js/member_login.js"></script>
+    <!--------------- footer ---------------->
+
+    <footer>
+      <div
+        class="row text-center justify-content-center mt-4 align-items-center"
+      >
+        <a href="#" class="col-xl-4 col-lg-5 col-md-10 col-10 p-2">
+          <img class="logo" src="../../img/LOGO.png" alt="" />
+        </a>
+
+        <ul
+          class="footer_contact col-xl-4 col-lg-5 col-md-10 col-10 text-lg-start text-center p-4"
+        >
+          <li>0800-123-456</li>
+          <li>service@gmail.com</li>
+          <li>特定寵物業許可證號：特寵業字第s1110005號</li>
+
+          <div class="footer_icon">
+            <span class=""
+              ><a href=""><i class="bi bi-instagram"></i></a
+            ></span>
+            <span class=""
+              ><a href=""><i class="bi bi-line"></i></a
+            ></span>
+            <span class=""
+              ><a href=""><i class="bi bi-facebook"></i></a
+            ></span>
+          </div>
+        </ul>
+        <p class="copyright text-center mt-2">
+          <a href="#">服務條款及隱私保護政策 | </a
+          >&copy;此網站為練習使用，不做商業用途
+        </p>
+      </div>
+
+      <div class="d-flex">
+        <img
+          class="footer_img col-12 col-sm-12 col-md-8 col-xl-8 col-xxl-8"
+          src="../../img/00_index/資產-40.png"
+          alt=""
+        />
+        <img
+          class="footer_stamp"
+          src="../../img/00_index/transparent01.png"
+          alt=""
+        />
+      </div>
+    </footer>
+  </body>
+</html>

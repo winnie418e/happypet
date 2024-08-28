@@ -1,0 +1,90 @@
+:root {
+  /* --color-primary:#90b9ab; */
+  --color-primary: rgb(255, 201, 113);
+  --color-primary: rgb(150, 175, 197);
+  /* 小捲尾 次色 */
+  --color-primary: #e4b0b4;
+  --color-primary: #90b9ab;
+}
+
+body {
+  margin: 0;
+  left: 0;
+  font-family: "LXGW WenKai TC", cursive;
+  font-weight: 300;
+  font-style: normal;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  box-shadow: 0 3px 5px #ddd;
+  background-color: #fff;
+  line-height: 20px;
+}
+
+.nav-logo {
+  max-height: 80px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+
+a:hover {
+  color: #1c97a7;
+  font-weight: bold;
+}
+
+.nav > li > a {
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: bolder;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+}
+
+.nav > li > a:hover {
+  border-bottom: 2px solid #1c97a7;
+  border-bottom: 2px solid var(--color-primary);
+  color: #1c97a7;
+  font-weight: bold;
+}
+
+.member {
+  position: fixed;
+  right: 25px;
+  top: 15px;
+  padding: 20px;
+  display: block;
+  font-size: 18px;
+}
+
+.nav_icon a {
+  padding: 5px;
+  color: #90b9ab;
+}
+
+.nav_icon a:hover {
+  color: #1c97a7;
+  font-weight: bolder;
+}
+
+body {
+  background: url(../img/00_index/geometry.png);
+}
+
+main {
+  position: relative;
+}
+
+.nav_drop > li > a {
+  padding: 15px;
+}

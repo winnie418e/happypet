@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 好寵你 | 結帳 </title>
+
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/header_footer.css">
+    <!-- 引入自己的css -->
+    <link rel="stylesheet" href="../../css/orders.css">
+
+    <script src="../../js/bootstrap.bundle.js"></script>
+
+    <!-- 使用CDN引入bootstrap-icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- 字型字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+    <script src="../../js/jquery-3.7.1.js" data-auto-replace-svg="nest"></script>
+    <!-- React -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="navbar" class="sticky-top headerPage"></header>
+    <!-- Header end -->
+    <main id="root" class="container w-50 mb-5">
+        <div class="container mt-5 p-0 w-75">
+            <div class="m-0 p-0 shadow-sm rounded-3">
+                <h5 class="text-center rounded-3">訂購人資訊</h5>
+                <div class="w-100 p-3 text-center">
+                    <div class="my-2">
+                        <label>姓名：</label>
+                        <label type="text" id="buyername" class="w-50 h-25 text-start"></label>
+                    </div>
+                    <div class="my-2">
+                        <label>電話：</label>
+                        <label type="text" id="buyerphone" class="w-50 h-25 text-start"></label>
+                    </div>
+                    <div class="my-2">
+                        <label>信箱：</label>
+                        <label type="text" id="buyeremail" class="w-50 h-25 text-start"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="my-3 p-0 shadow-sm rounded-3">
+                <h5 class="text-center rounded-3  ">收件人資訊</h5>
+                <div class="w-100 p-3">
+                    <div class="form-check px-5 mx-5">
+                        <input class="form-check-input" type="checkbox" value="" id="consignee">
+                        <label class="form-check-label text-start" for="consignee">同訂購人資料</label>
+                    </div>
+                    <div class="my-2 text-center">
+                        <label>姓名：</label>
+                        <input id="consignee_name" type="text"
+                            class="w-50 h-25 border-opacity-25 border-success rounded">
+                    </div>
+                    <div class="my-2 text-center">
+                        <label>電話：</label>
+                        <input id="consignee_phone" type="text"
+                            class="w-50 h-25 border-opacity-25 border-success rounded">
+                    </div>
+                </div>
+            </div>
+            <div class="my-3 p-0 rounded-3 shadow-sm">
+                <h5 class="text-center rounded-3">收件資訊</h5>
+                <div class="w-100 mx-3 p-3 ">
+                    <div class="d-flex ms-5">
+                        <div class="form-check px-2 ms-3">
+                            <input class="form-check-input" type="radio" name="choosesend" id="home_delivery"
+                                onclick="handleClicksend()" checked>
+                            <label class="form-check-label" for="home_delivery">宅配寄送</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="choosesend" id="sotre"
+                                onclick="handleClicksend()">
+                            <label class="form-check-label" for="sotre">到店取貨</label>
+                        </div>
+                    </div>
+                    <div id="send1" class="d-flex pt-3 align-middle align-items-center ms-5 ">
+                        <label for="send_address" class="form-label pt-2 ">宅配地址：</label>
+                        <input type="text" id="send_address" class="form-control w-75 h-25">
+                    </div>
+                    <div id="send2" class="visually-hidden">
+                        <div class="d-flex pt-3 align-middle align-items-center ms-5">
+                            <label class="form-label pt-2 ">選擇分店：</label>
+                            <select onchange="handleChangeSelect()" class="form-select w-25 h-25"
+                                aria-label="Default select example">
+                                <option selected value="0">請選擇</option>
+                                <option value="1">仁愛店</option>
+                                <option value="2">大安店</option>
+                                <option value="3">內湖店</option>
+                            </select>
+                        </div>
+                        <div id="store_open" class="d-block pt-3 visually-hidden ms-5">
+                            門市地址：<label id="store_address"></label> <br>
+                            門市電話：<label id="store_phone"></label> <br>
+                            <label>營業時間：10:30-20:00</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="my-3 p-0 rounded-3 shadow-sm">
+                <h5 class="text-center rounded-3 ">發票</h5>
+                <div class="w-100 mx-3 p-2">
+                    <div class="d-flex ms-5 ">
+                        <div class="form-check px-3 ms-3">
+                            <input class="form-check-input" type="radio" name="invoice_" id="unifiedinvoice"
+                                onclick="handleClickinvoice()" checked>
+                            <label class="form-check-label" for="unifiedinvoice">紙本發票</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="invoice_" id="vehicle"
+                                onclick="handleClickinvoice()">
+                            <label class="form-check-label" for="vehicle">載具：</label>
+                            <input id="invoice" type="text" class="w-50 border-opacity-25 border-success rounded"
+                                disabled="disabled">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div div class="my-3 p-0 rounded-3 shadow-sm">
+                <h5 class="text-center rounded-3">付款資訊</h5>
+                <div class="w-100 mx-3 p-2">
+                    <div class="d-flex ms-5">
+                        <div class="form-check px-3 ms-3">
+                            <input class="form-check-input" type="radio" name="pay" id="creditcard"
+                                onclick="handleClickpay()" checked>
+                            <label class="form-check-label" for="creditcard">信用卡</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pay" id="payforstore"
+                                onclick="handleClickpay()">
+                            <label class="form-check-label" for="payforstore">到店付款</label>
+                        </div>
+                    </div>
+                    <div id="credit_card_div">
+                        <div id="credit_card" class="pt-2 d-flex">
+                            <label class="d-flex align-items-center">信用卡卡號：</label>
+                            <input type="text" class="col-2 mx-1 my-2 " maxlength="4">
+                            <input type="text" class="col-2 mx-1 my-2" maxlength="4" disabled>
+                            <input type="text" class="col-2 mx-1 my-2" maxlength="4" disabled>
+                            <input type="text" class="col-2 mx-1 my-2" maxlength="4" disabled>
+                        </div>
+                        <div class="pt-2 d-flex">
+                            <label class="d-flex align-items-center">有效年月：</label>
+                            <input id="valid" type="text" class="col-2 mx-1 my-2 " placeholder="MM/YY"
+                                pattern="\d{2}/\d{2}" maxlength="5">
+                            <label class="d-flex align-items-center ms-3">驗證碼：</label>
+                            <input id="validkey" type="text" class="col-2 mx-1 my-2  " maxlength="3" placeholder="CVV">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="m-0 p-2">
+                <div class="w-100 mx-3 p-2">
+                    <div class="form-check text-center align-items-center align-middle">
+                        <input class="align-items-center align-middle" type="checkbox" value=""
+                            id="shopping_instructions">
+                        <label class="form-check-label" for="shopping_instructions">已閱讀並接受<a class="link-opacity-75"
+                                href="#exampleModal" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">購物須知</a></label>
+                    </div>
+                </div>
+            </div>
+            <div class="my-3 p-0 rounded-3 shadow-sm">
+                <h5 class="text-center rounded-3">總金額</h5>
+                <div class="w-100 p-2 ">
+                    <p id="ftotal" class="fs-4 text-center"></p>
+                </div>
+            </div>
+            <div class="d-flex flex-row-reverse">
+                <!-- <button class="btn primarycolor" ></button> -->
+                <div onclick="handleClickbill()"
+                    class="p-2 border border-secondary rounded-3 order_time_check cursor_pointer text-center col-2 ">
+                    結帳
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+
+        <!-- Modal 購物須知-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel">好寵你 | 購物須知</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <h1>好寵你寵物網站購物須知</h1>
+
+                        <p>歡迎光臨「好寵你」寵物網站！為了確保您在本網站的購物體驗愉快且順利，我們特此提供以下購物須知。請在購物前仔細閱讀，以了解我們的購物流程、退換貨政策及其他相關資訊。</p>
+
+                        <div class="section">
+                            <h2>一、商品資訊</h2>
+                            <ul>
+                                <li><strong>商品描述：</strong>我們的網站致力於提供詳盡的商品描述和高品質的商品圖片，以幫助您了解產品的實際情況。商品的規格、功能、材質等資訊均已詳細列出，但由於生產廠家可能會對產品進行改進，實際商品可能會有細微差異。
+                                </li>
+                                <li><strong>庫存狀態：</strong>我們會即時更新庫存資訊，但由於市場需求波動和物流原因，部分商品可能會出現缺貨或暫時無庫存的情況。若您購買的商品暫時缺貨，我們會及時通知您並提供退款或替代產品的選項。
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="section">
+                            <h2>二、購物流程</h2>
+                            <ul>
+                                <li><strong>選擇商品：</strong>瀏覽我們的網站，選擇您感興趣的寵物用品。每個商品頁面都有詳細的描述和價格資訊。您可以將喜歡的商品加入到購物車中。</li>
+                                <li><strong>確認訂單：</strong>當您完成選擇後，點擊「購物車」按鈕查看您的選購商品。請確認商品的數量、規格和總金額，然後點擊「結算」進入訂單確認頁面。
+                                </li>
+                                <li><strong>填寫資訊：</strong>在結算頁面，您需要填寫收貨地址、聯繫方式以及選擇支付方式。請確保填寫的信息準確無誤，以避免延誤發貨。</li>
+                                <li><strong>支付：</strong>
+                                    <ul>
+                                        <li><strong>信用卡：</strong>我們接受主要信用卡支付，包括Visa、MasterCard等。選擇「信用卡支付」，並按照提示輸入您的卡號、有效期和CVV碼以完成支付。
+                                        </li>
+                                        <li><strong>到店付款：</strong>若您選擇「到店付款」，請在完成訂單後到我們指定的門店付款。付款時，請告知店員您的訂單編號。</li>
+                                    </ul>
+                                </li>
+                                <li><strong>訂單確認：</strong>成功完成訂單後，系統會在您的「我的訂單」頁面顯示訂單編號和詳細資訊。您可以在此頁面跟蹤訂單狀態和查看訂單詳情。</li>
+                            </ul>
+                        </div>
+
+                        <div class="section">
+                            <h2>三、配送服務</h2>
+                            <ul>
+                                <li><strong>配送區域：</strong>我們目前支持全國範圍內的配送。具體配送時間會根據您的所在地和物流公司的安排而有所不同。</li>
+                                <li><strong>配送時間：</strong>一般情況下，訂單會在1-3個工作日內處理完畢，並交由物流公司配送。具體配送時間可能會受到節假日、天氣等因素的影響。我們會盡力確保您盡快收到貨物。
+                                </li>
+                                <li><strong>運費：</strong>訂單滿一定金額可享受免費配送服務。具體的免運費門檻及運費標準請參見我們網站的運費說明。</li>
+                            </ul>
+                        </div>
+
+                        <div class="section">
+                            <h2>四、退換貨政策</h2>
+                            <ul>
+                                <li><strong>退換貨條件：</strong>若您對購買的商品不滿意，您可以在收到商品後的7天內申請退換貨。退換貨商品須保持原包裝、未使用且完好無損。部分特殊商品（如定制商品、易腐商品等）不支持退換貨。
+                                </li>
+                                <li><strong>申請流程：</strong>請通過網站的「我的訂單」頁面或聯繫客服申請退換貨。申請時請提供訂單編號和退換貨原因。我們會在收到您的申請後盡快處理。
+                                </li>
+                                <li><strong>退款處理：</strong>退換貨申請通過後，我們會在收到退回商品後的7個工作日內處理退款。退款將原路返回至您的支付帳戶。</li>
+                            </ul>
+                        </div>
+
+                        <div class="section">
+                            <h2>五、客戶服務</h2>
+                            <ul>
+                                <li><strong>客服聯繫方式：</strong>如有任何問題或需要幫助，請隨時聯繫我們的客服團隊。您可以通過在線客服、電話或電子郵件與我們取得聯繫。客服工作時間為週一至週五，上午9:00至18:00。
+                                </li>
+                                <li><strong>售後服務：</strong>我們致力於提供優質的售後服務。如您在使用商品過程中遇到任何問題，請及時聯繫客服，我們將竭誠為您解決問題。</li>
+                            </ul>
+                        </div>
+
+                        <div class="section">
+                            <h2>六、其他說明</h2>
+                            <ul>
+                                <li><strong>隱私政策：</strong>我們尊重並保護您的隱私，所有用戶資訊僅用於訂單處理和服務提升。詳細的隱私政策請參見我們網站的「隱私政策」頁面。</li>
+                                <li><strong>網站條款：</strong>使用本網站即表示您同意我們的服務條款。我們保留對服務條款進行調整和修改的權利。</li>
+                            </ul>
+                        </div>
+
+                        <p>感謝您選擇「好寵你」寵物網站，我們期待為您提供最優質的寵物用品和服務。祝您和您的寵物健康快樂！</p>
+
+                    </div>
+                    <div class="modal-footer ">
+                        <button type="button" class="btn btn-secondary w-100 text-center "
+                            data-bs-dismiss="modal">已詳閱內容</button>
+                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+            <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-body fs-5 text-center"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footerPage"></footer>>
+
+</body>
+
+<script>
+
+    $(".headerPage").load("../../99_Huei/header_.html");
+    $(".footerPage").load("../../99_Huei/footer_.html");
+
+    let userinfo;
+    let order = {};
+    //總金額
+    ftotal.innerText = `NT$ ${localStorage.getItem('total')} 元`
+
+
+
+    async function getuserinfo() {
+        let response = await fetch('http://localhost/happypet/happypet_back/public/api/userinfoforbill',
+            {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    "uid": "2"
+                })
+            });
+        let data = await response.json()
+        let { cname, email, cellphone, address } = data[0];
+        // console.log(name);
+        buyername.innerText = cname;
+        buyerphone.innerText = cellphone;
+        buyeremail.innerText = email;
+        userinfo = data[0];
+
+        order['user_name'] = cname;
+        order['user_phone'] = cellphone;
+        order['user_email'] = email;
+    }
+    getuserinfo();
+
+    consignee.onclick = () => {
+        let { cname, email, cellphone, address } = userinfo;
+        // console.log(cname);
+
+        if (event.target.checked) {
+            consignee_name.value = cname;
+            consignee_phone.value = cellphone;
+            send_address.value = address;
+        } else {
+            consignee_name.value = "";
+            consignee_phone.value = "";
+            send_address.value = "";
+
+        }
+    }
+
+    let handleClicksend = () => {
+        // console.log(event.target.id=="sotre");
+        console.log(send1);
+
+        if (event.target.id == "sotre") {
+            $('#send1').addClass("visually-hidden")
+            $('#send2').removeClass("visually-hidden")
+            $('#payforstore').removeAttr("disabled")
+        }
+        else {
+            $('#send2').addClass("visually-hidden")
+            $('#send1').removeClass("visually-hidden")
+            $('#payforstore').attr("disabled", "disabled")
+            // $('#store_open').addClass("visually-hidden");
+        }
+
+    }
+
+
+    let handleClickinvoice = () => {
+        console.log(event.target.id);
+        if (event.target.id == "vehicle") {
+            $('#invoice').removeAttr("disabled")
+        } else {
+            $('#invoice').attr("disabled", "disabled")
+        }
+    }
+
+    let handleClickpay = () => {
+        console.log(event.target.id);
+        if (event.target.id == "payforstore") {
+            $('#credit_card_div').addClass("visually-hidden")
+        } else {
+            $('#credit_card_div').removeClass("visually-hidden")
+        }
+    }
+    //信用卡
+    $('#credit_card input').on('keyup', function () {
+        // console.log(event.target.value);
+
+        if (event.keyCode != 37 && event.keyCode != 39) {
+            event.target.value = event.target.value.replace(/\D/g, '');
+        }
+        if ($(this).val().length == 4) {
+            $(this).next(':input').removeAttr("disabled")
+            $(this).next(':input').focus();
+        }
+    })
+    //有效年月
+    $('#valid').on('keyup', function () {
+        if (event.keyCode != 37 && event.keyCode != 39) {
+            event.target.value = event.target.value.replace(/[^0-9\/]/g, '');
+        }
+
+        if ($(this).val().length == 2) {
+            // console.log();
+            if ($(this).val() > 12) {
+                event.target.value = "";
+            } else {
+                $(this).val(event.target.value + "/")
+            }
+        }
+
+        if ($(this).val().length == 5) { $('#validkey').focus(); }
+    })
+
+    //驗證碼
+    $('#validkey').on('keyup', function () {
+        if (event.keyCode != 37 && event.keyCode != 39) {
+            event.target.value = event.target.value.replace(/\D/g, '');
+        }
+        if ($(this).val().length == 3) {
+            $(this).trigger("blur");
+        }
+    })
+
+    let handleChangeSelect = () => {
+        console.log(event.target.value);
+
+        switch (event.target.value) {
+            case '1':
+                store_address.innerText = "臺北市大安區仁愛路四段345巷4弄45號";
+                store_phone.innerText = "+886-0227752749";
+                $('#store_open').removeClass("visually-hidden");
+                break;
+            case '2':
+                store_address.innerText = "臺北市大安區仁愛路四段345巷4弄45號";
+                store_phone.innerText = "+886-0227752749";
+                $('#store_open').removeClass("visually-hidden");
+                break;
+            case '3':
+                store_address.innerText = "臺北市大安區仁愛路四段345巷4弄45號";
+                store_phone.innerText = "+886-0227752749";
+                $('#store_open').removeClass("visually-hidden");
+                break;
+            default:
+                store_address.innerText = "";
+                store_phone.innerText = "";
+                $('#store_open').addClass("visually-hidden");
+                break;
+        }
+
+    }
+    const toastLiveExample = document.getElementById('liveToast')
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+    // console.log('order', userinfo);
+    let handleClickbill = () => {
+
+        order['consignee_name'] = consignee_name.value;
+        order['consignee_phone'] = consignee_phone.value;
+        // order['send'] = consigneephone.value;
+        order['total'] = localStorage.getItem('total').replace(",", "");
+
+        //寄送方式
+        if ($('input[type="radio"][name="choosesend"]:checked').attr('id') == "home_delivery") {
+            order['send'] = "宅配";
+            order['send_address'] = send_address.value;
+        } else {
+            switch ($('select').val()) {
+                case "1":
+                    order['send'] = "到店取貨-仁愛店";
+                    order['send_address'] = store_address.innerText;
+                    break;
+                case "2":
+                    order['send'] = "到店取貨-大安店";
+                    order['send_address'] = store_address.innerText;
+                    break;
+                case "3":
+                    order['send'] = "到店取貨-內湖店";
+                    order['send_address'] = store_address.innerText;
+                    break;
+
+            }
+
+        }
+
+        order['invoice'] = $('input[type="radio"][name="invoice_"]:checked').attr('id') == "unifiedinvoice" ? "紙本" : invoice.value;
+        order['pay'] = $('input[type="radio"][name="pay"]:checked').attr('id') == "creditcard" ? "線上付款" : "到店付款";
+        // console.log($('input[type="radio"][name="pay"]:checked').attr('id'));
+        order['order_number'] = localStorage.getItem('order_number');
+        order['order_status'] = "1";
+        console.log('order', order);
+        // console.log(Object.value(order));
+
+        //記得打開我
+        async function chechoutBill() {
+            let response = await fetch('http://localhost/happypet/happypet_back/public/api/orderinsert',
+                {
+                    method: "POST",
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(order)
+                });
+            let data = await response.json();
+            data ? toindex() : ''
+        }
+        chechoutBill();
+
+        let toindex = () => {
+            $('.toast-body').text('感謝您的購買!');
+            toastBootstrap.show()
+            setTimeout(function () {
+                document.location.href = "../../00_index/index.html"
+            }, 1000 * 5)
+        }
+
+
+
+
+
+        let narr = [];
+        for (const key in order) {
+            if (order[key] == "") {
+                console.log(key);
+                narr.push(key)
+
+                if (narr.length > 0) {
+                    $(`#${narr[0]}`).focus();
+                }
+            }
+            if (narr.length) {
+                $('.toast-body').text('資料尚未填寫完整');
+                toastBootstrap.show()
+            }
+
+        }
+    }
+
+
+    // credit_card_div
+</script>
+
+</html>

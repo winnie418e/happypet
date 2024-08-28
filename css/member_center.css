@@ -1,0 +1,40 @@
+
+.member-center-title {
+    font-weight: bolder; 
+    color: black; 
+    text-align:center;
+}
+
+.list-group-item.active {
+    background-color: #9bc8b9;
+
+    color: #ffffff;
+
+    border-color: #9bc8b9;
+}
+
+.list-group-item:hover {
+    background-color: #90b9ab;
+    color: #ffffff;
+
+}
+.card-add{
+    text-decoration: none;
+    color: black; 
+}
+.card-add:hover{
+    text-decoration: none;
+    color: darkgray; 
+}
+.card-add>div>i{
+    font-size: 100px;
+    text-align: center;
+    margin-top: 38px;
+}
+.pet-headphoto{
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    object-fit: cover;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+}

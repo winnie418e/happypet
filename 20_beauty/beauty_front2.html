@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 好寵你 | 寵物全方位服務網站 </title>
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/beauty.css">
+    <script src="../js/bootstrap.bundle.js"></script>
+    <script src="../js/jquery-3.7.1.js"></script>
+
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- 使用CDN引入bootstrap-icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- 字型字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <!-- Header -->
+    <!-- Header -->
+    <!-- Header -->
+    <!-- Header -->
+
+    <header id="navbar" class="sticky-top ">
+        <div class="member nav_icon">
+            <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="bi-person"></i></a>
+            <a href="http://localhost/happypet/happypet_front/40_product/front/shopping_cart.html" class="position-relative">
+                <i class="bi-cart"></i>
+                <span class="cart_quantity position-absolute text-center d-none"></span>
+            </a>
+        </div>
+        <div class="row align-items-center container-xl">
+            <div class="text-center col-xxl-3 col-xl-3 col-lg-12 col-md-12 col-ms-12 col-12">
+                <a class="" href="http://localhost/happypet/happypet_front/00_index/index.html">
+                    <img class="nav-logo m-2" src="../img/LOGO.png" alt="">
+                </a>
+            </div>
+            <div class="col-xxl-9 col-xl-9 col-lg-12 col-md-12 col-ms-12 col-12">
+                <ul class="nav justify-content-center text-center">
+                    <li class="col-3 mt-3 mb-3">
+                        <a class="p-2" href="../20_beauty/beauty_front1.html">美容預約</a>
+                    </li>
+                    <li class="col-3 mt-3 mb-3">
+                        <a class="p-2" href="../30_hotel/front/hotel.html">寵物住宿</a>
+                    </li>
+                    <li class="col-3 mt-3 mb-3">
+                        <a class="p-2" href="../40_product/front/product.html">產品專區</a>
+                    </li>
+                    <li class="col-3 mt-3 mb-3">
+                        <a class="p-2" href="../50_vet/vet.html">獸醫門診</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- 會員登入Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">會員登入</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formLoginCustomer" class="row g-3" novalidate>
+                        <div class="col-md-12">
+                            <label for="" class="form-label">電子信箱 / e-mail :</label>
+                            <input name="login_email" type="email" class="form-control" required>
+                            <div class="invalid-feedback">
+                                請輸入正確格式
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="" class="form-label">密碼 / password :</label>
+                            <input name="login_password" type="password" class="form-control" required minlength="8"
+                                maxlength="16" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,16}$">
+                            <div class="invalid-feedback">
+                                請輸入8~16個字元且包含數字、英文字母大小寫及特殊符號的密碼
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-secondary" type="reset">取消</button>
+                            <button class="btn btn-success" type="submit" id="btnLoginCustomer">登入</button>
+                        </div>
+                    </form>
+                    <!-- <form>
+                      <div class="mb-3">
+                          <label for="recipient-name1" class="col-form-label">電子信箱 / e-mail :</label>
+                          <input type="email" class="form-control" id="recipient-name1">
+                      </div>
+                      <div class="mb-3">
+                          <label for="recipient-name2" class="col-form-label">密碼 / password :</label>
+                          <input type="password" class="form-control" id="recipient-name2">
+                      </div>
+                  </form> -->
+                </div>
+                <div class="modal-footer">
+                    <p><a href="#">忘記密碼?</a>&ensp;或&ensp;<a
+                            href="../10_member/member_register.html">註冊會員</a>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    </p>
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">離開</button>
+                  <button type="button" class="btn btn-success">登入</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 會員登入Modal end-->
+
+    <!-- Header end -->
+    <!-- Header end -->
+    <!-- Header end -->
+    <!-- Header end -->
+    <!-- Header end -->
+
+    <main class=" mb-5">
+
+        <div class="container">
+            <div class="row mx-md-5 pt-4">
+                <div class="col-lg-7 col-12">
+                    <div>
+                        <h5 class="my-3 ps-4">選擇我的寵物</h5>
+                        <div id="pet_list">
+                            <div class="p-4 d-flex align-items-center justify-content-between mb-3 border_color_self"
+                                onclick="select_pet()">
+                                <img src="../img/20_beauty/petheadshot_none.png" alt=""
+                                    class="pet_photo_Thumbnail me-3">
+                                <span class="flex-grow-1">name</span>
+                                <span class="flex-grow-1">狗 | 小型犬 | 短毛</span>
+                                <!-- <i class="bi bi-pencil-square fs-5 text-muted ms-3"></i> -->
+                                <i class="bi bi-check fs-3 ms-3 color_primary_self"></i>
+                            </div>
+                            <div class="p-4 d-flex align-items-center justify-content-between mb-3"
+                                onclick="select_pet()">
+                                <img src="../img/20_beauty/petheadshot_none.png" alt=""
+                                    class="pet_photo_Thumbnail me-3">
+                                <span class="flex-grow-1">name</span>
+                                <span class="flex-grow-1">狗 | 小型犬 | 短毛</span>
+                                <!-- <i class="bi bi-pencil-square fs-5 text-muted ms-3"></i> -->
+                                <i class="bi bi-check fs-3 ms-3 color_primary_self visibility_hidden"></i>
+                            </div>
+                        </div>
+                        <!-- <div
+                            class="border-2 p-4 d-flex align-items-center justify-content-center border_style_dotted border_color_lightgray">
+                            <img src="../img/20_beauty/petheadshot_none.png" alt="" class="pet_photo_Thumbnail me-3">
+                            <span class="">新增我的寵物</span>
+                        </div> -->
+                    </div>
+
+                    <hr class="my-5">
+
+                    <!-- 日期選擇  日曆 -->
+                    <div id="addcaldiv">
+                        <!-- <h5 class="my-3 ps-4">選擇時間</h5>
+                        <div>
+
+                            <div class="d-flex justify-content-between px-4 py-4">
+                                <div><i class="bi bi-chevron-left fs-4"></i></div>
+                                <div class="fs-5 align-items-center d-flex">2024 5 15</div>
+                                <div><i class="bi bi-chevron-right fs-4"></i></div>
+                            </div>
+
+                            <div class="px-4">
+                                <table class="w-100 fs-5 text-center">
+                                    <tbody>
+                                        <tr class="d-flex justify-content-around border-bottom pb-3">
+                                            <th class="px-3">日</th>
+                                            <th class="px-3">一</th>
+                                            <th class="px-3">二</th>
+                                            <th class="px-3">三</th>
+                                            <th class="px-3">四</th>
+                                            <th class="px-3">五</th>
+                                            <th class="px-3">六</th>
+                                        </tr>
+                                        <tr class="d-flex justify-content-around">
+                                            <td class=" py-2">10</td>
+                                            <td class=" py-2">20</td>
+                                            <td class=" py-2">30</td>
+                                            <td class=" py-2">4</td>
+                                            <td class=" py-2">5</td>
+                                            <td class=" py-2">6</td>
+                                            <td class=" py-2">70</td>
+                                        </tr>
+                                        <tr class="d-flex justify-content-around">
+                                            <td class=" py-2">1</td>
+                                            <td class=" py-2">2</td>
+                                            <td class=" py-2">30</td>
+                                            <td class=" py-2">40</td>
+                                            <td class=" py-2">50</td>
+                                            <td class=" py-2">6</td>
+                                            <td class=" py-2">7</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div> -->
+                    </div>
+
+                    <!-- 時間選擇  -->
+                    <div id="add_time_div">
+                        <!-- <div class="row px-2 text-center mt-5">
+                            <div class="col-3 py-1 px-2">
+                                <div class="fs-5 py-1 border rounded border-secondary">09:00</div>
+                            </div>
+                            <div class="col-3 py-1 px-2">
+                                <div class="fs-5 py-1 border rounded border-secondary">09:30</div>
+                            </div>
+                            <div class="col-3 py-1 px-2">
+                                <div class="fs-5 py-1 border rounded border-secondary">10:00</div>
+                            </div>
+                            <div class="col-3 py-1 px-2">
+                                <div class="fs-5 py-1 border rounded border-secondary">10:30</div>
+                            </div>
+                            <div class="col-3 py-1 px-2">
+                                <div class="fs-5 py-1 border rounded border-secondary">11:00</div>
+                            </div>
+                            <div class="col-3 py-1 px-2">
+                                <div class="fs-5 py-1 border rounded border-secondary">11:30</div>
+                            </div>
+                            <div class="col-3 py-1 px-2">
+                                <div class="fs-5 py-1 border rounded border-secondary">12:00</div>
+                            </div>
+                            <div class="col-3 py-1 px-2">
+                                <div class="fs-5 py-1 border rounded border-secondary">12:30</div>
+                            </div>
+                            <div class="col-3 py-1 px-2">
+                                <div class="fs-5 py-1 border rounded border-secondary">13:00</div>
+                            </div>
+                            <div class="col-3 py-1 px-2">
+                                <div class="fs-5 py-1 border rounded border-secondary">13:30</div>
+                            </div>
+                            <div class="col-3 py-1 px-2">
+                                <div class="fs-5 py-1 border rounded border-secondary">14:00</div>
+                            </div>
+                            <div class="col-3 py-1 px-2">
+                                <div class="fs-5 py-1 border rounded border-secondary">14:30</div>
+                            </div>
+                            <div class="col-3 py-1 px-2">
+                                <div class="fs-5 py-1 border rounded border-secondary">15:00</div>
+                            </div>
+                            <div class="col-3 py-1 px-2">
+                                <div class="fs-5 py-1 border rounded border-secondary">15:30</div>
+                            </div>
+                            <div class="col-3 py-1 px-2">
+                                <div class="fs-5 py-1 border rounded border-secondary">16:00</div>
+                            </div>
+                            <div class="col-3 py-1 px-2">
+                                <div class="fs-5 py-1 border rounded border-secondary">16:30</div>
+                            </div>
+                        </div> -->
+                    </div>
+
+
+
+                    <div class="row text-center mt-4 mb-5 fs-5">
+                        <div class="col-6">
+                            <a href="./beauty_front1.html" class="last_step">
+                                <div
+                                    class="p-2 border border-secondary shadow rounded-3 order_time_check cursor_pointer">
+                                    上一步</div>
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <div id="appointment_confirmation"
+                                class="p-2 border border-secondary shadow rounded-3 order_time_check cursor_pointer visibility_hidden">
+                                確定預約</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 預約明細 -->
+                <div class="col-lg-5 col-12 mt-2">
+                    <div class="ms-lg-5 mt-lg-5 p-4 border shadow order_detail">
+                        <h5 class="text-center">預約明細</h5>
+                        <div class="border">
+                            <div class="p-3 d-flex justify-content-between bgc_primary_self">
+                                <div class="fs-5 text-white">
+                                    <i class="fa-solid fa-paw"></i>
+                                    <span class="ms-1" id="detail_pet_name">小白</span>
+                                </div>
+                                <div class="text-white text-center fs-5" id="detail_branch">台中店</div>
+                            </div>
+                            <div class="py-3">
+                                <div class="py-1 px-3 fs-5" id="detail_beauty_plan_title">小美容</div>
+                                <div class="py-1 px-4">
+                                    <i class="fa-solid fa-paw"></i>
+                                    <span id="detail_pet_info">狗 | 小型犬 | 短毛</span>
+                                </div>
+                                <div class="py-1 px-4">
+                                    <i class="bi bi-calendar"></i>
+                                    <span>日期 : </span><span id="show_selectdate"></span>
+                                </div>
+                                <div class="py-1 px-4">
+                                    <i class="bi bi-clock-fill"></i>
+                                    <span>預約時段 : </span><span id="show_selecttime"></span>
+                                </div>
+                                <div class="py-1 px-4">
+                                    <i class="bi bi-clock-fill"></i>
+                                    <span>預計時長 : </span>
+                                    <span id="deatail_beauty_plan_time">1小時</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row-reverse pt-3 pe-2 fs-4" id="detail_beauty_plan_price">NT$ 1,000
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-body d-flex justify-content-center">
+                    預約成功
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+
+    <!--------------- footer ---------------->
+    <!--------------- footer ---------------->
+    <!--------------- footer ---------------->
+    <!--------------- footer ---------------->
+    <!--------------- footer ---------------->
+    <footer>
+        <div class="row text-center justify-content-center mt-4 align-items-center">
+            <!-- <div class="container-md 
+        container-fluid 
+        justify-content-md-evenly 
+        justify-content-center 
+        align-items-center 
+        "> -->
+            <a href="#" class="col-xl-4 col-lg-5 col-md-10 col-10 p-2">
+                <img class="logo" src="../img/LOGO.png" alt="">
+            </a>
+
+            <ul class="footer_contact col-xl-4 col-lg-5 col-md-10 col-10 text-lg-start text-center p-4">
+                <li>0800-123-456</li>
+                <li>service@gmail.com</li>
+                <li>特定寵物業許可證號：特寵業字第s1110005號</li>
+
+                <div class="footer_icon">
+                    <span class=""><a href=""><i class="bi bi-instagram"></i></a></span>
+                    <span class=""><a href=""><i class="bi bi-line"></i></a></span>
+                    <span class=""><a href=""><i class="bi bi-facebook"></i></a></span>
+                </div>
+            </ul>
+            <p class="copyright text-center mt-2"><a href="#">服務條款及隱私保護政策 | </a>&copy;此網站為練習使用，不做商業用途</p>
+        </div>
+
+        <div class="d-flex">
+            <img class="footer_img col-12 col-sm-12 col-md-8 col-xl-8 col-xxl-8" src="../img/00_index/資產-40.png" alt="">
+            <img class="footer_stamp" src="../img/00_index/transparent01.png" alt="">
+        </div>
+
+    </footer>
+    <!--------------- footer end---------------->
+    <!--------------- footer end---------------->
+    <!--------------- footer end---------------->
+    <!--------------- footer end---------------->
+    <!--------------- footer end---------------->
+    <!-- 引入購物車數量 -->
+    <script src="../js/queryQuantity.js"></script>
+    <!-- 引用登入功能的後端JS檔 -->
+    <script src="../js/member_login.js"></script>    
+    <script>
+
+        // 生成日曆
+        function createcalender(x = 0) {
+            // 靜態變數
+            if (createcalender.creatmonth == 'undefined') {
+                let creatmonth = new Date();
+            }
+            // 按輸入框生成今天這個月
+            if (x == 0) {
+                creatmonth = new Date();
+            } else if (x == -1) { // 上個月
+                creatmonth.setMonth(creatmonth.getMonth() - 1);
+            } else if (x == 1) {  // 下個月
+                creatmonth.setMonth(creatmonth.getMonth() + 1);
+            }
+
+            let today = new Date(); // 今天用來判斷能不能按
+            let newday = new Date(creatmonth); // 跑新增天
+            newday.setDate(1);
+            newday.setDate(1 - (newday.getDay()));
+
+            let newcalender = `
+                        <h5 class="my-3 ps-4">選擇時間</h5>
+                        <div>
+                            
+                            <div class="d-flex justify-content-between px-4 py-4">
+                                <div class="cursor_pointer" onclick="createcalender(-1)"><i class="bi bi-chevron-left fs-4"></i></div>
+                                <div class="fs-5 align-items-center d-flex">${creatmonth.getFullYear()} 年 ${creatmonth.getMonth() + 1} 月 </div>
+                                <div class="cursor_pointer" onclick="createcalender(1)"><i class="bi bi-chevron-right fs-4"></i></div>
+                            </div>
+                            
+                            <div class="px-4">
+                                <table class="w-100 fs-5 text-center">
+                                    <tbody>
+                                        <tr class="d-flex justify-content-around border-bottom pb-3">
+                                            <th class="px-3">日</th>
+                                            <th class="px-3">一</th>
+                                            <th class="px-3">二</th>
+                                            <th class="px-3">三</th>
+                                            <th class="px-3">四</th>
+                                            <th class="px-3">五</th>
+                                            <th class="px-3">六</th>
+                                        </tr>`;
+            for (let k = 0; k < 6; k++) {
+                newcalender += '<tr class="d-flex justify-content-around">';
+                for (let i = 0; i < 7; i++) {
+                    // 禮拜日不能選
+                    if (i == 0) {
+                        newcalender += `<td class="py-2 over_date" 
+                        data-date='${newday.getFullYear()}-${newday.getMonth() + 1}-${newday.getDate()}'>
+                        ${newday.getDate()}</td>`;
+                    }
+                    else if (newday < today) {
+                        if (newday.getFullYear() == today.getFullYear() && newday.getMonth() == today.getMonth() && newday.getDate() == today.getDate()) {
+                            // 今天可以選 因為靜態變數 同天 today秒數比較大 會進來 要例外處理
+                            newcalender += `<td class="py-2 rounded-circle" 
+                        data-date='${newday.getFullYear()}-${newday.getMonth() + 1}-${newday.getDate()}'
+                        onclick='selectdate(this)'>
+                        ${newday.getDate()}</td>`;
+                        } else {
+                            // 今天以前不能選
+                            newcalender += `<td class="py-2 over_date" 
+                        data-date='${newday.getFullYear()}-${newday.getMonth() + 1}-${newday.getDate()}'>
+                        ${newday.getDate()}</td>`;
+                        }
+                    } else {
+                        newcalender += `<td class="py-2 rounded-circle" 
+                        data-date='${newday.getFullYear()}-${newday.getMonth() + 1}-${newday.getDate()}'
+                        onclick='selectdate(this)'>
+                        ${newday.getDate()}</td>`;
+                    }
+                    newday.setDate(newday.getDate() + 1);
+                };
+                newcalender += '</tr>';
+                if (creatmonth.getMonth() < newday.getMonth()) {
+                    break;
+                }
+            }
+            newcalender += `
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>`;
+            addcaldiv.innerHTML = newcalender;
+        }
+
+        // 選擇日期
+        function selectdate(seldate) {
+            const dayofweek = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            let datearr = seldate.dataset.date.split('-');
+            // console.log(seldate.dataset.date, datearr);
+
+            order_date = datearr[0] + '-' + datearr[1].padStart(2, '0') + '-' + datearr[2].padStart(2, '0');
+            // console.log(order_date);
+            // 確定預約按鈕要拿的資料 date
+            sessionStorage.setItem('appointment_confirmation_date', order_date);
+
+            // 星期幾
+            let select_day = new Date(datearr[0], datearr[1] - 1, datearr[2]).getDay();
+            show_selectdate.innerHTML = `${datearr[0]} / ${datearr[1]} / ${datearr[2]} ${dayofweek[select_day]}`;
+            selectdate_clear();
+            $(seldate).css({ backgroundColor: '#90b9ab', color: 'white' });
+            create_time_select();
+
+        }
+
+        // 換日期 清空原本顏色
+        function selectdate_clear() {
+            $('#addcaldiv td.rounded-circle').css({ backgroundColor: 'white', color: 'black' })
+        }
+
+        // 生成時間
+        function create_time_select() {
+
+            console.log('時間生成', sessionStorage.getItem('appointment_confirmation_date'));
+            let sel_date = sessionStorage.getItem('appointment_confirmation_date');
+            // let sel_date = '2024-08-05';
+            console.log('時間生成', sessionStorage.getItem('f2_select_beauty_plan_price_time'));
+            console.log('時間生成', JSON.parse(sessionStorage.getItem('f2_select_beauty_plan_price_time')).time);
+
+            let my_plan_use_time = parseInt(JSON.parse(sessionStorage.getItem('f2_select_beauty_plan_price_time')).time.split(':')[0]) * 2 + parseInt(JSON.parse(sessionStorage.getItem('f2_select_beauty_plan_price_time')).time.split(':')[1] / 30);
+            console.log('佔據的半小時數', my_plan_use_time);
+
+            // lala fetch
+            fetch(`http://localhost/happypet/happypet_back/public/api/beauty_front2_get_schedule_fortime/${sel_date}`)
+                .then(res => res.json())
+                .then(sel_date_order => {
+                    console.log(sel_date_order);
+
+                    // 二維陣列 存 選的當天已有的訂單時間 來判斷能不能預約  schedule
+                    let order_time = [];
+                    for (i = 0; i < 16; i++) {
+                        order_time[i] = [];
+                    }
+
+                    sel_date_order.forEach(element => {
+                        console.log(element.start_time);
+                        console.log(element.use_time);
+                        let start_time = (parseInt(element.start_time.split(" ")[1].split(':')[0]) - 10) * 2 + parseInt(element.start_time.split(" ")[1].split(':')[1]) / 30;
+                        let half_hour = parseInt(element.use_time.split(":")[0]) * 2 + parseInt(element.use_time.split(":")[1]) / 30;
+
+                        // 每個order拿出來存使用的時間到陣列
+                        for (c = 0; c < 3; c++) {
+                            let empty_space = 0;
+                            let order_in = 0;
+                            for (i = 0; i < half_hour; i++) {
+                                if (order_time[start_time + i][c] == undefined) {
+                                    empty_space += 1;
+                                    if (empty_space == half_hour) {
+                                        order_in = 1;
+                                        for (n = 0; n < half_hour; n++) {
+                                            order_time[start_time + n][c] = element.boid;
+                                        }
+                                    }
+                                }
+                            }
+                            if (order_in) {
+                                break;
+                            }
+                        }
+                    });
+
+                    console.log(order_time);
+                    console.log('新訂單占用時間', my_plan_use_time);
+
+                    let new_timesel = '<div class="row px-2 text-center mt-5">';
+                    for (let i = 0; i < 16; i++) {
+
+                        for (c = 0; c < 3; c++) {
+                            let empty_space = 0;
+                            let order_in = 0;
+                            for (k = 0; k < my_plan_use_time; k++) {
+                                if ((i + k) > 15) {
+                                    break;
+                                }
+                                if (typeof order_time[i + k][c] == "undefined") {
+                                    empty_space += 1;
+                                    if (empty_space == my_plan_use_time) {
+                                        order_in = 1;
+                                    }
+                                }
+                            }
+                            if (order_in) {
+                                new_timesel += `<div class="col-3 py-1 px-2">`;
+                                new_timesel += `<div onclick='select_time(this)' class="cursor_pointer fs-5 py-1 border rounded border-secondary select_time_box" data-time='${(parseInt(i / 2) + 10).toString()}:${((i % 2) * 30).toString().padStart(2, 0)}'>${(parseInt(i / 2) + 10).toString()}:${((i % 2) * 30).toString().padStart(2, 0)}</div>`;
+                                new_timesel += `</div>`;
+                                break;
+                            } else if (c == 2) {
+                                // 不能選的時間
+                                new_timesel += `<div class="col-3 py-1 px-2">`;
+                                new_timesel += `<div class="cursor_not_allowed fs-5 py-1 border rounded border-secondary color_primary_self" data-time='${(parseInt(i / 2) + 10).toString()}:${((i % 2) * 30).toString().padStart(2, 0)}'>${(parseInt(i / 2) + 10).toString()}:${((i % 2) * 30).toString().padStart(2, 0)}</div>`;
+                                new_timesel += `</div>`;
+                            }
+                        }
+                    }
+                    new_timesel += `</div>`;
+                    add_time_div.innerHTML = new_timesel;
+
+                })
+
+        }
+
+        // 選擇時間
+        function select_time(item) {
+            show_selecttime.innerHTML = item.dataset.time;
+            selecttime_clear();
+            $(item).css({ backgroundColor: '#90b9ab', color: 'white' });
+
+            // console.log(item.dataset.time + ":00.000");
+            // 確定預約按鈕要拿的資料 time
+            sessionStorage.setItem('appointment_confirmation_start_time', `${item.dataset.time}:00.000`);
+
+            $('#appointment_confirmation').css({ "visibility": "visible" });
+
+        }
+
+        // 清除之前選擇時間
+        function selecttime_clear() {
+            $('#add_time_div .select_time_box').css({ backgroundColor: 'white', color: 'black' })
+        }
+
+        // 清除之前選擇寵物
+        function select_pet_clear() {
+            $('#pet_list>div>i').addClass('visibility_hidden');
+            $('#pet_list>.border_color_self').removeClass('border_color_self');
+        }
+
+        // 改變選擇寵物的美容價格時間
+        function get_beauty_plan_price_time({ pet_species, pet_weight, pet_fur }, planid) {
+            // 純PHP
+            // fetch(`http://localhost/test/back/front2_select_beauty_plan_price_time.php?pet_species=${pet_species}&pet_weight=${pet_weight}&pet_fur=${pet_fur}&planid=${planid}`)
+            //     .then(res => res.json())
+            //     .then(result => {
+            //         result = result[0];
+            //         console.log('改變選擇寵物的美容價格時間', result);
+            //         console.log('改變選擇寵物的美容價格時間', JSON.stringify(result));
+            //         sessionStorage.setItem('f2_select_beauty_plan_price_time', JSON.stringify(result));
+            //         detail_beauty_plan_price.innerHTML = `NT$ ${result.price}`;
+            //         deatail_beauty_plan_time.innerHTML = `${parseInt(result.time.split(':')[0])}小時${result.time.split(':')[1]}分鐘`;
+
+
+            //         if (sessionStorage.getItem('appointment_confirmation_date')) {
+            //             console.log('換寵物 生成時間');
+
+            //             create_time_select();
+            //         }
+            //     })
+
+            // lala fetch
+
+            fetch(`http://localhost/happypet/happypet_back/public/api/front2_beauty_select_beauty_plan_price_time/${pet_species}/${pet_weight}/${pet_fur}/${planid}`)
+                .then(res => res.json())
+                .then(result => {
+                    const thousandthsFormat = (value) => {
+                        const regex = /\B(?=(\d{3})+(?!\d))/g
+                        value = value.toString()
+                        return value.replace(regex, ',')
+                    }
+
+                    result = result[0];
+                    console.log('價格', thousandthsFormat(result.price));
+
+                    console.log('改變選擇寵物的美容價格時間', result);
+                    console.log('改變選擇寵物的美容價格時間', JSON.stringify(result));
+                    sessionStorage.setItem('f2_select_beauty_plan_price_time', JSON.stringify(result));
+                    detail_beauty_plan_price.innerHTML = `NT$ ${thousandthsFormat(result.price)}`;
+                    deatail_beauty_plan_time.innerHTML = `${parseInt(result.time.split(':')[0])}小時${result.time.split(':')[1]}分鐘`;
+
+
+                    if (sessionStorage.getItem('appointment_confirmation_date')) {
+                        console.log('換寵物 生成時間');
+
+                        create_time_select();
+                    }
+                })
+        }
+
+        // 選擇寵物
+        function select_pet(this_ele) {
+
+            // console.log('選寵物', this_ele);
+            select_pet_clear();
+            $(this_ele).addClass('border_color_self');
+            $(this_ele).children('i').removeClass('visibility_hidden');
+            detail_pet_name.innerText = $(this_ele).children('span')[0].innerText;
+            detail_pet_info.innerText = $(this_ele).children('span')[1].innerText;
+
+            let selected_pet = { pid: $(this_ele).data("pid"), pet_species: $(this_ele).data("pet_species"), pet_weight: $(this_ele).data("pet_weight"), pet_fur: $(this_ele).data("pet_fur"), pet_name: $(this_ele).data("pet_name") };
+            sessionStorage.setItem("selected_pid", JSON.stringify(selected_pet));
+            let pet_sel_planid = sessionStorage.getItem('planid');
+            get_beauty_plan_price_time(selected_pet, pet_sel_planid);
+
+        }
+
+        window.onload = () => {
+
+            // 顯示寵物資料
+            function show_pet_info(arr) {
+                let sel_pet_data = JSON.parse(sessionStorage.getItem('selected_pid'));
+
+                pet_list.innerHTML = '';
+                arr.forEach(element => {
+                    console.log(sel_pet_data.pid);
+                    console.log(element.pid);
+                    if (element.pet_species == '貓') {
+                        pet_list.innerHTML += `
+                        <div class="p-4 d-flex align-items-center justify-content-between mb-3 ${element.pid == sel_pet_data.pid ? 'border_color_self' : ''}" onclick="select_pet(this)" data-pid="${element.pid}" data-pet_species="${element.pet_species}" data-pet_weight="${element.pet_weight}" data-pet_fur="${element.pet_fur}" data-pet_name="${element.pet_name}">
+                            <img src="${element.pet_headphoto.split(',')[1] ? element.pet_headphoto : "../img/20_beauty/petheadshot_none.png"}" alt="" class="pet_photo_Thumbnail me-3">
+                            <span class="flex-grow-1">${element.pet_name}</span>
+                            <span class="flex-grow-1">${element.pet_species} | ${element.pet_fur}</span>
+                            <!-- <i class="bi bi-pencil-square fs-5 text-muted ms-3"></i> -->
+                            <i class="bi bi-check fs-3 ms-3 color_primary_self ${element.pid == sel_pet_data.pid ? '' : 'visibility_hidden'}"></i>
+                        </div>
+                    `;
+                    } else {
+                        let size = ['小型犬', '中型犬', '大型犬'];
+                        let pet_size;
+                        if (element.pet_weight < 10) {
+                            pet_size = 0;
+                        } else if (element.pet_weight < 20) {
+                            pet_size = 1;
+                        } else if (element.pet_weight < 40) {
+                            pet_size = 2;
+                        }
+                        pet_list.innerHTML += `
+                        <div class="p-4 d-flex align-items-center justify-content-between mb-3 ${element.pid == sel_pet_data.pid ? 'border_color_self' : ''}" onclick="select_pet(this)" data-pid="${element.pid}" data-pet_species="${element.pet_species}" data-pet_weight="${element.pet_weight}" data-pet_fur="${element.pet_fur}" data-pet_name="${element.pet_name}">
+                            <img src="${element.pet_headphoto.split(',')[1] ? element.pet_headphoto : "../img/20_beauty/petheadshot_none.png"}" alt="" class="pet_photo_Thumbnail me-3">
+                            <span class="flex-grow-1">${element.pet_name}</span>
+                            <span class="flex-grow-1">${element.pet_species} | ${size[pet_size]} | ${element.pet_fur}</span>
+                            <!-- <i class="bi bi-pencil-square fs-5 text-muted ms-3"></i> -->
+                            <i class="bi bi-check fs-3 ms-3 color_primary_self ${element.pid == sel_pet_data.pid ? '' : 'visibility_hidden'}"></i>
+                        </div>
+                    `;
+                    }
+
+                });
+            }
+
+            // 拿 會員寵物資料
+            async function get_pet_info() {
+
+                // 這邊還要改   我在這裡
+                // uid 飼主id
+                let uid = localStorage.getItem('uid');
+                // let uid = 1;
+
+                // 確定預約按鈕要拿的資料 uid
+                sessionStorage.setItem('appointment_confirmation_uid', uid);
+                // 純PHP
+                // let pet_info = await (await fetch(`http://localhost/test/back/front_get_pet_info.php?uid=${uid}`)).json();
+
+                // lala fetch
+                let pet_info = await (await fetch(`http://localhost/happypet/happypet_back/public/api/front_beauty_pet_info/${uid}`)).json();
+                console.log('拿到的寵物資訊', pet_info);
+                show_pet_info(pet_info);
+            }
+
+            // 帶上一頁選的資料 初始化這一頁
+            function from_front1_info() {
+                const thousandthsFormat = (value) => {
+                    const regex = /\B(?=(\d{3})+(?!\d))/g
+                    value = value.toString()
+                    return value.replace(regex, ',')
+                }
+
+                // 預計時長 錢
+                let beauty_plan_data = JSON.parse(sessionStorage.getItem('beauty_plan_price_time'));
+                let beauty_plan_id = sessionStorage.getItem('planid');
+                deatail_beauty_plan_time.innerHTML = `${parseInt(beauty_plan_data[beauty_plan_id - 1].time.split(':')[0])}小時${beauty_plan_data[beauty_plan_id - 1].time.split(':')[1]}分鐘`;
+                detail_beauty_plan_price.innerHTML = `NT$ ${thousandthsFormat(beauty_plan_data[beauty_plan_id - 1].price)}`;
+
+                console.log('前面帶進來的挑選', beauty_plan_data[beauty_plan_id - 1]);
+                sessionStorage.setItem('f2_select_beauty_plan_price_time', JSON.stringify(beauty_plan_data[beauty_plan_id - 1]));
+
+                // 寵物資訊
+                let sel_pet_data = JSON.parse(sessionStorage.getItem('selected_pid'));
+                let size = ['小型犬', '中型犬', '大型犬'];
+                let pet_size;
+                if (sel_pet_data.pet_weight < 10) {
+                    pet_size = 0;
+                } else if (sel_pet_data.pet_weight < 20) {
+                    pet_size = 1;
+                } else if (sel_pet_data.pet_weight < 40) {
+                    pet_size = 2;
+                }
+                detail_pet_name.innerHTML = sel_pet_data.pet_name;
+                if (sel_pet_data.pet_species == '狗') {
+                    detail_pet_info.innerHTML = `${sel_pet_data.pet_species} | ${size[pet_size]} | ${sel_pet_data.pet_fur}`;
+                } else {
+                    detail_pet_info.innerHTML = `${sel_pet_data.pet_species} | ${sel_pet_data.pet_fur}`;
+                }
+                // 分店
+                detail_branch.innerHTML = sessionStorage.getItem('branch_select');
+                // 方案名
+                detail_beauty_plan_title.innerHTML = sessionStorage.getItem('plan_title');
+            }
+
+            const toastLiveExample = document.getElementById('liveToast');
+            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+            // 確定預約
+            document.getElementById('appointment_confirmation').addEventListener('click', function () {
+
+                console.clear();
+                let start_time_sel = sessionStorage.getItem('appointment_confirmation_start_time');
+                let beauty_plan_sel = JSON.parse(sessionStorage.getItem('f2_select_beauty_plan_price_time'));
+
+                let order_uid = sessionStorage.getItem('appointment_confirmation_uid');
+                let order_pid = JSON.parse(sessionStorage.getItem('selected_pid')).pid;
+                let order_planid = sessionStorage.getItem('planid');
+                let order_branch = sessionStorage.getItem('branch_select');
+                let order_date = sessionStorage.getItem('appointment_confirmation_date');
+                let order_start_time = `${order_date} ${start_time_sel}`;
+                let order_usetime = beauty_plan_sel.time;
+                let order_endtime = `${sessionStorage.getItem('appointment_confirmation_date')} ${(parseInt(start_time_sel.split(":")[1]) + parseInt(beauty_plan_sel.time.split(":")[1])) - 60 ? parseInt(start_time_sel.split(":")[0]) + parseInt(beauty_plan_sel.time.split(":")[0]) : parseInt(start_time_sel.split(":")[0]) + parseInt(beauty_plan_sel.time.split(":")[0]) + 1}:${(parseInt(start_time_sel.split(":")[1]) + parseInt(beauty_plan_sel.time.split(":")[1])) - 60 ? "30" : "00"}:00.000`;
+                let order_price = beauty_plan_sel.price;
+
+                // console.log('確定預約uid', sessionStorage.getItem('appointment_confirmation_uid'));
+                // console.log('確定預約planid', sessionStorage.getItem('planid'));
+                // console.log('確定預約分店', sessionStorage.getItem('branch_select'));
+                // console.log('確定預約預約日期', sessionStorage.getItem('appointment_confirmation_date'));
+                // console.log('確定預約開始時間', `${sessionStorage.getItem('appointment_confirmation_date')} ${start_time_sel}`);
+                // console.log('確定預約pid', JSON.parse(sessionStorage.getItem('selected_pid')).pid);
+                // console.log('確定預約價格', beauty_plan_sel.price);
+                // console.log('確定預約usetime', beauty_plan_sel.time);
+                // console.log('確定預約結束時間', `${sessionStorage.getItem('appointment_confirmation_date')} ${(parseInt(start_time_sel.split(":")[1]) + parseInt(beauty_plan_sel.time.split(":")[1])) -60 ? parseInt(start_time_sel.split(":")[0]) + parseInt(beauty_plan_sel.time.split(":")[0]) : parseInt(start_time_sel.split(":")[0]) + parseInt(beauty_plan_sel.time.split(":")[0]) + 1}:${(parseInt(start_time_sel.split(":")[1]) + parseInt(beauty_plan_sel.time.split(":")[1])) -60 ? "30" : "00"}:00.000`);
+
+                console.log('確定uid', order_uid);
+                console.log('確定pid', order_pid);
+                console.log('確定planid', order_planid);
+                console.log('確定branch', order_branch);
+                console.log('確定date', order_date);
+                console.log('確定st', order_start_time);
+                console.log('確定ut', order_usetime);
+                console.log('確定et', order_endtime);
+                console.log('確定price', order_price);
+
+                if (sessionStorage.getItem('appointment_confirmation_start_time')) {
+                    console.log('有時間');
+                    fetch(`http://localhost/happypet/happypet_back/public/api/beauty_front2_insert_order`, {
+                        method: 'POST',
+                        body: JSON.stringify({
+                            uid: order_uid,
+                            pid: order_pid,
+                            planid: order_planid,
+                            branch: order_branch,
+                            date: order_date,
+                            start_time: order_start_time,
+                            use_time: order_usetime,
+                            end_time: order_endtime,
+                            price: order_price
+                        }),
+                        headers: {
+                            'Content-Type': 'application/json; charset=utf-8'
+                        }
+                    }).then(res => {
+                        console.log('res', res)
+                        return res.json()
+                    })
+                        .then(result => {
+                            console.log(result);
+                            sessionStorage.removeItem("plan_title");
+                            sessionStorage.removeItem("beauty_plan_price_time");
+                            sessionStorage.removeItem("f2_select_beauty_plan_price_time");
+                            sessionStorage.removeItem("branch_select");
+                            sessionStorage.removeItem("planid");
+                            sessionStorage.removeItem("appointment_confirmation_uid");
+                            sessionStorage.removeItem("appointment_confirmation_start_time");
+                            sessionStorage.removeItem("selected_pid");
+                            sessionStorage.removeItem("appointment_confirmation_date");
+                            console.log('刪除sess');
+
+                            // 跳出右下角預定成功提示框
+                            toastBootstrap.show();
+
+                            // 預約成功 跳轉頁面
+                            window.setTimeout((() => document.location.href = "./beauty_front1.html"), 5000)
+
+
+                        })
+                }
+            })
+
+            createcalender();
+
+            get_pet_info();
+
+            from_front1_info();
+
+        }
+
+    </script>
+</body>
+
+</html>

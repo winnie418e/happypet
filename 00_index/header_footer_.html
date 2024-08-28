@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>好寵你 | 寵物全方位服務網站</title>
+
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../css/header_footer.css" />
+  <script src="../js/bootstrap.bundle.js"></script>
+  <script src="../js/jquery-3.7.1.js"></script>
+
+
+  <!-- 使用CDN引入bootstrap-icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <!-- 字型字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Header -->
+    <!-- Header -->
+    <!-- Header -->
+    <!-- Header -->
+    <!-- Header -->
+
+    <header id="navbar" class="sticky-top ">
+      <div class="member nav_icon">
+          <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="bi-person"></i></a>
+          <a href="http://localhost/happypet/happypet_front/40_product/front/shopping_cart.html" class="position-relative">
+            <i class="bi-cart"></i>
+            <span class="cart_quantity position-absolute text-center d-none"></span>
+          </a>
+      </div>
+      <div class="row align-items-center container-xl">
+          <div class="text-center col-xxl-3 col-xl-3 col-lg-12 col-md-12 col-ms-12 col-12">
+              <a class="" href="http://localhost/happypet/happypet_front/00_index/index.html">
+                  <img class="nav-logo m-2" src="../img/LOGO.png" alt="">
+              </a>
+          </div>
+          <div class="col-xxl-9 col-xl-9 col-lg-12 col-md-12 col-ms-12 col-12">
+              <ul class="nav justify-content-center text-center">
+                  <li class="col-3 mt-3 mb-3">
+                      <a class="p-2" href="../20_beauty/beauty_front1.html">美容預約</a>
+                  </li>
+                  <li class="col-3 mt-3 mb-3">
+                      <a class="p-2" href="../30_hotel/front/hotel.html">寵物住宿</a>
+                  </li>
+                  <li class="col-3 mt-3 mb-3">
+                      <a class="p-2" href="../40_product/front/product.html">產品專區</a>
+                  </li>
+                  <li class="col-3 mt-3 mb-3">
+                      <a class="p-2" href="../50_vet/vet.html">獸醫門診</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </header>
+  <!-- 會員登入Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">會員登入</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form id="formLoginCustomer" class="row g-3" novalidate>
+                      <div class="col-md-12">
+                          <label for="" class="form-label">電子信箱 / e-mail :</label>
+                          <input name="login_email" type="email" class="form-control" required>
+                          <div class="invalid-feedback">
+                              請輸入正確格式
+                          </div>
+                      </div>
+                      <div class="col-md-12">
+                          <label for="" class="form-label">密碼 / password :</label>
+                          <input name="login_password" type="password" class="form-control" required minlength="8"
+                              maxlength="16" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,16}$">
+                          <div class="invalid-feedback">
+                              請輸入8~16個字元且包含數字、英文字母大小寫及特殊符號的密碼
+                          </div>
+                      </div>
+                      <div class="col-12">
+                          <button class="btn btn-secondary" type="reset">取消</button>
+                          <button class="btn btn-success" type="submit" id="btnLoginCustomer">登入</button>
+                      </div>
+                  </form>
+                  <!-- <form>
+                    <div class="mb-3">
+                        <label for="recipient-name1" class="col-form-label">電子信箱 / e-mail :</label>
+                        <input type="email" class="form-control" id="recipient-name1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name2" class="col-form-label">密碼 / password :</label>
+                        <input type="password" class="form-control" id="recipient-name2">
+                    </div>
+                </form> -->
+              </div>
+              <div class="modal-footer">
+                  <p><a href="#">忘記密碼?</a>&ensp;或&ensp;<a
+                          href="../10_member/member_register.html">註冊會員</a>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  </p>
+                  <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">離開</button>
+                <button type="button" class="btn btn-success">登入</button> -->
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- 會員登入Modal end-->
+
+  <!-- Header end -->
+  <!-- Header end -->
+  <!-- Header end -->
+  <!-- Header end -->
+  <!-- Header end -->
+   
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+  <!--------------- footer ---------------->
+  <!--------------- footer ---------------->
+  <!--------------- footer ---------------->
+  <!--------------- footer ---------------->
+  <!--------------- footer ---------------->
+  <footer>
+    <div class="row text-center justify-content-center mt-4 align-items-center">
+      <!-- <div class="container-md 
+        container-fluid 
+        justify-content-md-evenly 
+        justify-content-center 
+        align-items-center 
+        "> -->
+      <a href="#" class="col-xl-4 col-lg-5 col-md-10 col-10 p-2">
+        <img class="logo" src="../img/LOGO.png" alt="" />
+      </a>
+
+      <ul class="footer_contact col-xl-4 col-lg-5 col-md-10 col-10 text-lg-start text-center p-4">
+        <li>0800-123-456</li>
+        <li>service@gmail.com</li>
+        <li>特定寵物業許可證號：特寵業字第s1110005號</li>
+
+        <div class="footer_icon">
+          <span class=""><a href=""><i class="bi bi-instagram"></i></a></span>
+          <span class=""><a href=""><i class="bi bi-line"></i></a></span>
+          <span class=""><a href=""><i class="bi bi-facebook"></i></a></span>
+        </div>
+      </ul>
+      <p class="copyright text-center mt-2">
+        <a href="#">服務條款及隱私保護政策 | </a>&copy;此網站為練習使用，不做商業用途
+      </p>
+    </div>
+
+    <div class="d-flex">
+      <img class="footer_img col-12 col-sm-12 col-md-8 col-xl-8 col-xxl-8" src="../img/00_index/資產-40.png" alt="" />
+      <img class="footer_stamp" src="../img/00_index/transparent01.png" alt="" />
+    </div>
+  </footer>
+  <!--------------- footer end---------------->
+  <!--------------- footer end---------------->
+  <!--------------- footer end---------------->
+  <!--------------- footer end---------------->
+  <!--------------- footer end---------------->
+
+  <!-- 登入表單提交前端驗證JS -->
+  <script>
+    (function () {
+      'use strict'
+      var forms = document.getElementById('formLoginCustomer')
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()
+  </script>
+
+  <!-- 引用登入功能的後端JS檔 -->
+  <script src="../js/member_login.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>好寵你 | 後台首頁</title>
+
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/back_header_footerbeauty.css">
+    <script src="../../js/bootstrap.bundle.js"></script>
+    <script src="../../js/jquery-3.7.1.js"></script>
+
+    <!-- 使用CDN引入bootstrap-icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- 字型字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <!-- Header -->
+    <!-- Header -->
+    <!-- Header -->
+    <!-- Header -->
+    <header id="navbar" class="sticky-top ">
+        <div class="member nav_icon">
+            <a href="" id="logout_btn">登出</a>
+        </div>
+        <div class="row align-items-center container-xl">
+            <div class="text-center col-xxl-3 col-xl-3 col-lg-12 col-md-12 col-ms-12 col-12">
+                <a class="" href="#">
+                    <img class="nav-logo m-2" src="../../img/LOGO.png" alt="">
+                </a>
+            </div>
+            <div class="col-xxl-9 col-xl-9 col-lg-12 col-md-12 col-ms-12 col-12">
+                <ul class="nav justify-content-center text-center">
+                    <li class="col-3 mt-3 mb-3 dropdown">
+                        <a href="" data-toggle="dropdown" class="dropdown-toggle" role="button" id="header_beauty"
+                            data-bs-toggle="dropdown" aria-expanded="false">美容預約</a>
+                        <ul class="dropdown-menu nav_drop" aria-labelledby="header_beauty">
+                            <li><a href="#" class="dropdown-item" id="beauty1">美容預約表</a></li>
+                        </ul>
+                    </li>
+                    <li class="col-3 mt-3 mb-3 dropdown">
+                        <a href="" data-toggle="dropdown" class="dropdown-toggle" role="button" id="header_hotel"
+                            data-bs-toggle="dropdown" aria-expanded="false">寵物住宿</a>
+                        <ul class="dropdown-menu nav_drop" aria-labelledby="header_hotel">
+                            <li><a href="#" class="dropdown-item" id="hotel1">旅館訂單</a></li>
+                            <li><a href="#" class="dropdown-item" id="hotel2">當日住宿</a></li>
+                        </ul>
+                    </li>
+                    <li class="col-3 mt-3 mb-3 dropdown">
+                        <a href="" data-toggle="dropdown" class="dropdown-toggle" role="button" id="header_product"
+                            data-bs-toggle="dropdown" aria-expanded="false">產品專區</a>
+                        <ul class="dropdown-menu nav_drop" aria-labelledby="header_product">
+                            <li><a href="#" class="dropdown-item" id="product1">產品主要內容</a></li>
+                            <li><a href="#" class="dropdown-item" id="product2">產品詳細資訊</a></li>
+                            <li><a href="#" class="dropdown-item" id="product3">產品入庫</a></li>
+                            <li><a href="#" class="dropdown-item" id="product4">上架中產品</a></li>
+                            <li><a href="#" class="dropdown-item" id="product5">未上架產品</a></li>
+                            <li><a href="#" class="dropdown-item" id="product6">產品查詢</a></li>
+                        </ul>
+                    </li>
+                    <li class="col-3 mt-3 mb-3 dropdown">
+                        <a href="" data-toggle="dropdown" class="dropdown-toggle" role="button"
+                            id="header_product_order" data-bs-toggle="dropdown" aria-expanded="false">產品訂單</a>
+                        <ul class="dropdown-menu nav_drop" aria-labelledby="header_product_order">
+                            <li><a href="#" class="dropdown-item" id="product_order1">產品訂單資訊</a></li>
+                            <li><a href="#" class="dropdown-item" id="product_order2">會員訂單紀錄</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- Header end -->
+    <!-- Header end -->
+    <!-- Header end -->
+    <!-- Header end -->
+    <!-- Header end -->
+
+    <main>
+        <div class="container position-relative">
+            <form id="myform" class="container loginbox position-absolute start-50 translate-middle-x shadow rounded-3">
+                <div class="d-flex justify-content-center p-3 mt-5 align-items-center">
+                    <h5 class="me-2 mb-0">帳號</h5><input type="text" name="account">
+                </div>
+                <div class="d-flex justify-content-center p-3 align-items-center">
+                    <h5 class="me-2 mb-0">密碼 </h5><input type="password" name="password">
+                </div>
+                <div class="d-flex justify-content-center p-3 fw-bold">
+                    <button id="loginBtn" class="px-3 py-2 border border-1 border-dark loginbtn rounded-3">登入</button>
+                </div>
+            </form>
+        </div>
+        <div class="justify-content-center d-flex container mt-5 page_img_link">
+            <div class="">
+                <div class="service_item m-auto text-center p-5">
+                    <a class=" " href="">
+                        <img class="img-fluid" src="../../img/00_index/pet-salon.png" alt="">
+                        <p class="py-4">美容預約</p>
+                    </a>
+                </div>
+            </div>
+            <div class="">
+                <div class="service_item m-auto text-center p-5">
+                    <a href="">
+                        <img class="img-fluid" src="../../img/00_index/pet-hotel.png" alt="">
+                        <p class="py-4">寵物住宿</p>
+                    </a>
+                </div>
+            </div>
+            <div class="">
+                <div class="service_item m-auto text-center p-5">
+                    <a href="">
+                        <img class="img-fluid" src="../../img/00_index/pet-food.png" alt="">
+                        <p class="py-4">產品專區</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div> -->
+                    <div class="modal-body d-flex justify-content-center fs-4">
+                        權限不足
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <button id="jwtbtn">登入之後驗證JWT拿資料</button> -->
+    </main>
+
+    <script>
+        window.onload = () => {
+
+            $('#logout_btn').css({'visibility':'hidden'});
+
+            // 已登入後進首頁跳轉回去
+            // console.log("連結", localStorage.getItem('ahref').split('**').map(element => element.split(',')));
+            if (sessionStorage.getItem('ahref')) {
+
+                // 各個a的id
+                let ahref = [['beauty1'], ['hotel1', 'hotel2'], ['product1', 'product2', 'product3', 'product4', 'product5', 'product6'], ['product_order1', 'product_order2']];
+                let sess_herf = sessionStorage.getItem('ahref').split('**').map(element => element.split(','));
+                // 進網頁給超連結
+                for (let i = 0; i < sess_herf.length; i++) {
+                    for (k = 0; k < sess_herf[i].length; k++) {
+                        document.getElementById(`${ahref[i][k]}`).href = sess_herf[i][k];
+                    }
+                }
+                // 登入後點選首頁自動跳轉
+                for (let i = 0; i < sess_herf.length; i++) {
+                    for (k = 0; k < sess_herf[i].length; k++) {
+                        if (sess_herf[i][k] != "#") {
+                            console.log("近來", sess_herf[i][k]);
+                            // window.location.href = data2[i][k];
+                            break;
+                        }
+                    }
+                }
+            }
+
+            $('.nav>li>ul>li').on('click', 'a', function () {
+                if ($(this).attr("href") == '#') {
+                    var myModal = new bootstrap.Modal(document.getElementById("exampleModal"), {});
+                    myModal.show();
+                    console.log('權限不足');
+                }
+                // console.log($(this).attr("href"));
+            })
+
+            // 666666666666666666666666
+            // let ahref = [['beauty1'], ['hotel1', 'hotel2'], ['product1', 'product2', 'product3', 'product4', 'product5'], ['product_order1', 'product_order2']];
+            // let manager__ = "../20_beauty/beauty_back.html**../30_hotel/back/order_back.html,../30_hotel/back/hotel_today_back.html**../40_product/back/main_info.html,../40_product/back/detail_info.html,../40_product/back/warehouse.html,../40_product/back/on_shelves.html,../40_product/back/remove_shelves.html,../40_product/back/all_product.html**../10_member/back/product_orders.html,../10_member/back/member_orders.html";
+            // let beaury__ = "../20_beauty/beauty_back.html**#**#,#,#,#,#**#,#";
+            // let hotel__ = "#**../30_hotel/hotel.html,hotel2**#,#,#,#,#**#,#";
+            // let product__ = "../20_beauty/beauty_front1.html**../30_hotel/hotel.html,hotel2**../40_product/product.html,product2,product3,product4,product5**../40_product/product_order.html";
+
+            // let data1 = hrefsss.split('**');
+            // let data2 = data1.map(element => element.split(','));
+
+            // data2.forEach((element, index) => {
+            //     element.forEach((ele, ind) => {
+            //         document.getElementById(`${ahref[index][ind]}`).href = ele;
+            //     })
+            // });
+
+            // console.log(data2);
+
+
+            // function set_manager() {
+            //     console.log(5555);
+            //     $('.logoutbtn').css({ 'visibility': 'visible' });
+            //     $('.page_img_link').css({ 'visibility': 'visible' });
+            //     $('#myform').css({ 'visibility': 'hidden' });
+            // }
+
+            // function set_beauty() {
+
+            //     $('.logoutbtn').css({ 'visibility': 'visible' });
+            // }
+
+            // function set_hotel() {
+            //     $('.logoutbtn').css({ 'visibility': 'visible' });
+
+            // }
+
+            // function set_clerk() {
+            //     $('.logoutbtn').css({ 'visibility': 'visible' });
+            // }
+
+            // function set_staff_state() {
+            //     let permission = parseInt(sessionStorage.getItem('permission'));
+            //     switch (permission) {
+            //         case 1: set_clerk(); break;
+            //         case 10: set_hotel(); break;
+            //         case 100: set_beauty(); break;
+            //         case 1000: set_manager(); break;
+            //     }
+            // }
+
+            // 原本的
+            // set_staff_state();
+
+            // loginBtn.onclick = (event) => {
+
+            //     event.preventDefault();
+            //     fetch('http://localhost/test_jwt/back/back_index.php', {
+            //         method: 'POST',
+            //         body: new FormData(myform)
+            //     })
+            //         .then(res => res.text())
+            //         .then(text => {
+            //             if (text) {
+            //                 console.log('登入成功');
+            //                 sessionStorage.setItem('permission', text);
+            //                 set_staff_state();
+
+            //                 // console.log(typeof permission);
+            //             } else {
+            //                 alert('登入失敗');
+            //                 console.log('登入失敗');
+            //             }
+            //         })
+
+            //     console.log('辨識');
+            // }
+
+            // document.getElementById('logout_btn').addEventListener('click', function() {
+            //     console.log('登出');
+            //     sessionStorage.removeItem('permission');
+            // })
+
+
+
+
+            logout_btn.onclick = () => {
+                console.log('登出');
+
+                sessionStorage.removeItem('token');
+                sessionStorage.removeItem('refreshToken');
+                sessionStorage.removeItem('uid');
+                sessionStorage.removeItem('ahref');
+
+                window.location.href = "../../00_index/index_back.html";
+
+            }
+
+            loginBtn.onclick = (event) => {
+                event.preventDefault();
+
+                fetch('http://localhost/happypet/happypet_back/jwt/back_login.php', {
+                    method: 'POST',
+                    body: new FormData(myform)
+                })
+                    .then(res => {
+                        // console.log(res.json());
+                        // console.log(res.text());
+                        // console.log(res);
+
+                        return res.json();
+                    })
+                    .then(data => {
+                        if (data.token) {
+                            sessionStorage.setItem('token', data.token);
+                            sessionStorage.setItem('refreshToken', data.refreshToken);
+                            sessionStorage.setItem('uid', data.id);
+                            sessionStorage.setItem('ahref', data.ahref);
+
+                            let ahref = [['beauty1'], ['hotel1', 'hotel2'], ['product1', 'product2', 'product3', 'product4', 'product5', 'product6'], ['product_order1', 'product_order2']];
+
+                            let data1 = data.ahref.split('**');
+                            let data2 = data1.map(element => element.split(','));
+                            console.log(data2);
+
+
+                            console.log('登入成功');
+                            console.log(data.message);
+                            console.log(data.token);
+                            console.log(data.refreshToken);
+                            console.log(data.permission);
+                            console.log(data.id);
+
+                            for (let i = 0; i < data2.length; i++) {
+                                let gethref = 0;
+                                for (k = 0; k < data2[i].length; k++) {
+                                    if (data2[i][k] != "#") {
+                                        gethref = 1
+                                        console.log("登入拿到", data2[i][k]);
+                                        window.location.href = data2[i][k];
+                                        break;
+                                    }
+                                }
+                                if (gethref) {
+                                    break;
+                                }
+                            }
+
+                            // data2.some(function (item) {
+                            //     if (item != "#") {
+                            //         console.log('登入之後', item);
+                            //         // window.location.href = item;
+                            //         return true;
+                            //     }
+                            // })
+                            // sessionStorage.setItem('permission', text);
+                            // set_staff_state();
+
+                        } else {
+                            console.log('登入失敗');
+                        }
+                    })
+
+            }
+
+            // jwtbtn.onclick = () => {
+
+            //     let token = localStorage.getItem('token');
+            //     let refreshToken = localStorage.getItem('refreshToken');
+            //     let uid = localStorage.getItem('uid');
+
+            //     if (!token || !refreshToken) {
+            //         console.log('已登出');
+            //         return;
+            //     }
+            //     function fetchData() {
+            //         fetch(`http://localhost/test/back/back_login_get_info.php?uid=${uid}`, {
+            //             method: 'GET',
+            //             headers: {
+            //                 'Authorization': 'Bearer ' + token
+            //             }
+            //         })
+            //             .then(response => {
+            //                 console.log('status', response.status);
+            //                 if (response.status === 401) { // 如果憑證過期 刷新
+            //                     console.log('token過期');
+            //                     return fetch('http://localhost/test/back/back_login_refresh_token.php', {
+            //                         method: 'POST',
+            //                         headers: {
+            //                             'Content-Type': 'application/json'
+            //                         },
+            //                         body: JSON.stringify({ refreshToken: refreshToken })
+            //                     })
+            //                         .then(response => {
+            //                             console.log('刷新一半');
+            //                             return response.json();
+            //                         })
+            //                         .then(data => {
+            //                             console.log('刷新輸出', data);
+            //                             if (data.token) {
+            //                                 token = data.token;
+            //                                 localStorage.setItem('token', token);
+            //                                 console.log('token刷新');
+            //                                 return fetchData();
+            //                             } else {
+            //                                 throw new Error('Refresh token failed');
+            //                             }
+            //                         });
+            //                 } else {
+            //                     return response.json();
+            //                 }
+            //             })
+            //             .then(data => {
+            //                 if (data.message === 'Unauthorized') {
+            //                     console.log('拿資料失敗');
+            //                 } else {
+            //                     console.log('拿資料', data);
+
+            //                     // let data1 = data.ahref.split('**');
+            //                     // let data2 = data1.map(element => element.split(','));
+
+            //                     // data2.forEach((element, index) => {
+            //                     //     element.forEach((ele, ind) => {
+            //                     //         document.getElementById(`${ahref[index][ind]}`).href = ele;
+            //                     //     })
+            //                     // });
+
+
+
+            //                 }
+            //             })
+            //             .catch(error => {
+            //                 console.error('Error:', error);
+            //             });
+            //     }
+            //     fetchData();
+            // }
+        }
+
+    </script>
+</body>
+
+</html>

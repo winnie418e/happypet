@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>好寵你 | 寵物全方位服務網站</title>
+
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../css/header_footer.css" />
+  <script src="../js/bootstrap.bundle.js"></script>
+  <script src="../js/jquery-3.7.1.js"></script>
+
+
+  <!-- 使用CDN引入bootstrap-icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <!-- 字型字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-primary: #90b9ab;
+      --color-secondary: #e4b0b4;
+    }
+
+    /* .table-striped>tbody>tr:nth-of-type(even)>* {
+      /* --bs-table-accent-bg: #cbe9dd; */
+     */
+
+    th[scope="col"] {
+      background-color: #cbe9dd;
+      border: 1px solid #ddd;
+    }
+
+    h3 {
+      color: var(--color-primary);
+    }
+
+    .vet_introduce {
+      margin: 0 20%;
+    }
+
+    .description_img {
+      width: 100%;
+    }
+
+    @media (max-width:992px) {
+      .vet_introduce {
+        margin: 0 10%;
+      }
+
+      /* .description_img{
+        width: 100%;
+      } */
+    }
+
+    /* @media (max-width:1200px) {
+      .description_img{
+        width: 100px;
+      }
+    } */
+    h5 {
+      font-weight: 700;
+      color: var(--color-secondary);
+      letter-spacing: 2px;
+    }
+
+    .vet_title {
+      margin: auto;
+      letter-spacing: 5px;
+      border-bottom: 5px solid var(--color-secondary);
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <!-- Header -->
+  <!-- Header -->
+  <!-- Header -->
+  <!-- Header -->
+
+  <header id="navbar" class="sticky-top ">
+    <div class="member nav_icon">
+      <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="bi-person"></i></a>
+      <a href="http://localhost/happypet/happypet_front/40_product/front/shopping_cart.html" class="position-relative">
+        <i class="bi-cart"></i>
+        <span class="cart_quantity position-absolute text-center d-none"></span>
+      </a>
+    </div>
+    <div class="row align-items-center container-xl">
+      <div class="text-center col-xxl-3 col-xl-3 col-lg-12 col-md-12 col-ms-12 col-12">
+        <a class="" href="../00_index/index.html">
+          <img class="nav-logo m-2" src="../img/LOGO.png" alt="">
+        </a>
+      </div>
+      <div class="col-xxl-9 col-xl-9 col-lg-12 col-md-12 col-ms-12 col-12">
+        <ul class="nav justify-content-center text-center">
+          <li class="col-3 mt-3 mb-3">
+            <a class="p-2" href="../20_beauty/beauty_front1.html">美容預約</a>
+          </li>
+          <li class="col-3 mt-3 mb-3">
+            <a class="p-2" href="../30_hotel/front/hotel.html">寵物住宿</a>
+          </li>
+          <li class="col-3 mt-3 mb-3">
+            <a class="p-2" href="../40_product/front/product.html">產品專區</a>
+          </li>
+          <li class="col-3 mt-3 mb-3">
+            <a class="p-2" href="../50_vet/vet.html">獸醫門診</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <!-- 會員登入Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">會員登入</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formLoginCustomer" class="row g-3" novalidate>
+            <div class="col-md-12">
+              <label for="" class="form-label">電子信箱 / e-mail :</label>
+              <input name="login_email" type="email" class="form-control" required>
+              <div class="invalid-feedback">
+                請輸入正確格式
+              </div>
+            </div>
+            <div class="col-md-12">
+              <label for="" class="form-label">密碼 / password :</label>
+              <input name="login_password" type="password" class="form-control" required minlength="8" maxlength="16"
+                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,16}$">
+              <div class="invalid-feedback">
+                請輸入8~16個字元且包含數字、英文字母大小寫及特殊符號的密碼
+              </div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-secondary" type="reset">取消</button>
+              <button class="btn btn-success" type="submit" id="btnLoginCustomer">登入</button>
+            </div>
+          </form>
+          <!-- <form>
+                    <div class="mb-3">
+                        <label for="recipient-name1" class="col-form-label">電子信箱 / e-mail :</label>
+                        <input type="email" class="form-control" id="recipient-name1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name2" class="col-form-label">密碼 / password :</label>
+                        <input type="password" class="form-control" id="recipient-name2">
+                    </div>
+                </form> -->
+        </div>
+        <div class="modal-footer">
+          <p><a href="#">忘記密碼?</a>&ensp;或&ensp;<a
+              href="../10_member/member_register.html">註冊會員</a>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+          </p>
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">離開</button>
+                <button type="button" class="btn btn-success">登入</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 會員登入Modal end-->
+
+  <!-- Header end -->
+  <!-- Header end -->
+  <!-- Header end -->
+  <!-- Header end -->
+  <!-- Header end -->
+
+  <div>
+    <img class="img-fluid" src="../img/50_vet/醫療資訊banner.PNG" alt="">
+  </div>
+
+
+  <div class="container">
+    <h3 class="my-3 mt-5 fs-1 text-center ">獸醫門診</h3>
+    <div class="text-center">
+      <h4 class="text-center my-4 vet_title  p-2">門診資訊</h4>
+    </div>
+    <table class="table table-bordered text-center align-middle">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">週一</th>
+          <th scope="col">週二</th>
+          <th scope="col">週三</th>
+          <th scope="col">週四</th>
+          <th scope="col">週五</th>
+          <th scope="col">週六</th>
+          <th scope="col">週日</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">早上09:00-12:00</th>
+          <td>林峻捷醫師</td>
+          <td>林峻捷醫師</td>
+          <td>林峻捷醫師</td>
+          <td>林峻捷醫師</td>
+          <td>林峻捷醫師</td>
+          <td>林峻捷醫師</td>
+          <td>休診</td>
+        </tr>
+        <tr>
+          <th scope="row">下午13:00-17:00</th>
+          <td>陳美玲醫師</td>
+          <td>陳美玲醫師</td>
+          <td>陳美玲醫師</td>
+          <td>陳美玲醫師</td>
+          <td>陳美玲醫師</td>
+          <td>陳美玲醫師</td>
+          <td>休診</td>
+        </tr>
+        <tr>
+          <th scope="row">晚上18:00-21:00</th>
+          <td>王建國醫師</td>
+          <td>王建國醫師</td>
+          <td>王建國醫師</td>
+          <td>王建國醫師</td>
+          <td>王建國醫師</td>
+          <td>王建國醫師</td>
+          <td>休診</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container ">
+    <div class="text-center">
+      <h4 class="text-center my-4 vet_title  p-2">診所介紹</h4>
+    </div>
+    <div class="vet_introduce">
+      <p class="mb-5">
+        我們致力於提供您寵物最優質的醫療服務。我們的專業團隊由經驗豐富的獸醫師和熱情的護理人員組成，確保每一位來到我們診所的毛小孩都能得到最細心的照顧。我們提供一般健康檢查、疫苗接種、緊急醫療、手術服務、牙科護理和營養諮詢等全面服務。讓我們一起守護您寵物的健康與幸福！
+      </p>
+    </div>
+    <div class="row justify-content-md-evenly text-center">
+      <div class="col-lg-3  col-md-4 px-lg-2 col-12 px-5 px-md-4 pb-5">
+        <img class="w-75 px-5 px-md-0 pb-2 " src="../img/50_vet/pet_veterinary.png" alt="">
+        <h5>完善醫療設備</h5>
+        <p>備有完善設備及多項高階醫療儀器</p>
+      </div>
+      <div class="col-lg-3  col-md-4 px-lg-2 col-12 px-5 px-md-04 pb-5">
+        <img class="w-75 px-5 px-md-0 pb-2" src="../img/50_vet/pet_love.png" alt="">
+        <h5>關懷服務</h5>
+        <p>重視人性的醫療服務，減少飼主與毛孩的身心靈負擔</p>
+      </div>
+      <div class="col-lg-3  col-md-4 px-lg-2 col-12 px-5 px-md-4 pb-5">
+        <img class="w-75 px-5 px-md-0 pb-2" src="../img/50_vet/pet_surgery.png" alt="">
+        <h5>舒適就診環境</h5>
+        <p>乾淨舒適的醫院環境，讓來院的飼主與毛孩能感到安心</p>
+      </div>
+    </div>
+  </div>
+  <div class="container mb-5">
+    <div class="text-center">
+      <h4 class="text-center my-4 vet_title p-2">門診說明</h4>
+    </div>
+    <div class=" row justify-content-center align-items-center">
+      <div class="col-lg-5 col-12 text-center">
+        <img class=" description_img p-1 pb-sm-4" src="../img/50_vet/pet_img.jpg" alt="">
+      </div>
+      <div class="col-lg-5 col-12 ">
+        <p>♦ 看診請來電預約，預約電話：04-33539500</p>
+        <p>♦ 早上看診 09:00~12:00 最後掛號時間11:30</p>
+        <p>♦ 下午看診 13:00~17:00 最後掛號時間16:30</p>
+        <p>♦ 晚上看診 18:00~21:00 最後掛號時間20:30</p>
+        <p>♦ 來電時請主動告知是否為初診、是狗狗或貓貓、過去疾病史、此次主要想看診的原因及症狀等，方便櫃台人員為您安排適合的醫師及時間</p>
+        <p>♦ 約診時請預留充裕時間，避免後續安排緊湊行程，以免看診當日有不可預期的看診時間變動</p>
+      </div>
+    </div>
+  </div>
+
+  <!--------------- footer ---------------->
+  <!--------------- footer ---------------->
+  <!--------------- footer ---------------->
+  <!--------------- footer ---------------->
+  <!--------------- footer ---------------->
+  <footer>
+    <div class="row text-center justify-content-center mt-4 align-items-center">
+      <a href="#" class="col-xl-4 col-lg-5 col-md-10 col-10 p-2">
+        <img class="logo" src="../img/LOGO.png" alt="" />
+      </a>
+
+      <ul class="footer_contact col-xl-4 col-lg-5 col-md-10 col-10 text-lg-start text-center p-4">
+        <li>0800-123-456</li>
+        <li>service@gmail.com</li>
+        <li>特定寵物業許可證號：特寵業字第s1110005號</li>
+
+        <div class="footer_icon">
+          <span class=""><a href=""><i class="bi bi-instagram"></i></a></span>
+          <span class=""><a href=""><i class="bi bi-line"></i></a></span>
+          <span class=""><a href=""><i class="bi bi-facebook"></i></a></span>
+        </div>
+      </ul>
+      <p class="copyright text-center mt-2">
+        <a href="#">服務條款及隱私保護政策 | </a>&copy;此網站為練習使用，不做商業用途
+      </p>
+    </div>
+
+    <div class="d-flex">
+      <img class="footer_img col-12 col-sm-12 col-md-8 col-xl-8 col-xxl-8" src="../img/00_index/資產-40.png" alt="" />
+      <img class="footer_stamp" src="../img/00_index/transparent01.png" alt="" />
+    </div>
+  </footer>
+  <!--------------- footer end---------------->
+  <!--------------- footer end---------------->
+  <!--------------- footer end---------------->
+  <!--------------- footer end---------------->
+  <!--------------- footer end---------------->
+  <!-- 引入購物車數量 -->
+  <script src="../js/queryQuantity.js"></script>
+  <!-- 登入表單提交前端驗證JS -->
+  <script>
+    (function () {
+      'use strict'
+      var forms = document.getElementById('formLoginCustomer')
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()
+  </script>
+
+  <!-- 引用登入功能的後端JS檔 -->
+  <script src="../js/member_login.js"></script>
+
+</body>
+
+</html>

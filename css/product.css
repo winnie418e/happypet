@@ -1,0 +1,338 @@
+:root{
+    --color-primary:#90b9ab;
+    --color-secondary:#e4b0b4 ;
+    --color-phover:#afcfc4;
+
+}
+ul,li{
+   list-style: none;
+   padding: 0;
+}
+a{
+    text-decoration: none;
+    /* color: #000; */
+}
+
+
+body{
+    margin: 0;
+    position: relative;
+    font-family: "LXGW WenKai TC", cursive;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.2rem;
+}
+h3{
+    font-weight: 700;
+    color: var(--color-primary);
+}
+header {
+    box-shadow: none;
+}
+/* product start*/
+.container-fluid{
+    /* nav 置中 */
+    width: auto;
+}
+/* 購物車數量(紅圈) */
+header .nav_icon .cart_quantity{
+    bottom: 2px;
+    right: -2px;
+    font-size: .8rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    color: #fff;
+}
+
+/* 漢堡 */
+.navbar-toggler{
+    /* position: fixed;
+    top: 5px;
+    left: 5px; */
+    /* z-index: 2; */
+    border: transparent;
+}
+.navbar-toggler-icon  {
+    filter: brightness(100%) invert(1);
+}
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.pd_navbar{
+    position: sticky;
+    box-shadow: 0 3px 6px #eee;
+    background-color: var(--color-primary);
+    z-index: 2;
+    display: none;
+}
+.dropdown-toggle::after {
+    margin-left: 2.5em;
+}
+.dropdown-menu {
+    --bs-dropdown-padding-y: 0;
+    --bs-dropdown-border-color: none;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all .3s;
+    box-shadow: 3px 3px 5px #eee;
+    transition: all .5s;
+    --bs-dropdown-font-size: 1.2rem;
+}
+.dropdown-item{
+    font-size: inherit;
+    font-weight: 300;
+}
+/* 類別hover 點選顏色 */
+.dropdown-item:focus,.dropdown-item:hover,.dropdown-item.active, .dropdown-item:active{
+    background-color: var(--color-phover);
+}
+.dropdown-menu[data-bs-popper]{
+    margin-top:0;
+}
+.dropdown-menu li{
+    padding: 5px;
+}
+.navbar-nav {
+    --bs-nav-link-color: #fff;
+    --bs-nav-link-hover-color:#eee;
+}
+.pet_pdicon{
+    border-top: 1px solid #afcfc4;
+    border-bottom: 1px solid #afcfc4;
+    display: grid;
+    grid-template-columns:repeat(5,1fr);
+    padding:  3% 15%;
+}
+
+.pet_pdicon li a{
+    color: var(--color-primary);
+    font-weight: bolder;
+}
+.pet_pdicon li a:hover{
+    color: var(--color-secondary);
+}
+.pet_pdicon li a>p{
+    margin: 10px 0;
+    /* letter-spacing的間距是加在每個文字後面，text-indent是文字的縮排，
+            文字間距多推了多少px，用text-indent同樣推多少px */
+    letter-spacing: 10px;
+    text-indent: 10px;
+    font-size: 1.5rem;
+}
+.pet_pdicon img{
+    width: 50%;
+    transition: .3s;
+}
+.pet_pdicon li:hover img{
+    transform: scale(.95);
+}
+.product_container{
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    
+}
+.pd_price{
+    font-family: sans-serif;
+    font-weight: bold;
+    color: red;
+}
+.bi-search{
+    cursor:pointer;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+}
+.bi-search:hover{
+    color: var(--color-secondary);
+}
+input[name="nameKeyword"]{
+    /* border: 1px solid var(--color-phover); */
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid var(--color-phover);
+    /* border-radius: 10px; */
+    padding: 3px 10px;
+    color: var(--color-primary);
+    /* color: var(--color-primary); */
+}
+input[name="nameKeyword"]:focus{
+    /* border: 1px solid var(--color-primary); */
+    /* border: none; */
+    /* outline: 1px solid var(--color-primary); */
+    color: var(--color-secondary);
+    outline: none;
+    border-bottom: 1px solid var(--color-secondary);
+}
+@media (max-width: 992px) {
+    .container-fluid {
+        width: 100%;
+    }
+    .pet_pdicon {
+        padding: 4% 5%;
+        /* padding-bottom: 0%; */
+    }
+    .pet_pdicon li a>p {
+        font-size: 1.2rem;
+    }
+    .pet_pdicon img{
+        width: 60%;
+    }
+   
+}
+@media (max-width: 768px) {
+    .dropdown-menu {
+        box-shadow:none;
+        background-color: var(--color-primary);
+    }
+    .product_container{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .pet_pdicon li a>p{
+        letter-spacing: 8px;
+        text-indent: 8px;
+    }
+    .nav-link:focus,.dropdown-item {
+        color: #fff;
+    }
+    .nav-link:hover {
+        color: #eee;
+    }
+    .navbar-nav {
+        --bs-nav-link-color:#fff;
+    }
+}
+@media (max-width: 576px) {
+    .pet_pdicon img{
+        width: 80%;
+    }
+    .pet_pdicon li a>p{
+        letter-spacing: 3px;
+        text-indent: 3px;
+     
+    }
+}
+.product_container p{
+    margin-bottom: 0;
+    margin: 10px 0;
+}
+
+.product_item{
+    padding: 15px;
+    /* margin: 10px; */
+    box-sizing: border-box;
+    /* flex: 0 0 23%; */
+    border-radius: 10px;
+}
+.img_wrapper{
+    transition: all .5s;
+    aspect-ratio: 1 / 1; /*  1:1 */
+}
+.img_wrapper img{
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid #afcfc4;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+/* .img_wrapper */
+/* .img_wrapper:hover{ */
+.product_item a:hover .img_wrapper{
+    transform: scale(0.98);
+    opacity: 0.65;
+}
+/* .product_item::after{ */
+.animalTag{
+    /* background: url(./img/productIcon/dog.png) no-repeat; */
+    /* background-image: url('./img/productIcon/dog.png') ; */
+    /* background-image: url('../../img/40_product/productIcon/dog.png') ; */
+    /* background-image: url('../img/40_product/productIcon/cat.png') ; */
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* display:block ; */
+    width: 100%;
+    height: 15%;
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    pointer-events: none; 
+}
+.product_item a{
+    color: var(--color-primary);
+}
+.product_item a:hover{
+    color: var(--color-phover);
+}
+
+
+.pd_price::before{
+    content: 'NT$ ';
+    font-size: 0.8rem;
+}
+/* product end*/
+
+/* loading start */
+#loadingArea{
+    margin: 10%;
+}
+#loading{
+    left: 50%;
+    transform: translate(-50%);
+    width: 100px;
+    height: 100px;
+}
+.square{
+    width: 50px;
+    height: 50px;
+}
+.squareA{
+    background-color: var(--color-primary);
+    animation: loadingA 1.5s ease-in-out infinite;
+
+}
+.squareB{
+    background-color: var(--color-secondary);
+    animation: loadingB 1.5s ease-in-out infinite;
+}
+
+@keyframes loadingA {
+    0%,100%{
+        bottom: 0;
+        right:  0;
+    }
+    25%{
+        bottom: 0;
+        right: 50px;
+    }
+    50%{
+        bottom: 50px;
+        right: 50px;
+    }
+    75%{
+        bottom: 50px;
+        right: 0px;
+    }
+}
+@keyframes loadingB {
+    0%,100%{
+        left: 0;
+        top: 0;
+    }
+    25%{
+        top: 0;
+        left: 50px;
+    }
+    50%{
+        top: 50px;
+        left: 50px;
+    }
+    75%{
+        left: 0;
+        top: 50px;
+    }
+}
+/* loading end */
+

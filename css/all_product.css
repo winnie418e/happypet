@@ -1,0 +1,26 @@
+:root{
+    --color-primary:#90b9ab;
+    --color-secondary:#e4b0b4 ;
+}
+body{
+    background: url(../img/00_index/geometry.png);
+}
+h2 {
+    color: var(--color-primary);
+}
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    --bs-table-accent-bg: #cbe9dd;
+}
+
+
+input{
+    border: 1px solid #cbe9dd;
+    outline: none;
+}
+i{
+    cursor: pointer;
+}
+.container{
+    max-width: 960px;
+}
+

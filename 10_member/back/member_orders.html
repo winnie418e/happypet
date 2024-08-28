@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
+  <title>好寵你 | 會員訂單紀錄</title>
+
+
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/back_header.css">
+  <link rel="stylesheet" href="../../css/orders.css">
+
+
+  <script src="../../js/bootstrap.bundle.js"></script>
+
+  <!-- 使用CDN引入bootstrap-icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- 字型字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+  <script src="../../js/jquery-3.7.1.js" data-auto-replace-svg="nest"></script>
+  <!-- React -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+
+</head>
+
+<body>
+  <header id="navbar" class="sticky-top headerbackPage"></header>
+
+
+  <main id="root"></main>
+
+  <script type="text/babel">
+    $(".headerbackPage").load("../../99_Huei/header_back.html");
+    let myReactRoot = ReactDOM.createRoot(document.getElementById('root'));
+
+    function Modal({ setordernumber: { ordernumber, create_date, total } }) {
+
+      // console.log('setordernumber', ordernumber, create_date);
+
+      let [product, setproduct] = React.useState([]);
+      React.useEffect(function () {
+
+        async function getproductData() {
+
+          let response = await fetch('http://localhost/happypet/happypet_back/public/api/orders_detail_search',
+            {
+              method: "POST",
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                "order_number": ordernumber
+              })
+            }
+          );
+          let data = await response.json()
+          setproduct(data);
+        }
+
+        getproductData();
+
+      }, [ordernumber])
+
+
+      // console.log(product);
+
+
+
+      //千分位轉換
+      function numberComma(num = '') {
+        let comma = /\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g
+        return num.toString().replace(comma, ',')
+      }
+
+      let handleClickMore = () => {
+        if (event.target.innerText == "查看更多") { event.target.innerText = "顯示較少"; }
+        else { event.target.innerText = "查看更多"; }
+      }
+
+      return (
+        <React.Fragment>
+          {/*下架 彈出視窗 Modal */}
+          <div className="modal fade" id="shelves_dialog" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div className="modal-dialog " role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h4 className="modal-title">商品明細</h4>
+                  <button type="button" className="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+                </div>
+                <div className="modal-body">
+                  <p className="position-absolute end-0 mx-3">訂購日期：{create_date}</p>
+                  <div className="mt-3 d-flex align-items-center">
+                    {
+                      product.map((value, i) => {
+                        if (i == 0) {
+                          let { product_pic, quantity, series_name, flavor, weight, style, size } = value;
+                          const dataUrl = `data:image/png;base64,${product_pic}`;
+                          //規格
+                          function Specification(flavor, weight, style, size) {
+                            let sp = [];
+                            // str = str + (flavor ? <p> 口味： {flavor} </p> : '');
+                            sp.push(flavor ? `口味： ${flavor}` : '');
+                            sp.push(weight ? `淨重： ${weight}` : '');
+                            sp.push(style ? `款式： ${style}` : '');
+                            sp.push(size ? `尺寸： ${size}` : '');
+                            // console.log('str', sp);
+                            return sp;
+                          }
+                          return (
+                            <React.Fragment>
+                              <div className="row pt-3">
+
+                                <div className="col-3">
+                                  <img src={dataUrl} alt="" className="img-fluid" />
+                                </div>
+                                <div className="col-9">
+                                  <p>產品名稱：{series_name}</p>
+                                  {
+                                    Specification(flavor, weight, style, size).map(value => <p className=" fs-6 fw-light">{value}</p>)
+                                  }
+                                  <p>數量：{quantity}</p>
+                                </div>
+                              </div>
+                            </React.Fragment>
+                          )
+                        }
+                      })
+                    }
+
+                  </div>
+                  <div>
+                    <div className="collapse" id="collapseExample">
+                      <div className="my-3 align-items-center ">
+                        {
+                          product.map((value, i) => {
+                            if (i > 0) {
+                              let { product_pic, quantity, series_name, flavor, weight, style, size } = value;
+                              const dataUrl = `data:image/png;base64,${product_pic}`;
+
+                              //規格
+                              function Specification(flavor, weight, style, size) {
+                                let sp = [];
+                                // str = str + (flavor ? <p> 口味： {flavor} </p> : '');
+                                sp.push(flavor ? `口味： ${flavor}` : '');
+                                sp.push(weight ? `淨重： ${weight}` : '');
+                                sp.push(style ? `款式： ${style}` : '');
+                                sp.push(size ? `尺寸： ${size}` : '');
+                                // console.log('str', sp);
+                                return sp;
+                              }
+                              return (
+                                <React.Fragment>
+                                  <div className="row pt-3 d-flex" >
+                                    <div className="col-3">
+                                      <img src={dataUrl} alt="" className="img-fluid" />
+                                    </div>
+                                    <div className="col-9">
+                                      <p>產品名稱：{series_name}</p>
+                                      {
+                                        Specification(flavor, weight, style, size).map(value => <p className=" fs-6 fw-light">{value}</p>)
+                                      }
+                                      <p>數量：{quantity}</p>
+                                    </div>
+                                  </div>
+
+                                </React.Fragment>
+                              )
+                            }
+                          })
+                        }
+
+                      </div>
+                    </div>
+
+                  </div>
+                  <h4 className="position-absolute bottom-0 end-0 my-0 mx-3">總金額： ${numberComma(total)} </h4>
+                  {/* <button type="button" className="btn btn-secondary align-middle" data-bs-dismiss="modal">查看更多</button> */}
+
+                </div>
+                <div className="modal-footer">
+                  {/* <a className="w-100 align-middle text-center" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">查看更多</a>*/}
+                  <a className="w-100 align-middle text-center" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" onClick={handleClickMore}>
+                    查看更多
+                  </a>
+
+                  {/* <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">查看更多</button>
+          <button id="btn_shelves_sure" type="button" className="btn btn-primary" data-bs-dismiss="modal">確認</button>
+                  <button id="btn_shelves_sure" style={{ visibility: "hidden" }} type="button" className="btn btn-primary" data-bs-dismiss="modal">確認</button>
+           */}
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </React.Fragment>
+      )
+    }
+
+    //main order資料
+    function Oreder_Result({ searchphone, setsetordernumber }) {
+
+      let [orderData, setOrderData] = React.useState([]);
+
+      React.useEffect(function () {
+        async function getData() {
+          let response = await fetch('http://localhost/happypet/happypet_back/public/api/orders_search',
+            {
+              method: "POST",
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                "status": "all",
+                "phone": searchphone ? `%${searchphone}%` : ''
+              })
+            }
+          );
+          let data = await response.json()
+          // console.log(data);
+          setOrderData(data)
+
+        }
+        getData();
+
+      }, [searchphone])
+
+      //千分位轉換
+      function numberComma(num = '') {
+        let comma = /\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g
+        return num.toString().replace(comma, ',')
+      }
+
+
+
+      let handleClicTable = () => {
+        // console.log('handleClicTable', event.target.parentNode.firstChild);
+        // console.log('handleClicTable', event.target.parentNode.lastChild);
+
+        // console.log('orderData',orderData);
+
+        let nod = orderData.filter((value) => {
+          console.log('value', value.order_number);
+          if (value.order_number == event.target.parentNode.firstChild.innerText)
+            return value;
+        })
+
+        // console.log('nod',nod[0].total);
+
+        let temp = {
+          "ordernumber": event.target.parentNode.firstChild.innerText,
+          "create_date": event.target.parentNode.lastChild.innerText,
+          "total": nod[0].total
+        };
+        // console.log(temp);
+
+        setsetordernumber(temp)
+      }
+
+
+      return (
+        <React.Fragment>
+          <tbody>
+
+            {
+              orderData.map((value) => {
+                let { id, order_number, user_name, user_phone, total, create_time } = value;
+                return (
+                  <tr key={id} data-bs-toggle="modal" data-bs-target="#shelves_dialog" onClick={handleClicTable}>
+                    <td>{order_number}</td>
+                    <td>{user_phone}</td>
+                    <td>{user_name}</td>
+                    <td>NT ${numberComma(total)}</td>
+                    <td>{new Date(create_time).toISOString().split('T')[0].replaceAll('-','/')}</td>
+                  </tr>
+                )
+
+              })
+            }
+
+
+          </tbody>
+        </React.Fragment>
+      )
+    }
+
+
+    //手機查詢訂單
+    function Search_phone({ setsearchphone }) {
+
+      let handleClicksearchphone = () => {
+        // console.log(search_phone.value);
+        setsearchphone(search_phone.value);
+      }
+
+      return (
+        <div className="container">
+          <h2 className="col-12 mt-3">會員訂單紀錄</h2>
+          <label htmlFor="search_phone" className="text-center fs-5 ps-5 my-2">手機號碼：</label>
+          <input type="tel" name="search_phone" id="search_phone" />
+          <a onClick={handleClicksearchphone} ><i className="px-2 fs-5 bi bi-search"></i></a>
+        </div>
+      )
+    }
+
+    function Main() {
+
+      let [searchphone, setsearchphone] = React.useState('');
+      let [setordernumber, setsetordernumber] = React.useState({});
+
+      return (
+        <React.Fragment>
+
+          <div className="container position-relative">
+            <Search_phone setsearchphone={setsearchphone} />
+
+            <table className="table table-striped table-hover text-center align-middle justify-content-center">
+              <thead className="text-center">
+                <tr>
+                  <th scope="col">訂單編號</th>
+                  <th scope="col">手機號碼</th>
+                  <th scope="col">會員姓名</th>
+                  <th scope="col">總金額</th>
+                  <th scope="col">訂購日期</th>
+                </tr>
+              </thead>
+              <Oreder_Result searchphone={searchphone} setsetordernumber={setsetordernumber} />
+            </table>
+          </div>
+          <Modal setordernumber={setordernumber} />
+        </React.Fragment>
+      )
+
+    }
+
+    myReactRoot.render(<Main />);
+
+  </script>
+
+</body>
+
+</html>

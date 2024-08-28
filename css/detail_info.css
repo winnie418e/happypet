@@ -1,0 +1,130 @@
+:root{
+    --color-primary:#90b9ab;
+    --color-secondary:#e4b0b4;
+    --color-phover:#afcfc4;
+
+}
+body{
+    background: url(../img/00_index/geometry.png);
+}
+h2 {
+    color: var(--color-primary);
+}
+form{
+    width: 100%;
+}
+#newItem td:nth-child(2) input,
+#newItem td:nth-child(3) input,
+#newItem td:nth-child(4) input,
+#newItem td:nth-child(5) input,
+#newItem td:nth-child(6) input,
+#newItem td:nth-child(7) input,
+#newItem td:nth-child(8) input{
+    width: 100%;
+}
+
+th:nth-child(1),.querySeriesID th{
+    width: 20%;
+}
+
+.pd_id_area input:first-of-type{
+    width: 20%;
+}
+.pd_id_area input:last-of-type{
+    width: 75%;
+}
+/* th,td{
+    text-align: center;
+    vertical-align: middle;
+} */
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    --bs-table-accent-bg: #cbe9dd;
+}
+.querySeriesID td:nth-child(2n){
+    background-color: #cbe9dd;
+}
+.querySeriesID td:first-of-type{
+    width: 25%;
+}
+#addTable{
+    width: 100%;
+}
+.seriesNum{
+    width: 60%;
+}
+input{
+    border: 1px solid #cbe9dd;
+    outline: none;
+}
+input:focus{
+    outline: 1px solid var(--color-secondary);
+    border: 1px solid transparent;
+}
+input[name="pdSeries"],#pdName{
+    width: 95%;
+}
+input[readonly] ,input:disabled{
+    background-color: #f2f2f2;
+}
+.pdDetailContainer{
+    position: relative;
+    margin: 0 120px;
+}
+#addBtn{
+    position: absolute;
+    left: -100px;
+    top: 5px;
+}
+
+button,.btn{
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    background-color:var(--color-primary);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 3px #569682;
+    letter-spacing: 1.5px;
+    transition: .2s;
+}
+button:hover,.btn:hover{
+    background-color:var(--color-phover);
+    color: #fff;
+}
+button:active{
+    transform: scale(0.96);
+}
+.pagebtn{
+    box-shadow: none;
+}
+.pagebtn.active{
+    background-color: #e4b0b4;
+}
+i[class$="Btn"]{
+    padding: 6px;
+    cursor: pointer;
+    transition: .3s;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+i[class$="Btn"]:hover{
+    color: #aaa;
+}
+/* 彈出視窗 */
+.modal-footer{
+    border: none;
+}
+.deleteBtn{
+    top: 22%;
+    left: -15%;
+    box-shadow: none;
+    padding: 1px 5px;
+}
+/* header 下拉選項樣式 */
+.dropdown-item:focus {
+    background-color:#fff;
+}
+.dropdown-item:hover, .dropdown-item:active{
+    background-color: var(--color-phover);
+}

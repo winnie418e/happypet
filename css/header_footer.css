@@ -1,0 +1,174 @@
+:root {
+  /* --color-primary:#90b9ab; */
+  --color-primary: #ffc971;
+  --color-primary: #96afc5;
+  /* 小捲尾 次色 */
+  --color-primary: #e4b0b4;
+  --color-primary: #90b9ab;
+}
+
+body {
+  margin: 0;
+  left: 0;
+  font-family: "LXGW WenKai TC", cursive;
+  font-weight: 300;
+  font-style: normal;
+}
+
+header {
+  box-shadow: 0 3px 5px #ddd;
+  background-color: #fff;
+  line-height: 20px;
+}
+
+.nav-logo {
+  max-height: 80px;
+}
+
+.nav > li > a {
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: bolder;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+}
+
+.nav > li > a:hover {
+  border-bottom: 2px solid #1c97a7;
+  border-bottom: 2px solid var(--color-primary);
+  color: #1c97a7;
+  font-weight: bold;
+}
+.member {
+  position: fixed;
+  right: 25px;
+  top: 15px;
+  padding: 20px;
+  display: block;
+  font-size: 18px;
+}
+.nav_icon a {
+  font-size: 28px;
+  padding: 5px;
+  color: #90b9ab;
+}
+.nav_icon a:hover {
+  padding: 5px;
+  color: #1c97a7;
+  font-weight: bolder;
+}
+
+footer {
+  background-color: #90b9ab;
+  font-size: 18px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+}
+
+footer .logo {
+  max-height: 150px;
+}
+.footer_contact li {
+  list-style: none;
+  padding: 5px 0;
+}
+.footer_icon {
+  padding: 10px;
+  font-size: 1.6rem;
+}
+footer a,
+footer i {
+  color: #fff;
+}
+.copyright,
+.copyright a {
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+.bi-instagram,
+.bi-line,
+.bi-facebook {
+  padding: 5px;
+}
+.footer_img {
+  align-self: flex-end;
+}
+.footer_stamp {
+  width: 23%;
+  filter: brightness(0.1) invert();
+  transform: rotate(-15deg);
+  position: absolute;
+  bottom: -25px;
+  right: -10px;
+}
+
+@media (max-width: 766px) {
+  .footer_stamp {
+    display: none;
+  }
+}
+
+.was-validated .form-control:valid {
+  background-image: none; /* 移除默認的打勾符號 */
+}
+
+.container-sm {
+  max-width: 100%; /* 使容器可以擴展到全寬 */
+}
+
+.service_items_container {
+  display: flex; /* 使用 Flexbox 來並排圖片 */
+  flex-wrap: wrap; /* 如果容器太窄，讓圖片換行 */
+  justify-content: center; /* 居中對齊圖片 */
+  gap: 1rem; /* 設置圖片之間的間距 */
+}
+
+.service_item {
+  flex: 1 1 calc(25% - 1rem); /* 確保每個項目佔據 25% 寬度，減去間距 */
+  max-width: 25%; /* 限制項目的最大寬度 */
+  box-sizing: border-box; /* 包含 padding 和 border 在內的寬度計算 */
+  text-align: center; /* 圖片和文字居中對齊 */
+}
+.service_item a {
+  text-decoration: none;
+  color: #579d86;
+  font-weight: bolder;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  display: block; /* 使 a 標籤填滿父元素 */
+  text-align: center; /* 圖片和文字居中對齊 */
+  position: relative; /* 為子元素定位提供基準 */
+  transition: transform 0.3s ease; /* 平滑的過渡效果 */
+}
+
+.service_item img {
+  max-width: 100%; /* 確保圖片不超過容器的寬度 */
+  height: auto; /* 保持圖片比例 */
+}
+
+.service_item p {
+  margin: 0; /* 取消預設外邊距 */
+  padding: 0.5rem 0; /* 添加內邊距 */
+  transition: transform 0.3s ease; /* 平滑的過渡效果 */
+}
+
+.service_item:hover a {
+  transform: translateY(-10px); /* 鼠標懸停時向上移動 */
+}
+
+.service_item:hover img,
+.service_item:hover p {
+  transform: translateY(-10px); /* 鼠標懸停時向上移動 */
+}
+/* 購物車數量(紅圈) */
+header .nav_icon .cart_quantity {
+  bottom: 2px;
+  right: -2px;
+  font-size: 0.8rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  color: #fff;
+}

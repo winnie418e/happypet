@@ -1,0 +1,267 @@
+:root {
+    /* --color-primary:#90b9ab; */
+    --color-primary: rgb(255, 201, 113);
+    --color-primary: rgb(150, 175, 197);
+    /* 小捲尾 次色 */
+    --color-primary: #e4b0b4;
+    --color-primary: #90b9ab;
+
+}
+
+body {
+    margin: 0;
+    left: 0;
+    font-family: "LXGW WenKai TC", cursive;
+    font-weight: 300;
+    font-style: normal;
+}
+
+header {
+    box-shadow: 0 3px 5px #ddd;
+    background-color: #fff;
+    line-height: 20px;
+}
+
+.nav-logo {
+    max-height: 80px;
+}
+
+.nav>li>a {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: bolder;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+}
+
+.nav>li>a:hover {
+    border-bottom: 2px solid #1c97a7;
+    border-bottom: 2px solid var(--color-primary);
+    color: #1c97a7;
+    font-weight: bold;
+
+}
+
+.member {
+    position: fixed;
+    right: 25px;
+    top: 15px;
+    padding: 20px;
+    display: block;
+    font-size: 18px;
+}
+
+.nav_icon a {
+    font-size: 28px;
+    padding: 5px;
+    color: #90b9ab;
+}
+
+.nav_icon a:hover {
+    padding: 5px;
+    color: #1c97a7;
+    font-weight: bolder;
+}
+
+
+footer {
+    background-color: #90b9ab;
+    font-size: 18px;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+}
+
+footer .logo {
+    max-height: 150px;
+}
+
+.footer_contact li {
+    list-style: none;
+    padding: 5px 0;
+}
+
+.footer_icon {
+    padding: 10px;
+    font-size: 1.6rem;
+}
+
+footer a,
+footer i {
+    color: #fff;
+}
+
+.copyright,
+.copyright a {
+    text-decoration: none;
+    font-size: .8rem;
+}
+
+.bi-instagram,
+.bi-line,
+.bi-facebook {
+    padding: 5px;
+}
+
+.footer_img {
+    align-self: flex-end;
+}
+
+.footer_stamp {
+    width: 23%;
+    filter: brightness(0.1) invert();
+    transform: rotate(-15deg);
+    position: absolute;
+    bottom: -25px;
+    right: -10px;
+}
+
+@media (max-width: 766px) {
+    .footer_stamp {
+        display: none;
+    }
+}
+
+/* 新增front1 */
+/* 新增front1 */
+/* 新增front1 */
+/* 新增front1 */
+/* 新增front1 */
+
+.banner {
+    width: 100%;
+    height: 250px;
+    background-image: url(../img/20_beauty/beautybanner2.jpg);
+    background-position: center;
+}
+
+.banner h2 {
+    color: #fff;
+}
+
+.reserveheader {
+    background-color: #90b9ab;
+    height: 80px;
+    color: #fff;
+}
+
+.color_primary_self {
+    color: var(--color-primary);
+}
+
+.bgc_primary_self {
+    background-color: var(--color-primary);
+}
+
+#pet_select,
+#branch_select {
+    height: 66.6px;
+}
+
+#pet_list li {
+    height: 50.6px;
+}
+
+#pet_list li::after {
+    content: '';
+    width: 10px;
+}
+
+/* 正方形 */
+#pet_list>li>img,
+#pet_select>img {
+    max-height: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+#pet_select>img {
+    width: 49px;
+}
+
+#pet_list>li>img {
+    width: 42.6px;
+}
+
+/* 新增front2 */
+/* 新增front2 */
+/* 新增front2 */
+/* 新增front2 */
+/* 新增front2 */
+
+.visibility_hidden {
+    visibility: hidden;
+}
+
+#pet_list>div:hover {
+    cursor: pointer;
+}
+
+#pet_list>div {
+    border: var(--bs-border-color) solid 2px;
+}
+
+#pet_list>.border_color_self {
+    border: var(--color-primary) solid 2px;
+}
+
+.pet_photo_Thumbnail {
+    width: 50px;
+    height: 50px;
+}
+
+.border_style_dotted {
+    border-style: dotted;
+}
+
+.border_color_lightgray {
+    border-color: lightgray;
+}
+
+.order_detail {
+    /* 捲動到 該元素 畫面釘選 */
+    position: sticky;
+    top: 170px;
+}
+
+#addcaldiv td {
+    cursor: pointer;
+    width: 45px;
+}
+
+#addcaldiv .over_date {
+    cursor: not-allowed;
+    color: lightgray;
+}
+
+.order_time_check:hover {
+    color: white;
+    background-color: var(--color-primary);
+}
+
+.cursor_pointer {
+    cursor: pointer;
+}
+
+.cursor_not_allowed {
+    cursor: not-allowed;
+    color: lightgray;
+}
+
+.last_step {
+    text-decoration-line: none;
+    color: #212529;
+}
+.pet_span {
+    width: 200px;
+}
+/* 購物車數量(紅圈) */
+header .nav_icon .cart_quantity{
+    bottom: 2px;
+    right: -2px;
+    font-size: .8rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    color: #fff;
+}

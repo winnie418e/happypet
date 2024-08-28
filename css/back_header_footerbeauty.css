@@ -1,0 +1,249 @@
+:root {
+    /* --color-primary:#90b9ab; */
+    --color-primary: rgb(255, 201, 113);
+    --color-primary: rgb(150, 175, 197);
+    /* 小捲尾 次色 */
+    --color-primary: #e4b0b4;
+    --color-primary: #90b9ab;
+}
+
+body {
+    margin: 0;
+    left: 0;
+    font-family: "LXGW WenKai TC", cursive;
+    font-weight: 300;
+    font-style: normal;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    box-shadow: 0 3px 5px #ddd;
+    background-color: #fff;
+    line-height: 20px;
+}
+
+.nav-logo {
+    max-height: 80px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+a:hover {
+    color: #1c97a7;
+    font-weight: bold;
+}
+
+.nav>li>a {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: bolder;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+}
+
+.nav>li>a:hover {
+    border-bottom: 2px solid #1c97a7;
+    border-bottom: 2px solid var(--color-primary);
+    color: #1c97a7;
+    font-weight: bold;
+
+}
+
+.member {
+    position: fixed;
+    right: 25px;
+    top: 15px;
+    padding: 20px;
+    display: block;
+    font-size: 18px;
+}
+
+.nav_icon a {
+    padding: 5px;
+    color: #90b9ab;
+}
+
+.nav_icon a:hover {
+    color: #1c97a7;
+    font-weight: bolder;
+}
+
+/* =========================================================================================== */
+/* =========================================================================================== */
+/* =========================================================================================== */
+/* index back 新增 */
+/* index back 新增 */
+/* index back 新增 */
+/* index back 新增 */
+/* index back 新增 */
+
+body {
+    background: url(../img/00_index/geometry.png);
+}
+
+.service_item a {
+    display: block;
+    font-weight: bold;
+}
+
+.service_item img,
+.service_item p {
+    transition: 1s;
+}
+
+.service_item a:hover img {
+    transform: scale(0.95);
+    filter: grayscale(0.3) brightness(0.9);
+}
+
+.service_item a:hover p {
+    transform: translateY(-100%) scale(1.5);
+    color: #fff;
+    text-shadow: 0px 0px 3px #91711a,
+        0px 0px 6px rgb(211, 175, 58),
+        0px 0px 10px rgb(255, 196, 0),
+        0px 0px 15px rgb(143, 141, 59);
+}
+
+.service_item+p {
+    color: #842d2d;
+}
+
+main {
+    position: relative;
+}
+
+.nav_drop>li>a {
+    padding: 15px;
+}
+
+.loginbox {
+    width: 400px;
+    height: 270px;
+    background-color: wheat;
+    top: 130px;
+}
+
+.loginbtn {
+    background-color: #f5ca7c;
+}
+
+.loginbtn:hover {
+    cursor: pointer;
+    background-color: #fdc254;
+}
+
+/* .logoutbtn {
+    visibility: hidden;
+} */
+
+.page_img_link {
+    visibility: hidden;
+}
+
+
+/* 新增beautyback */
+/* 新增beautyback */
+/* 新增beautyback */
+/* 新增beautyback */
+/* 新增beautyback */
+
+.color_primary_self {
+    color: var(--color-primary);
+}
+
+.bgc_primary_self {
+    background-color: var(--color-primary);
+}
+
+.beauty_back_table {
+    z-index: 1;
+    position: relative;
+}
+
+.beauty_back_table td,
+.beauty_back_table th {
+    border: 1px solid black;
+    height: 40px;
+}
+
+.beauty_back_table td:first-child {
+    width: 10%;
+}
+
+.beauty_back_table td:not(:first-child) {
+    width: 5%;
+    background-color: #fff;
+
+}
+
+#canvas_out_div {
+    position: absolute;
+    top: 107px;
+    z-index: 99;
+    /* left: 190px; */
+}
+
+#canvas_div {
+    width: 90%;
+    position: relative;
+    display: inline-block;
+    left: 0.08%;
+    top: 1px;
+}
+
+.left_box {
+    width: 10%;
+    display: inline-block;
+}
+
+.order_box { 
+    position: absolute;
+    z-index: 99;
+}
+
+.back_petimg_div {
+    width: 140px;
+    height: 140px;
+}
+
+.beauty_pet_plan_box{
+    border: 2px solid white;
+    border-radius: 15px;
+    background-color: wheat;
+    color: black;
+    font-weight: 800;
+    cursor:pointer;
+}
+
+/* .beauty_back_table div {
+    flex: 1;
+    margin: 1px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.beauty_back_table div:first-child {
+    background-color: #e4b0b4;
+}
+
+.beauty_back_table div:nth-child(2) {
+    background-color:#f5ca7c;
+} */

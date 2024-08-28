@@ -1,0 +1,152 @@
+:root{
+    --color-primary:#90b9ab;
+    --color-secondary:#e4b0b4 ;
+    --color-phover:#afcfc4;
+    /* 狗狗顏色 */
+    --color-tertiary:#ffc971 ; 
+}
+body{
+    background: url(../img/00_index/geometry.png);
+    font-size: 1.2rem;
+}
+h2{
+   color: var(--color-primary);
+}
+.table>:not(caption)>*>* {
+    padding: 1rem ;
+}
+select{
+   width: 170px; 
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    --bs-table-accent-bg:#cbe9dd;
+}
+input{
+    width: 60%;
+}
+input[type="file"]::file-selector-button,#insertBtn,#updateBtn{
+    background-color:var(--color-primary);
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    box-shadow: 2px 2px 3px #569682;
+    font-weight: normal;
+    letter-spacing: 1.5px;
+    font-size: 1rem;
+    transition: .2s;
+}
+input[type="file"]::file-selector-button:hover ,#insertBtn:hover,#updateBtn:hover{
+    background-color:var(--color-phover);
+    color: #ffffff;
+    border: 1px solid var(--color-primary);
+}
+input[type="file"]::file-selector-button:active,#insertBtn:active,#updateBtn:active{
+    transform: scale(0.97);
+}
+input:not([type="file"]),select{
+    outline: 1px solid transparent;
+    border: 1px solid #cbe9dd;
+}
+input:not([type="file"]):focus,select:focus{
+    outline: 1px solid var(--color-secondary);
+    border: 1px solid transparent;
+}
+#insertBtn{
+    right: 0;
+    line-height: 30px;
+}
+th{
+    width: 20%;
+}
+#showDescImgs img ,#showCoverImg img,#showOthersImgs img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+input[name^="description"]{
+    display: block;
+    margin: 5px 0;
+}
+.descriptionInfo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #ffffff;
+    width: 50%;
+    box-shadow: 1px 2px 5px #ddd;
+    border-radius: 30px;
+    overflow: hidden;
+}
+.descriptionInfo img{
+    width: 100%;
+}
+.descriptionInfo p{
+    margin: 20px;
+    background-color: rgb(255, 255, 255);
+}
+.bi-x-circle-fill{
+    color: var(--color-primary);
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.bi-info-circle-fill{
+    cursor: pointer;
+
+}
+.info_opacity{
+    transition: .3s;
+    opacity: 0;
+}
+ /* 彈出視窗 */
+.modal-footer{
+    border: none;
+}
+button,.btn{
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    background-color:var(--color-primary);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 3px #569682;
+    letter-spacing: 1.5px;
+    transition: .2s;
+    /* display: block; */
+}
+button:hover,.btn:hover{
+    background-color:#a2c5ba;
+    color: #fff;
+}
+
+.page{
+    right: 200px;
+    top: 115px;
+}
+.page button{
+    box-shadow: none;
+}
+.page button.active{
+    background-color: var(--color-secondary);
+}
+/* header 下拉選項樣式 */
+.dropdown-item:focus {
+    background-color:#fff;
+}
+.dropdown-item:hover, .dropdown-item:active{
+    background-color: var(--color-phover);
+}
+@media (max-width:992px) {
+    .page{
+        top: 162px;
+    }
+}

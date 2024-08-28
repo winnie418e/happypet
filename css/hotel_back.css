@@ -1,0 +1,192 @@
+.back-container {
+  border: 10px solid black;
+}
+h2 {
+  margin: 0;
+  font-weight: normal;
+  color: #000;
+}
+/* calender */
+.input-icon {
+  position: relative;
+}
+.input-icon input {
+  padding-left: 2.5rem;
+}
+.input-icon .bi-calendar {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #aaa;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.date-box-shadow {
+  box-shadow: 0px 0px 6px 2px #c5c5c5;
+}
+/* 標題 */
+.remind {
+  font-size: 25px;
+}
+.inhotel::after {
+  content: ""; /*確保偽元素顯示 */
+  display: inline-block;
+  width: 40px; /* 線的長度 */
+  height: 25px; /* 線的高度 */
+  background-color: #90b9ab; /* 線的顏色 */
+  margin-left: 5px;
+  margin-right: 5px; /* 線和文字之間的距離 */
+  vertical-align: middle;
+}
+.nohotel::after {
+  content: ""; /*確保偽元素顯示 */
+  display: inline-block;
+  width: 40px;
+  height: 25px;
+  background-color: #ffc970;
+  margin-left: 5px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.outhotel::after {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 25px;
+  background-color: #bbbbbb;
+  margin-left: 5px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.inpetNamehotel {
+  background-color: #90b9ab;
+  margin-top: 5px;
+}
+.nopetName {
+  background-color: #ffc970;
+  margin-top: 5px;
+}
+.outpetName {
+  background-color: #bbbbbb;
+  margin-top: 5px;
+}
+.fixed-size {
+  height: 320px; /* 固定高度 */
+  display: flex;
+  flex-direction: column;
+}
+/* ordermodel */
+/* 視窗背景 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1050;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%; /* 調整內容寬度 */
+  max-width: 650px;
+  overflow-y: auto; /* 垂直滾動條 */
+  border-radius: 5px;
+}
+
+/* 表單元素樣式 */
+form div {
+  margin-bottom: 1px;
+  margin-top: 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 1px;
+  font-weight: bold;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+/* 備註欄位只能垂直調整 */
+textarea {
+  resize: vertical;
+}
+#saveBtn {
+  background-color: #90b9ab;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+#saveBtn:hover {
+  background-color: #90b9ab8e;
+  color: white;
+  border: none;
+}
+#cancelBtn {
+  background-color: #7d7b7bd6;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+#cancelBtn:hover {
+  background-color: #7d7b7b8b;
+  color: white;
+  border: none;
+}
+
+.col-6 {
+  flex: 1;
+  padding: 5px;
+}
+.delete:hover {
+  color: red;
+  cursor: pointer;
+}
+/* order_back */
+.myOrderThead {
+  color: white;
+  background-color: #90b9ab;
+  padding: 15px 10px;
+}
+.allOrderButton {
+  color: white;
+  background-color: #e4b0b4;
+  box-shadow: 0px 0px 6px 2px #c5c5c5;
+}
+.myOrderTbody {
+  background-color: #cccccc3a;
+  border-color: #c0c0c0cd;
+}
+
+.myOrderTbody tr {
+  padding: 10px 0;
+}
+
+.myOrderTbody td {
+  padding: 15px 10px;
+}
+.hotelbackorder {
+  box-shadow: 0px 0px 6px 2px #c5c5c5;
+}

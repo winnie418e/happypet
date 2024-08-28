@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>好寵你 | 後台首頁</title>
+
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/back_header_footerbeauty.css">
+    <script src="../../js/bootstrap.bundle.js"></script>
+    <script src="../../js/jquery-3.7.1.js"></script>
+
+    <!-- 使用CDN引入bootstrap-icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- 字型字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <!-- Header -->
+    <!-- Header -->
+    <!-- Header -->
+    <!-- Header -->
+    <header id="navbar" class="sticky-top ">
+        <div class="member nav_icon">
+            <a href="#" id="logout_btn">登出</a>
+        </div>
+        <div class="row align-items-center container-xl">
+            <div class="text-center col-xxl-3 col-xl-3 col-lg-12 col-md-12 col-ms-12 col-12">
+                <a class="" href="#">
+                    <img class="nav-logo m-2" src="../../img/LOGO.png" alt="">
+                </a>
+            </div>
+            <div class="col-xxl-9 col-xl-9 col-lg-12 col-md-12 col-ms-12 col-12">
+                <ul class="nav justify-content-center text-center">
+                    <li class="col-3 mt-3 mb-3 dropdown">
+                        <a href="" data-toggle="dropdown" class="dropdown-toggle" role="button" id="header_beauty"
+                            data-bs-toggle="dropdown" aria-expanded="false">美容預約</a>
+                        <ul class="dropdown-menu nav_drop" aria-labelledby="header_beauty">
+                            <li><a href="#" class="dropdown-item" id="beauty1">美容預約表</a></li>
+                        </ul>
+                    </li>
+                    <li class="col-3 mt-3 mb-3 dropdown">
+                        <a href="" data-toggle="dropdown" class="dropdown-toggle" role="button" id="header_hotel"
+                            data-bs-toggle="dropdown" aria-expanded="false">寵物住宿</a>
+                        <ul class="dropdown-menu nav_drop" aria-labelledby="header_hotel">
+                            <li><a href="#" class="dropdown-item" id="hotel1">旅館訂單</a></li>
+                            <li><a href="#" class="dropdown-item" id="hotel2">當日住宿</a></li>
+                        </ul>
+                    </li>
+                    <li class="col-3 mt-3 mb-3 dropdown">
+                        <a href="" data-toggle="dropdown" class="dropdown-toggle" role="button" id="header_product"
+                            data-bs-toggle="dropdown" aria-expanded="false">產品專區</a>
+                        <ul class="dropdown-menu nav_drop" aria-labelledby="header_product">
+                            <li><a href="#" class="dropdown-item" id="product1">產品主要內容</a></li>
+                            <li><a href="#" class="dropdown-item" id="product2">產品詳細資訊</a></li>
+                            <li><a href="#" class="dropdown-item" id="product3">產品入庫</a></li>
+                            <li><a href="#" class="dropdown-item" id="product4">上架中產品</a></li>
+                            <li><a href="#" class="dropdown-item" id="product5">未上架產品</a></li>
+                            <li><a href="#" class="dropdown-item" id="product6">產品查詢</a></li>
+                        </ul>
+                    </li>
+                    <li class="col-3 mt-3 mb-3 dropdown">
+                        <a href="" data-toggle="dropdown" class="dropdown-toggle" role="button"
+                            id="header_product_order" data-bs-toggle="dropdown" aria-expanded="false">產品訂單</a>
+                        <ul class="dropdown-menu nav_drop" aria-labelledby="header_product_order">
+                            <li><a href="#" class="dropdown-item" id="product_order1">產品訂單資訊</a></li>
+                            <li><a href="#" class="dropdown-item" id="product_order2">會員訂單紀錄</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- Header end -->
+    <!-- Header end -->
+    <!-- Header end -->
+    <!-- Header end -->
+    <!-- Header end -->
+
+    <main>
+        <div class="px-5 mt-4">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="ps-5 mb-0 color_primary_self">美容預約表</h2>
+                <div id="select_week">
+                    <button class="me-4 px-4 py-2 bgc_primary_self text-white rounded border-white" id="last_week">上一週</button>
+                    <button class="me-5 px-4 py-2 bgc_primary_self text-white rounded border-white" id="next_week">下一週</button>
+                </div>
+            </div>
+
+            <!-- 一周時間表 -->
+            <div class="mt-4" id="beauty_back_table_div">
+
+                <table class="beauty_back_table w-100 text-center">
+                    <tbody>
+                        <tr class="bgc_primary_self text-white">
+                            <th></th>
+                            <th colspan="3">7/1 一</th>
+                            <th colspan="3">7/1 二</th>
+                            <th colspan="3">7/1 三</th>
+                            <th colspan="3">7/1 四</th>
+                            <th colspan="3">7/1 五</th>
+                            <th colspan="3">7/1 六</th>
+                        </tr>
+                        <tr>
+                            <td>10:00~10:30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>10:30~11:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>11:00~11:30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>11:30~12:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>12:00~12:30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>12:30~13:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>13:00~13:30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>13:30~14:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>14:00~14:30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>14:30~15:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>15:00~15:30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>15:30~16:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>16:00~16:30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>16:30~17:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>17:00~17:30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>17:30~18:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <!-- 彈出視窗 -->
+            <div class="modal fade" id="exampleModalshowpet" tabindex="-1" aria-labelledby="exampleModalshowpetLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalshowpetLabel">明細</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body row">
+                            <div class="d-flex container col-12">
+                                <div class="me-4 back_petimg_div  d-flex align-items-center">
+                                    <img id="show_window_pet_headphoto" src="../../img/20_beauty/petheadshot_none.png"
+                                        alt="" class="img-fluid">
+                                </div>
+                                <div class="d-flex flex-column justify-content-center">
+                                    <p>名字 : <span id="show_window_pet_name">小白</span></p>
+                                    <p>生日 : <span id="show_window_pet_birthday">1995/5/1</span></p>
+                                    <p>飼主 : <span id="show_window_username">張先生</span></p>
+                                    <p>電話 : <span id="show_window_cellphone">0975114488</span></p>
+                                    <p>美容方案 : <span id="show_window_plan_title">大美容</span></p>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="p-3 mt-3 col-12 border">
+                                    <p>備註 :</p>
+                                    <p id="show_window_other">哈哈哈</p>
+                                </div>
+                                <div class="p-3 mt-3 col-12 border">
+                                    <p>歷史紀錄:</p>
+                                    <div id="history_order">
+                                        <p>2021/08/05 大美容</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div> -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 權限不足 -->
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div> -->
+                    <div class="modal-body d-flex justify-content-center fs-4">
+                        權限不足
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 起始點 top:107 left:190 一格 高度40 寬度:5.555% -->
+        <div id="canvas_out_div" class="px-5 w-100 d-flex">
+            <div class="left_box"></div>
+            <div class="w-90" id="canvas_div">
+                <!-- <canvas id="myCanvas" width="70" height="160" style="position: absolute; border: black solid 1px; background-color: rgb(255, 255, 255); top: 0px; left: 0px;"></canvas> -->
+
+                <!-- <div class="order_box"
+                    style="top: 40px;  left: 0px;  height: 80px;  width: 5.555%; background-color: aquamarine;">ssss
+                </div>
+                <div class="order_box"
+                    style="top: 40px;  left: 5.555%;  height: 80px;  width: 5.555%; background-color: aquamarine;">ssss
+                </div>
+                <div class="order_box"
+                    style="top: 40px;  left: 94.435%;  height: 80px;  width: 5.555%; background-color: aquamarine;">ssss
+                </div>
+                <div class="order_box"
+                    style="top: 560px;  left: 94.435%;  height: 80px;  width: 5.555%; background-color: aquamarine;">
+                    ssss</div> -->
+            </div>
+
+        </div>
+
+        <br><br><br>
+    </main>
+
+    <script type="application/javascript">
+
+        // 顯示已預約訂單 到畫面上
+        function draw(arr, order_create_day) {
+            canvas_div.innerHTML = '';
+            console.log(arr);
+            // 周一
+            let this_week_first_day = new Date(order_create_day);
+            this_week_first_day.setDate(this_week_first_day.getDate() + 1 - this_week_first_day.getDay());
+            this_week_first_day.setHours(8);
+            this_week_first_day.setMinutes(0);
+            this_week_first_day.setSeconds(0);
+            this_week_first_day.setMilliseconds(0);
+            console.log('第一天', this_week_first_day);
+
+            // 周六
+            let this_week_last_day = new Date(order_create_day);
+            this_week_last_day.setDate(this_week_last_day.getDate() + 1 - this_week_last_day.getDay() + 5);
+            this_week_last_day.setHours(8);
+            this_week_last_day.setMinutes(0);
+            this_week_last_day.setSeconds(0);
+            this_week_last_day.setMilliseconds(0);
+            console.log('最後一天', this_week_last_day);
+
+            // 宣告三維陣列 要放 order 同一時段順序
+            let beauty_plan_order_sort_num = [];
+            for (i = 0; i < 6; i++) {
+                beauty_plan_order_sort_num[i] = [];
+                for (k = 0; k < 16; k++) {
+                    beauty_plan_order_sort_num[i][k] = [];
+                }
+            }
+
+            arr.forEach((element, index) => {
+
+                // 開始時間
+                // console.log(element.start_time);
+                let start_time = (parseInt(element.start_time.split(" ")[1].split(':')[0]) - 10) * 2 + parseInt(element.start_time.split(" ")[1].split(':')[1]) / 30;
+                // console.log(start_time);
+
+                // 預約日期
+                console.log(element.start_time.split(" ")[0]);
+                let start_day = new Date(element.start_time.split(" ")[0]);
+                console.log('開始日', start_day);
+                let iDays = parseInt(Math.abs(start_day - this_week_first_day) / 1000 / 60 / 60 / 24);
+                console.log('相差天數', iDays);
+
+                // 方案時間長度有幾個半小時
+                // console.log(element.use_time.split(":"));
+                let half_hour = parseInt(element.use_time.split(":")[0]) * 2 + parseInt(element.use_time.split(":")[1]) / 30;
+                // console.log(half_hour);
+
+                // 排第幾格 每一個時段可以放三個
+                for (c = 0; c < 3; c++) {
+                    let order_in = 0;
+                    let empty_space = 0;
+                    for (i = 0; i < half_hour; i++) {
+                        // beauty_plan_order_sort_num[iDays][start_time + i][c];
+                        if (beauty_plan_order_sort_num[iDays][start_time + i][c] == undefined) {
+                            empty_space += 1;
+                            if (empty_space == half_hour) {
+                                order_in = 1;
+                                for (n = 0; n < half_hour; n++) {
+                                    beauty_plan_order_sort_num[iDays][start_time + n][c] = element.boid;
+                                }
+                            }
+                        }
+                    }
+                    if (order_in) {
+                        canvas_div.innerHTML += `
+                        <div id="order_box_id${element.boid}" data-bs-toggle="modal" data-bs-target="#exampleModalshowpet" data-pid="${element.pid}" data-pet_name="${element.pet_name}" data-pet_birthday="${element.pet_birthday}" data-user_name="${element.cname}" data-cellphone="${element.cellphone}" data-plan_title="${element.plan_title}" data-others="${element.others}" data-pet_head="${element.pet_headphoto}" class="beauty_pet_plan_box order_box d-flex align-items-center justify-content-center" style="top: ${start_time * 40}px;  left: ${(iDays * 3 + c) * 5.55}%;  height: ${half_hour * 40 - 1}px;  width: 5.463%;">${element.pet_name}</div>
+                        `;
+                        break;
+                    }
+                }
+
+                // <canvas id="myCanvas${element.boid}" width="70" style="position: absolute; border: black solid 1px; background-color: rgb(255, 255, 255); top: ${start_time*40}px; left: ${index*71}px;"></canvas>
+
+                // canvas_div.innerHTML += `
+                // <div id="order_box_id${element.boid}" class="order_box d-flex align-items-center justify-content-center" style="top: ${start_time * 40}px;  left: ${(iDays * 3) * 5.55}%;  height: ${half_hour * 40 - 1}px;  width: 5.5%; background-color: white;">${element.pet_name}</div>
+
+                // `;
+                // $(`order_box_id${element.boid}`).css({ top: '40px', left: '0px', height: '80px', width: '5.555%', backgroundColor: 'aquamarine' });
+
+            });
+
+            // console.log(beauty_plan_order_sort_num);
+
+            // var c = document.getElementById("myCanvas");
+            // var ctx = c.getContext("2d");
+            // let x = myCanvas.width/2;
+            // let y = myCanvas.height/2
+            // ctx.font = "18px LXGW WenKai TC";
+            // ctx.textAlign = 'center';
+            // ctx.fillText("小白", x, y);
+        }
+
+    </script>
+
+    <script>
+        window.onload = () => {
+
+                        // 複製 這裡
+            if (sessionStorage.getItem('ahref')) {
+                console.log('超連結');
+                
+                let ahref = [['beauty1'], ['hotel1', 'hotel2'], ['product1', 'product2', 'product3', 'product4', 'product5', 'product6'], ['product_order1', 'product_order2']];
+                let sess_herf = sessionStorage.getItem('ahref').split('**').map(element => element.split(','));
+                // 進網頁給超連結
+                for (let i = 0; i < sess_herf.length; i++) {
+                    for (k = 0; k < sess_herf[i].length; k++) {
+                        document.getElementById(`${ahref[i][k]}`).href = sess_herf[i][k];
+                    }
+                }
+            }
+
+            logout_btn.onclick = () => {
+                console.log('登出');
+
+                sessionStorage.removeItem('token');
+                sessionStorage.removeItem('refreshToken');
+                sessionStorage.removeItem('uid');
+                sessionStorage.removeItem('ahref');
+
+                window.location.href = "../../00_index/back/index_back.html";
+            }
+
+            $('.nav>li>ul>li').on('click', 'a', function () {
+                if ($(this).attr("href") == '#') {
+                    var myModal = new bootstrap.Modal(document.getElementById("exampleModal"), {});
+                    myModal.show();
+                    console.log('權限不足');
+                }
+                // console.log($(this).attr("href"));
+            })
+
+            // 複製 到這裡
+
+            // 彈出視窗
+            $('#canvas_div').on('click', 'div', function () {
+                let today_date = new Date();
+                today_date = `${today_date.getFullYear()}-${today_date.getMonth() + 1}-${today_date.getDate()}`;
+                show_window_pet_name.innerHTML = $(this).data('pet_name');
+                show_window_pet_birthday.innerHTML = $(this).data('pet_birthday').replaceAll('-', ' / ');
+                show_window_username.innerHTML = $(this).data('user_name');
+                show_window_cellphone.innerHTML = $(this).data('cellphone');
+                show_window_plan_title.innerHTML = $(this).data('plan_title');
+                show_window_other.innerHTML = $(this).data('others');
+                show_window_pet_headphoto.src = $(this).data('pet_head').split(',')[1] ? $(this).data('pet_head') : '../../img/20_beauty/petheadshot_none.png';
+                history_order.innerHTML = '';
+
+                // lala fetch
+                fetch(`http://localhost/happypet/happypet_back/public/api/back_beauty_get_history_order_onepet/${$(this).data('pid')}/${today_date}`,).then(res => res.json()).then(data => {
+
+                    // console.log(data);
+                    // console.log( parseInt(data[0].date.split('-')[0]+data[0].date.split('-')[1]+data[0].date.split('-')[2]));
+
+                    // data.sort(function (a, b) {
+                    //     return parseInt(b.date.split('-')[0] + b.date.split('-')[1] + b.date.split('-')[2]) - parseInt(a.date.split('-')[0] + a.date.split('-')[1] + a.date.split('-')[2]);
+                    // })
+
+                    data.forEach(element => {
+                        history_order.innerHTML += `<p>${element.date} ${element.plan_title}</p>`;
+                    });
+                })
+
+                // 純php
+                // fetch(`http://localhost/test/back/back_beauty_get_history_order.php?pid=${$(this).data('pid')}&date=${today_date}`,).then(res => res.json()).then(data => {
+                //     data.forEach(element => {
+                //         history_order.innerHTML += `<p>${element.date} ${element.plan_title}</p>`;
+                //     });
+                // })
+            })
+
+
+
+            // 取得單周訂單資料
+            async function get_beauty_order(x = 0) {
+
+                // 靜態變數
+                if (get_beauty_order.order_creatweek == 'undefined') {
+                    let order_creatweek = new Date();
+                }
+                // 按輸入框生成今天這個月
+                if (x == 0) {
+                    console.log('今天');
+                    order_creatweek = new Date();
+                } else if (x == -1) { // 上周
+                    console.log('上周');
+                    order_creatweek.setDate(order_creatweek.getDate() - 7);
+                } else if (x == 1) {  // 下周
+                    console.log('下周');
+                    order_creatweek.setDate(order_creatweek.getDate() + 7);
+                }
+
+
+                // 週一
+                let create_week_first_day = new Date(order_creatweek);
+                create_week_first_day.setDate(create_week_first_day.getDate() + 1 - create_week_first_day.getDay());
+                console.log(create_week_first_day);
+                // 週六
+                let create_week_last_day = new Date(order_creatweek);
+                create_week_last_day.setDate(create_week_last_day.getDate() + 1 - create_week_last_day.getDay() + 5);
+                console.log(create_week_last_day);
+
+                let first_date = `${create_week_first_day.getFullYear()}-${create_week_first_day.getMonth() + 1}-${create_week_first_day.getDate()}`;
+                let last_date = `${create_week_last_day.getFullYear()}-${create_week_last_day.getMonth() + 1}-${create_week_last_day.getDate()}`;
+
+                console.log(first_date, last_date);
+
+                // lala fetch
+                let beauty_order_info = await (await fetch(`http://localhost/happypet/happypet_back/public/api/back_beauty_get_order_oneweek/${first_date}/${last_date}`)).json();
+
+                // 純php
+                // let beauty_order_info = await (await fetch(`http://localhost/test/back/back_beauty_get_order.php?first_date=${first_date}&last_date=${last_date}`)).json();
+                // console.log(beauty_order_info);
+
+                draw(beauty_order_info, order_creatweek);
+            }
+
+            get_beauty_order();
+
+            // 生成一周時間表
+            function create_schedule(x = 0) {
+
+                // 靜態變數
+                if (create_schedule.creatweek == 'undefined') {
+                    let creatweek = new Date();
+                }
+                // 按輸入框生成今天這個月
+                if (x == 0) {
+                    console.log('今天');
+                    creatweek = new Date();
+                } else if (x == -1) { // 上周
+                    console.log('上周');
+                    creatweek.setDate(creatweek.getDate() - 7);
+                } else if (x == 1) {  // 下周
+                    console.log('下周');
+                    creatweek.setDate(creatweek.getDate() + 7);
+                }
+
+                // 這周周一
+                let create_week = new Date(creatweek);
+
+                create_week.setDate(create_week.getDate() + 1 - create_week.getDay());
+                console.log('生成', create_week);
+
+                const week_day = ['一', '二', '三', '四', '五', '六'];
+
+                let new_week_schedule = `
+                    <table class="beauty_back_table w-100 text-center">
+                    <tbody>
+                        <tr class="bgc_primary_self text-white">
+                            <th></th>`;
+                for (let i = 0; i < 6; i++) {
+                    // console.log(create_week.getMonth() + 1, create_week.getDate());
+                    new_week_schedule += `<th colspan="3">${create_week.getMonth() + 1}/${create_week.getDate()}  ${week_day[i]}</th>`;
+                    create_week.setDate(create_week.getDate() + 1);
+                }
+                new_week_schedule += `
+                        </tr>
+                        <tr>
+                            <td>10:00~10:30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>10:30~11:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>11:00~11:30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>11:30~12:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>12:00~12:30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>12:30~13:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>13:00~13:30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>13:30~14:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>14:00~14:30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>14:30~15:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>15:00~15:30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>15:30~16:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>16:00~16:30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>16:30~17:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>17:00~17:30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>17:30~18:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>`;
+
+                beauty_back_table_div.innerHTML = new_week_schedule;
+            }
+
+
+            // 上一周
+            document.getElementById('last_week').addEventListener('click', function () {
+                create_schedule(-1);
+                get_beauty_order(-1);
+            });
+
+            // 下一周
+            document.getElementById('next_week').addEventListener('click', function () {
+                create_schedule(1);
+                get_beauty_order(1);
+            });
+
+            create_schedule();
+
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>旅館後台|旅館訂單</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/back_header.css" />
+    <link rel="stylesheet" href="../../css/hotel_back.css" />
+    <!-- 使用CDN引入bootstrap-icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- 引用flatpickr -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+
+    <!-- 字型字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 引用flatpickr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/zh.js"></script>
+    <script src="../../js/flatpickr.js"></script>
+    <script src="../../js/bootstrap.bundle.js"></script>
+    <script src="../../js/popper.min.js"></script>
+
+  </head>
+  <body>
+    <!-- nav -->
+     <!-- nav -->
+     <header id="navbar" class="sticky-top">
+      <div class="member nav_icon">
+        <a href="#" id="logout_btn">登出</a>
+      </div>
+      <div class="row align-items-center container-xl">
+        <div
+          class="text-center col-xxl-3 col-xl-3 col-lg-12 col-md-12 col-ms-12 col-12"
+        >
+          <a class="" href="../../00_index/back/index_back.html">
+            <img class="nav-logo m-2" src="../../img/LOGO.png" alt="" />
+          </a>
+        </div>
+        <div class="col-xxl-9 col-xl-9 col-lg-12 col-md-12 col-ms-12 col-12">
+          <ul class="nav justify-content-center text-center">
+            <li class="col-3 mt-3 mb-3 dropdown">
+              <a
+                href=""
+                data-toggle="dropdown"
+                class="dropdown-toggle"
+                role="button"
+                id="header_beauty"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >美容預約</a
+              >
+              <ul
+                class="dropdown-menu nav_drop"
+                aria-labelledby="header_beauty"
+              >
+                <li>
+                  <a href="../../20_beauty/back/beauty_back.html" class="dropdown-item" id="beauty1">美容預約表</a>
+                </li>
+              </ul>
+            </li>
+            <li class="col-3 mt-3 mb-3 dropdown">
+              <a
+                href=""
+                data-toggle="dropdown"
+                class="dropdown-toggle"
+                role="button"
+                id="header_hotel"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >寵物住宿</a
+              >
+              <ul class="dropdown-menu nav_drop" aria-labelledby="header_hotel">
+                <li>
+                  <a href="../../30_hotel/back/order_back.html" class="dropdown-item" id="hotel1">旅館訂單</a>
+                </li>
+                <li>
+                  <a href="../../30_hotel/back/hotel_today_back.html" class="dropdown-item" id="hotel2">當日住宿</a>
+                </li>
+              </ul>
+            </li>
+            <li class="col-3 mt-3 mb-3 dropdown">
+              <a
+                href=""
+                data-toggle="dropdown"
+                class="dropdown-toggle"
+                role="button"
+                id="header_product"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >產品專區</a
+              >
+              <ul
+                class="dropdown-menu nav_drop"
+                aria-labelledby="header_product"
+              >
+                <li>
+                  <a href="../../40_product/back/main_info.html" class="dropdown-item" id="product1"
+                    >產品主要內容</a
+                  >
+                </li>
+                <li>
+                  <a href="../../40_product/back/detail_info.html" class="dropdown-item" id="product2"
+                    >產品詳細資訊</a
+                  >
+                </li>
+                <li>
+                  <a href="../../40_product/back/warehouse.html" class="dropdown-item" id="product3">產品入庫</a>
+                </li>
+                <li>
+                  <a href="../../40_product/back/on_shelves.html" class="dropdown-item" id="product4">上架中產品</a>
+                </li>
+                <li>
+                  <a href="../../40_product/back/remove_shelves.html" class="dropdown-item" id="product5">未上架產品</a>
+                </li>
+                <li><a href="../../40_product/back/all_product.html" class="dropdown-item" id="product6">產品查詢</a></li>
+              </ul>
+            </li>
+            <li class="col-3 mt-3 mb-3 dropdown">
+              <a
+                href=""
+                data-toggle="dropdown"
+                class="dropdown-toggle"
+                role="button"
+                id="header_product_order"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >產品訂單</a
+              >
+              <ul
+                class="dropdown-menu nav_drop"
+                aria-labelledby="header_product_order"
+              >
+                <li>
+                  <a href="../../10_member/back/product_orders.html" class="dropdown-item" id="product_order1"
+                    >產品訂單資訊</a
+                  >
+                </li>
+                <li>
+                  <a href="../../10_member/back/member_orders.html" class="dropdown-item" id="product_order2"
+                    >會員訂單紀錄</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </header>
+
+    <div>
+    <h1 class="container mt-4">旅館訂單</h1>
+   </div>
+
+    <div class="container mt-3 ">
+      <div class="row">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="col-4">
+          <button id="allOrderButton" class="allOrderButton btn btn-lg mt-4">全部訂單</button>
+      </div>
+      
+      <!-- 搜尋欄 -->
+      <div class="container col-5 d-flex justify-content-end mt-4"> 
+        <form id="searchForm" class="d-flex" role="search">
+            <input
+                id="userInput"
+                class="form-control-lg me-2 p-2"
+                type="search"
+                placeholder="查詢訂購人"
+                aria-label="Search"
+                value=""
+            />
+            <button id="searchButton" class="btn btn-outline-secondary form-control-lg fs-5 px-3" type="submit">
+                搜尋
+            </button>
+        </form>
+    </div>
+    
+        <!-- calender -->
+        <div class="col-3 d-flex justify-content-end mt-3">
+        <form>
+          <div class="d-flex align-items-center ">
+            <div class="input-icon">
+              <i class="bi bi-calendar"></i>
+              <input
+                id="checkin"
+                class="form-control-lg border-0 date-box-shadow ps-5"
+                placeholder="查詢入住/退房日期"
+                data-date-format="Y/m/d"
+              /></div>
+            </div>
+          </div>
+        </form>
+      </div>
+      </div>
+    </div>
+    <!-- table -->
+    <div class="container pt-3">
+    <table class="table border-0 fs-5 text-center hotelbackorder">
+      <thead class="myOrderThead fs-3 ">
+        <tr>
+          <th scope="col" class="col-2">訂單編號</th>
+          <th scope="col" class="col-2">訂購人</th>
+          <th scope="col" class="col-3">房客</th>
+          <th scope="col" class="col-1">房型</th>
+          <th scope="col" class="col-2">入住日期</th>
+          <th scope="col" class="col-2">退房日期</th>
+        </tr>
+      </thead>
+      <tbody id="ordersTableBack" class="myOrderTbody fs-4">
+      </tbody>
+    </table>
+    <div id="ordersNotContainer" class="fs-2 text-center pt-5"></div>
+</div>
+<!-- 引入購物車數量 -->
+<script src="../../js/queryQuantity.js"></script>
+<script src="../../js/order_back.js"></script>
+  </body>
+</html>

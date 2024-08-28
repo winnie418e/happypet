@@ -1,0 +1,245 @@
+#searchBtn {
+  color: white;
+  background-color: #7d868ed4;
+  border: none;
+  border-radius: 5px;
+  width: 120px;
+  height: 40px;
+}
+#searchBtn:hover {
+  background-color: #7d868e;
+}
+/* calender */
+.input-icon {
+  position: relative;
+}
+.input-icon input {
+  padding-left: 2.5rem;
+}
+.input-icon .bi-calendar {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #aaa;
+}
+.myCalendar {
+  height: 100px;
+  background-color: #90b9ab;
+}
+.date-box-shadow {
+  box-shadow: 0px 0px 6px 2px #c5c5c5;
+}
+
+@media (max-width: 768px) {
+  .input-icon input {
+    width: 100%;
+  }
+}
+
+/* hotel */
+
+.image-container {
+  position: relative;
+  width: 100%;
+  color: ghostwhite;
+}
+
+.hotelimg {
+  width: 100%;
+  height: 400px;
+}
+
+.centered-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  letter-spacing: 5px;
+}
+
+.myProduct {
+  width: 430px;
+  box-shadow: 0px 0px 6px 2px #c5c5c5;
+}
+#myProductimg {
+  width: 425px;
+  /* width: 100%; */
+}
+.room {
+  background-color: #90b9ab;
+}
+.choose {
+  color: white;
+  background-color: #e4b0b4;
+  border: none;
+  border-radius: 5px;
+}
+.choose:hover {
+  color: white;
+  background-color: #e4b0b4b7;
+  border: none;
+  border-radius: 5px;
+}
+@media (max-width: 820px) {
+  .ps-5.col-9 {
+    place-items: center;
+    width: 100%;
+  }
+
+  .room-info-container {
+    width: 100%;
+  }
+}
+
+.form-check {
+  display: inline-block;
+  margin-right: -8px;
+}
+.form-check-label {
+  margin-left: -5px;
+}
+
+/* products price */
+#priceTable {
+  box-shadow: 0px 0px 6px 2px #c5c5c5;
+}
+
+@media (max-width: 820px) {
+  #priceTable {
+    width: 100%;
+    max-width: none;
+    margin-top: 20px;
+  }
+  .price-table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 垂直居中（如果需要） */
+    width: 100%;
+  }
+}
+
+#mythead {
+  background-color: #e4b0b4;
+}
+.custom-table .text-light {
+  background-color: #bbbbbb;
+}
+
+/* shoppingcar */
+.myshopping {
+  border-top: 10px solid #90b9ab;
+  box-shadow: 0px 0px 6px 2px #c5c5c5;
+}
+.shoppingcarfixed {
+  position: sticky;
+  top: 85px;
+  right: 0;
+  left: 0;
+}
+
+@media (max-width: 820px) {
+  .shoppingcarfixed {
+    position: relative;
+    margin-top: 20px;
+    width: 100%; /* 確保佔據整個容器寬度 */
+  }
+
+  .order-md-last {
+    order: 1; /* 確保在小螢幕時購物車出現在最後 */
+  }
+
+  .row {
+    flex-direction: column; /* 確保在小螢幕時，所有 col 都垂直排列 */
+  }
+
+  .col-md-3 {
+    width: 100%;
+  }
+}
+@media (max-width: 820px) {
+  .shoppingcarfixed .btn {
+    font-size: 1.5rem; /* 調整字體大小 */
+    width: 100%; /* 讓按鈕佔滿寬度 */
+  }
+}
+
+/* productQuantity  */
+.hotelQuantity {
+  width: 80px;
+  height: 40px;
+}
+.scroll-container {
+  max-height: 400px; /* 設定滾動容器的最大高度 */
+  overflow-y: auto; /* 啟用垂直滾動條 */
+  border: 1px solid #ccc; /* 可以根據需要調整邊框 */
+  padding: 10px; /* 可選的內邊距 */
+}
+
+/* =============== hotel_order =================== */
+
+/* progress */
+.progress-step {
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+.progress-step::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 8px;
+  background-color: #ccc;
+  z-index: 1;
+}
+.progress-step.active::before {
+  background-color: #90b9ab;
+}
+.progress-circle {
+  background-color: #ccc;
+  color: white;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+}
+.progress-step.active .progress-circle {
+  background-color: #90b9ab;
+}
+/* order */
+.table {
+  box-shadow: 0px 0px 6px 2px #c5c5c5;
+}
+.mythead {
+  color: white;
+  background-color: #e4b0b4;
+}
+/* notice */
+.myh2,
+.myh3,
+.myh4 {
+  background-color: #90b9ab;
+  color: white;
+  border-radius: 50px;
+  letter-spacing: 4px;
+}
+#myp1,
+#myp2,
+#myp3 {
+  display: none;
+}
+.warning-text {
+  color: rgb(245, 89, 89);
+  font-weight: bold;
+}
+
+/* check */
+.custom-container {
+  margin-top: 60px;
+  margin-bottom: 30px;
+}

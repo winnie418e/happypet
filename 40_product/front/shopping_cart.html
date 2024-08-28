@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>好寵你 | 購物車</title>
+
+  <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../css/header_footer.css" />
+  <!-- 引入自己的css -->
+  <link rel="stylesheet" href="../../css/orders.css" />
+
+  <script src="../../js/bootstrap.bundle.js"></script>
+
+  <!-- 使用CDN引入bootstrap-icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <!-- 字型字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <script src="../../js/jquery-3.7.1.js" data-auto-replace-svg="nest"></script>
+  <!-- React -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+
+<body>
+  <header id="navbar" class="sticky-top headerPage"></header>
+
+  <main id="root" class="mb-5"></main>
+
+  <footer class="footerPage"></footer>
+  >
+</body>
+
+<script type="text/babel">
+  $(".headerPage").load("../../99_Huei/header_.html");
+  $(".footerPage").load("../../99_Huei/footer_.html");
+
+  window.onload = function () {
+    let cartQuantity = localStorage.getItem("cartQuantity")
+    if (!cartQuantity) {
+      // cartQuantity.style.display = 'none'
+      $('.nav_icon .cart_quantity').addClass('d-none');
+    } else {
+      // cartQuantity.style.display = 'block'
+      $('.nav_icon .cart_quantity').removeClass('d-none');
+      $('.nav_icon .cart_quantity').text(cartQuantity);
+      // console.log("購物車quantity localStorage",localStorage.getItem("cartQuantity"))
+    }
+  }
+  let myReactRoot = ReactDOM.createRoot(document.getElementById("root"));
+
+  //刪除警示
+  function Modal({ handleClickDelete, clickpid, setmakesure_, makesure_ }) {
+
+    function maketrue() {
+      setmakesure_(++makesure_);
+      handleClickDelete(clickpid)
+    }
+
+    function makezero() {
+      // console.log($('.chooseno').attr('data-zero'));
+      if ($('.chooseno').attr('data-zero') == 0) {
+        $('.quantity').attr('data-q', 1);
+        setmakesure_(++makesure_);
+        $('.chooseno').removeAttr('data-zero')
+      }
+    }
+
+    return (
+      <React.Fragment>
+        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-body">
+                <h4>請問是否要刪除此項產品？</h4>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn secondcolor chooseno" data-bs-dismiss="modal" onClick={() => { makezero() }}>否</button>
+                <button type="button" className="btn primarycolor" data-bs-dismiss="modal" onClick={() => { maketrue() }}>是</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
+    )
+  }
+
+  function Money({
+    price,
+    quantity_temp,
+    setclickpid,
+    makesure_,
+    numberComma,
+    setproductitem,
+    productitem,
+  }) {
+    let [quantity, setquantity] = React.useState(0);
+
+    React.useEffect(function () {
+      console.log($('.quantity').attr('data-q'));
+
+      if ($('.quantity').attr('data-q') == 1) {
+        setquantity(1);
+      } else {
+        setquantity(quantity_temp)
+      }
+    }, [makesure_])
+
+    let handleClickadd = () => {
+      setquantity(++quantity);
+      let pickid =
+        event.target.parentNode.parentNode.parentNode.lastChild.childNodes[0]
+          .id;
+
+      let updatedProductItem = productitem.map((item) => {
+        if (item.product_id === pickid) {
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
+      setproductitem(updatedProductItem);
+    };
+    let handleClickdash = () => {
+      let pickid =
+        event.target.parentNode.parentNode.parentNode.lastChild.childNodes[0]
+          .id;
+      setclickpid(pickid);
+      if (quantity) {
+        setquantity(--quantity);
+      }
+
+      let updatedProductItem = productitem.map((item) => {
+        if (item.product_id === pickid) {
+          return { ...item, quantity: item.quantity - 1 };
+        }
+        return item;
+      });
+      setproductitem(updatedProductItem);
+
+      //跳刪除警示
+      if (quantity == 0) {
+        var myModal = new bootstrap.Modal(document.getElementById("exampleModal"), {});
+        myModal.show();
+        $('.chooseno').attr('data-zero', 0);
+      }
+    }
+
+
+    return (
+      <React.Fragment>
+        <th >$ {numberComma(price)}</th>
+        <th >
+          <div>
+            <i className="bi bi-dash-square px-2" data-bs-target="#exampleModal" onClick={handleClickdash}></i>
+            <label className="quantity">{quantity}</label>
+            <i className="bi bi-plus-square px-2" onClick={handleClickadd}></i>
+          </div>
+        </th>
+        <th >$ {numberComma(quantity * price)}</th>
+      </React.Fragment>
+    )
+
+  }
+
+  let Count = ({ productitem, numberComma }) => {
+    let [total, settotal] = React.useState(0);
+    // console.log('Count', productitem);
+
+    function cula() {
+      // let [...money] = productitem
+      let total_ = 0;
+      let ttemp = productitem.map((value) => {
+        total_ += value.price * value.quantity;
+        // console.log(total_);
+        return total_;
+      });
+      return ttemp[ttemp.length - 1];
+    }
+
+    React.useEffect(
+      function () {
+        settotal(cula());
+        localStorage.setItem("total", numberComma(cula()));
+      },
+      [productitem]
+    );
+    return (
+      <p className="col-11 text-end fs-4 mx-5  mb-4 px-5 col-1">
+        NT$ {numberComma(total)}{" "}
+      </p>
+    );
+  };
+
+  function Main() {
+    //千分位轉換
+    function numberComma(num = "") {
+      let comma = /\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g;
+      return num.toString().replace(comma, ",");
+    }
+
+    //規格
+    function specification(flavor, weight, style, size) {
+      let sp = [];
+      // str = str + (flavor ? <p> 口味： {flavor} </p> : '');
+      sp.push(flavor ? `口味： ${flavor}` : "");
+      sp.push(weight ? `淨重： ${weight}` : "");
+      sp.push(style ? `款式： ${style}` : "");
+      sp.push(size ? `尺寸： ${size}` : "");
+      // console.log('str', sp);
+      return sp;
+    }
+    //物種
+    let species = (pid) => (pid.substring(0, 1) == "d" ? "狗" : "貓");
+
+    let [productitem, setproductitem] = React.useState([]);
+    let [clickpid, setclickpid] = React.useState('');
+    let [makesure_, setmakesure_] = React.useState(0);
+    React.useEffect(function () {
+      async function getproductData() {
+        let response = await fetch('http://localhost/happypet/happypet_back/public/api/orderdetailwithuid',
+          {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              "uid": "2"
+            })
+          }
+        );
+        let data = await response.json()
+        setproductitem(data);
+        if (data[0]) {
+          //存order_number
+          let { order_number } = data[0];
+          localStorage.setItem('order_number', order_number);
+        }
+
+      }
+      getproductData();
+    }, [])
+
+
+
+    async function deleteproductData(pid) {
+      let response = await fetch('http://localhost/happypet/happypet_back/public/api/orderdetail_delete',
+        {
+          method: "DELETE",
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            "uid": "2",
+            "product_id": pid
+          })
+        }
+      );
+    }
+    let showdelete_modal = () => {
+      var myModal = new bootstrap.Modal(document.getElementById("exampleModal"), {});
+      myModal.show();
+      setclickpid(event.target.id);
+      // handleClickDelete(event.target.id);
+    }
+
+    let handleClickDelete = (pid) => {
+      // showdelete_modal();
+      // console.log(pid);
+      let temp = productitem.filter(value => value.product_id != pid ? value : '');
+      setproductitem(temp);
+      setmakesure_(++makesure_);
+      deleteproductData(pid);
+    }
+
+
+    async function updatefproduct(updatedata) {
+      let response = await fetch(
+        "http://localhost/happypet/happypet_back/public/api/productqupdate",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ nupdatedata: updatedata }),
+        }
+      );
+
+      // console.log('updatedata', updatedata);
+
+    }
+
+    let handleClicktoBill = () => {
+      let nupdatedata = [];
+      productitem.forEach((element) => {
+        let { product_id, order_number, quantity } = element;
+        nupdatedata.push({
+          product_id,
+          order_number,
+          quantity,
+        });
+      });
+      updatefproduct(nupdatedata);
+
+      // console.log('productitem', JSON.stringify(nupdatedata));
+
+      document.location.href = "./checkout_counter.html";
+    };
+
+    let handleClicktoBuy = () => {
+      document.location.href = "./product.html";
+    };
+
+    return (
+      <React.Fragment>
+        <div className="container mt-5">
+          <table className="table text-center align-middle justify-content-center">
+            <thead className="fs-5">
+              <tr>
+                <th></th>
+                <th className="text-start" scope="col">商品明細</th>
+                <th scope="col">物種</th>
+                <th scope="col">價格</th>
+                <th scope="col">數量</th>
+                <th scope="col">小計</th>
+                <th scope="col">刪除</th>
+              </tr>
+            </thead>
+            <tbody className="align-middle">
+              {
+                productitem.map((value, i) => {
+                  let { product_pic, series_name, flavor, weight, style, size, product_id, quantity, price } = value;
+                  const dataUrl = `data:image/png;base64,${product_pic}`;
+                  return (
+                    <tr key={i}>
+                      <th>
+                        <img className="py-2 sp_img" src={dataUrl} alt="" />
+                      </th>
+                      <th className="text-start">
+                        <p>{series_name}</p>
+                        {
+                          specification(flavor, weight, style, size).map((value, i) => <p key={i}>{value}</p>)
+                        }
+                      </th>
+                      <th >{species(product_id)}</th>
+                      <Money quantity_temp={quantity} price={price} setclickpid={setclickpid} makesure_={makesure_} numberComma={numberComma} setproductitem={setproductitem} productitem={productitem} />
+                      <th><i id={product_id} className=" fs-3 bi bi-trash-fill" onClick={() => { showdelete_modal() }}></i></th>
+                    </tr>
+                  )
+                })
+              }
+            </tbody>
+          </table>
+          <div className="row">
+            <Count productitem={productitem} numberComma={numberComma} />
+
+            <div className="text-center d-flex justify-content-center">
+              <div onClick={() => { document.location.href = "./product.html" }}
+                className="col-3 border border-secondary rounded-3 order_time_check cursor_pointer text-center p-2 mx-5">
+                繼續購物
+              </div>
+              <div onClick={handleClicktoBill}
+                className="col-3 border border-secondary rounded-3 order_time_check cursor_pointer text-center p-2">
+                前往結帳
+              </div>
+            </div>
+          </div>
+        </div>
+        <Modal handleClickDelete={handleClickDelete} clickpid={clickpid} setmakesure_={setmakesure_} makesure_={makesure_} />
+      </React.Fragment>
+    )
+
+  }
+
+  myReactRoot.render(<Main />);
+</script>
+
+</html>

@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>旅館後台|當日住宿</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/back_header.css" />
+    <link rel="stylesheet" href="../../css/hotel_back.css" />
+    <!-- 使用CDN引入bootstrap-icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- 引用flatpickr -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+
+    <!-- 字型字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 引用flatpickr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/zh.js"></script>
+    <script src="../../js/flatpickr.js"></script>
+    <script src="../../js/bootstrap.bundle.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    
+  </head>
+  <body>
+    <!-- nav -->
+    <header id="navbar" class="sticky-top">
+      <div class="member nav_icon">
+        <a href="#" id="logout_btn">登出</a>
+      </div>
+      <div class="row align-items-center container-xl">
+        <div
+          class="text-center col-xxl-3 col-xl-3 col-lg-12 col-md-12 col-ms-12 col-12"
+        >
+          <a class="" href="#">
+            <img class="nav-logo m-2" src="../../img/LOGO.png" alt="" />
+          </a>
+        </div>
+        <div class="col-xxl-9 col-xl-9 col-lg-12 col-md-12 col-ms-12 col-12">
+          <ul class="nav justify-content-center text-center">
+            <li class="col-3 mt-3 mb-3 dropdown">
+              <a
+                href=""
+                data-toggle="dropdown"
+                class="dropdown-toggle"
+                role="button"
+                id="header_beauty"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >美容預約</a
+              >
+              <ul
+                class="dropdown-menu nav_drop"
+                aria-labelledby="header_beauty"
+              >
+                <li>
+                  <a href="#" class="dropdown-item" id="beauty1">美容預約表</a>
+                </li>
+              </ul>
+            </li>
+            <li class="col-3 mt-3 mb-3 dropdown">
+              <a
+                href=""
+                data-toggle="dropdown"
+                class="dropdown-toggle"
+                role="button"
+                id="header_hotel"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >寵物住宿</a
+              >
+              <ul class="dropdown-menu nav_drop" aria-labelledby="header_hotel">
+                <li>
+                  <a href="#" class="dropdown-item" id="hotel1">旅館訂單</a>
+                </li>
+                <li>
+                  <a href="#" class="dropdown-item" id="hotel2">當日住宿</a>
+                </li>
+              </ul>
+            </li>
+            <li class="col-3 mt-3 mb-3 dropdown">
+              <a
+                href=""
+                data-toggle="dropdown"
+                class="dropdown-toggle"
+                role="button"
+                id="header_product"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >產品專區</a
+              >
+              <ul
+                class="dropdown-menu nav_drop"
+                aria-labelledby="header_product"
+              >
+                <li>
+                  <a href="#" class="dropdown-item" id="product1"
+                    >產品主要內容</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="dropdown-item" id="product2"
+                    >產品詳細資訊</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="dropdown-item" id="product3">產品入庫</a>
+                </li>
+                <li>
+                  <a href="#" class="dropdown-item" id="product4">上架中產品</a>
+                </li>
+                <li>
+                  <a href="#" class="dropdown-item" id="product5">未上架產品</a>
+                </li>
+              </ul>
+            </li>
+            <li class="col-3 mt-3 mb-3 dropdown">
+              <a
+                href=""
+                data-toggle="dropdown"
+                class="dropdown-toggle"
+                role="button"
+                id="header_product_order"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >產品訂單</a
+              >
+              <ul
+                class="dropdown-menu nav_drop"
+                aria-labelledby="header_product_order"
+              >
+                <li>
+                  <a href="#" class="dropdown-item" id="product_order1"
+                    >產品訂單資訊</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="dropdown-item" id="product_order2"
+                    >會員訂單紀錄</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <h1 class="text-center mt-5 mb-5 fw-bold">當日住宿</h1>
+
+    <!-- calender -->
+    <div class="container my-3">
+      <form>
+        <div class="d-flex">
+          <h2>
+            狗狗房
+            <span class="remind">
+              (<span class="inhotel"></span>-入住中 ｜<span
+                class="nohotel"
+              ></span
+              >-尚未入住｜<span class="outhotel"></span>-已退房)
+            </span>
+          </h2>
+          <div class="input-icon">
+            <i class="bi bi-calendar"></i>
+            <input
+              id="checkin"
+              class="form-control-lg border-0 date-box-shadow ps-5"
+              placeholder="查詢入住時間"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="container text-strat">
+      <div class="row d-flex flex-wrap">
+        <div id="101" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          101
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="101"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="101"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="101"></p>
+        </div>
+        <div id="102" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          102
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="102"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="102"</p>
+          <p class="pet-name outpetName mb-2" data-room-number="102"></p>
+        </div>
+        <div id="103" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          103
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="103"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="103"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="103"></p>
+        </div>
+        <div id="201" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          201
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="201"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="201"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="201"></p>
+        </div>
+        <div id="202" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          202
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="202"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="202"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="202"></p>
+        </div>
+        <div id="203" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          203
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="203"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="203"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="203"></p>
+        </div>
+        <div id="301" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          301
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="301"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="301"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="301"></p>
+        </div>
+        <div id="302" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          302
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="302"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="302"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="302"></p>
+        </div>
+        <div id="303" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          303
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="303"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="303"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="303"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-strat mb-5">
+      <h3 class="my-3">
+        貓貓房
+        <span class="remind">
+          (<span class="inhotel"></span>-入住中 ｜<span class="nohotel"></span
+          >-尚未入住｜<span class="outhotel"></span>-已退房)
+        </span>
+      </h3>
+      <div class="row">
+        <div id="401" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          401
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="401"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="401"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="401"></p>
+        </div>
+        <div id="402" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          402
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="402"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="402"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="402"></p>
+        </div>
+        <div id="403" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          403
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="403"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="403"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="403"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- model -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close text-end fs-2 fw-bold"
+          ><i class="bi bi-x-lg"></i
+        ></span>
+        <h2 class="mb-3">訂房明細</h2>
+
+        <form id="orderForm">
+          <div>
+            <label for="field1">訂單編號</label>
+            <input type="text" id="field1" name="field1" readonly/>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <label for="field2">訂購人</label>
+              <input type="text" id="field2" name="field2" readonly/>
+            </div>
+            <div class="col-6">
+              <label for="field3">聯絡電話</label>
+              <input type="text" id="field3" name="field3" readonly/>
+            </div>
+          </div>
+          <hr />
+          <div class="row bg-secondary bg-opacity-25">
+            <div class="col-6">
+              <label for="field4">寵物名字</label>
+              <input type="text" id="field4" name="field4" readonly/>
+            </div>
+            <div class="col-6">
+              <label for="field5">寵物種類</label>
+              <input type="text" id="field5" name="field5" readonly/>
+            </div>
+          </div>
+          <div class="row bg-secondary bg-opacity-25">
+            <div class="col-6">
+              <label for="field6">寵物品種</label>
+              <input type="text" id="field6" name="field6" readonly/>
+            </div>
+            <div class="col-6">
+              <label for="field7">寵物生日</label>
+              <input type="text" id="field7" name="field7" readonly/>
+            </div>
+          </div>
+          <div class="row bg-secondary bg-opacity-25">
+            <div class="col-6">
+              <label for="field8">寵物性別</label>
+              <input type="text" id="field8" name="field8" readonly/>
+            </div>
+            <div class="col-6">
+              <label for="field9">寵物體重</label>
+              <input type="text" id="field9" name="field9" readonly/>
+            </div>
+          </div>
+          <hr />
+          <div class="row bg-primary bg-opacity-25">
+            <div class="col-6">
+              <label for="field10">房號</label>
+              <input type="text" id="field10" name="field10" readonly/>
+            </div>
+            <div class="col-6">
+              <label for="field11">金額</label>
+              <input type="text" id="field11" name="field11" readonly/>
+            </div>
+          </div>
+          <div class="row bg-primary bg-opacity-25">
+            <div class="col-6">
+              <label for="field12">入住日期</label>
+              <input type="text" id="field12" name="field12" readonly/>
+            </div>
+            <div class="col-6">
+              <label for="field13">退房日期</label>
+              <input type="text" id="field13" name="field13" readonly/>
+            </div>
+          </div>
+          <div class="row bg-primary bg-opacity-25">
+            <div class="col-6">
+              <label for="field14">同房數</label>
+              <input type="text" id="field14" name="field14" readonly/>
+            </div>
+            <div class="col-6">
+              <label for="field15">晚數</label>
+              <input type="text" id="field15" name="field15" readonly/>
+            </div>
+          </div>
+          <label for="status"
+            >訂單狀態<i class="bi bi-pencil-square ps-1"></i
+          ></label>
+          <select id="status" name="status" onclick="updateBackgroundColor()">
+            <option value="nohotel">尚未入住</option>
+            <option value="inhotel">入住中</option>
+            <option value="outhotel">已退房</option>
+          </select>
+          <div class="mb-3">
+            <label for="notes"
+              >訂單備註<i class="bi bi-pencil-square ps-1"></i
+            ></label>
+            <textarea id="notes" name="notes" rows="3"></textarea>
+          </div>
+          <div class="container mt-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <button
+                  type="button"
+                  class="btn btn-outline-dark me-2"
+                  id="cancelBtn"
+                >
+                  取消
+                </button>
+                <span
+                  class="delete text-decoration-underline"
+                  onclick="deleteFormData()"
+                  >刪除訂單</span
+                >
+              </div>
+              <button type="submit" class="btn btn-warning px-5" id="saveBtn">
+                儲存
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      // ordermodel 獲取模態框元素
+      const modal = document.getElementById("myModal");
+      const closeModalBtn = document.querySelector(".close");
+      const deleteBtn = document.querySelector(".delete");
+      const form = document.getElementById("orderForm");
+
+      // 獲取寵物名字元素
+      const petNames = document.querySelectorAll(
+        ".inpetNamehotel, .outpetName, .nopetName"
+      );
+
+      // 開啟模態框
+      petNames.forEach((pet) => {
+        pet.addEventListener("click", () => {
+          modal.style.display = "block";
+        });
+      });
+
+      // 關閉模態框
+      closeModalBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+      // 點擊模態框外部關閉模態框
+      window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+      // 點擊取消按鈕關閉模態框
+      cancelBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+
+      // 按刪除訂單 -> 清除表單內容並離開model
+      deleteBtn.addEventListener("click", () => {
+        //   modal.style.display = "none";
+        if (confirm("確定要永久刪除嗎？")) {
+          form.reset(); // 清空表單內容
+        }
+      });
+
+      // model內資訊
+      document
+        .getElementById("checkin")
+        .addEventListener("change", function () {
+          const selectedDate = this.value;
+
+          // 發送請求到後端 API
+          fetch(
+            `http://localhost/happypet/happypet_back/public/api/chooseRoomNumber?date=${selectedDate}`
+          )
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(
+                  `找不到寵物: ${response.statusText}`
+                );
+              }
+              return response.json();
+            })
+            .then((data) => {
+              console.log("Fetched Data:", data); // 輸出返回的數據
+              clearRoomInfo();
+
+              // 使用一個對象來跟蹤每個房間的寵物信息
+              const roomInfo = {};
+
+              data.forEach((order) => {
+                const roomNumber = order.room_number;
+                const petName = order.pet_name; 
+
+                if (!roomInfo[roomNumber]) {
+                  roomInfo[roomNumber] = { pets: [] }; // 這裡用 pets 陣列來保存所有寵物信息
+                }
+
+                // 將每個 pet_name 添加到對應房間的 pets 陣列中
+                roomInfo[roomNumber].pets.push(petName);
+              });
+
+              console.log("Room Info:", roomInfo); 
+
+
+
+              // 更新房間元素的內容
+              Object.keys(roomInfo).forEach((roomNumber) => {
+                console.log("hello",Object);
+                const roomElement = document.getElementById(roomNumber);
+                if (roomElement) {
+                  const petsElement =
+                    roomElement.querySelector(".nopetName"); // 預設顏色
+
+                  if (petsElement) {
+                    petsElement.innerHTML =
+                      roomInfo[roomNumber].pets
+                        .map((petName) =>`<p >${petName}</p>`) .join("") || "No pets";
+                    console.log(
+                      `顯示房號跟寵物資訊: ${roomNumber}: ${petsElement.innerHTML}`
+                    );
+                  } else {
+                    console.error(
+                      `找不到房號 ${roomNumber}`
+                    );
+                  }
+                }
+              });
+            })
+            .catch((error) => {
+              console.error("找不到房間順序:", error);
+            });
+        });
+
+      // 清空所有房間的房客信息
+      function clearRoomInfo() {
+        const roomElements = document.querySelectorAll(".row .col-4");
+        roomElements.forEach((room) => {
+          const petsElement = room.querySelector(".nopetName"); 
+
+          if (petsElement) {
+            petsElement.textContent = "";
+          }
+        });
+      }
+
+
+      // 抓訂單號ok
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".pet-name").forEach((element) => {
+          element.addEventListener("click", function () {
+            // 獲取點擊的房間號碼
+            const roomNumber = this.getAttribute("data-room-number");
+
+            // 向後端發送請求，根據 roomNumber 獲取訂單編號
+            fetch(
+              `http://localhost/happypet/happypet_back/public/api/getOrderNumberByRoomNumber?room_number=${roomNumber}`
+            )
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error(
+                    `Network response was not ok: ${response.statusText}`
+                  );
+                }
+                return response.json();
+              })
+              .then((data) => {
+                // 確認 data 中包含訂單編號
+                if (data.order_number) {
+                  // 設定訂單編號到 input 框中
+                  document.getElementById("field1").value = data.order_number;
+                } else {
+                  console.error("Order number not found in response data.");
+                }
+              })
+              .catch((error) => {
+                console.error("Error fetching order number:", error);
+              });
+          });
+        });
+      });
+  
+      // 抓user_info
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll(".pet-name").forEach((element) => {
+        element.addEventListener("click", function () {
+        // 獲取點擊的房間號碼
+        const roomNumber = this.getAttribute("data-room-number");
+
+        // 確保房間號碼有效
+        if (roomNumber) {
+          // 向後端發送請求，根據 roomNumber 獲取訂單的 uid
+          fetch(`http://localhost/happypet/happypet_back/public/api/getUidByRoomNumber?room_number=${roomNumber}`)
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.statusText}`);
+              }
+              return response.json();
+            })
+            .then((orderData) => {
+              console.log(orderData);
+              // 確認 orderData 中包含 uid
+              if (orderData.uid) {
+                
+                // 根據 uid 獲取用戶資料
+                return fetch(`http://localhost/happypet/happypet_back/public/api/getUserDetailsByUid?uid=${orderData.uid}`);
+              } else {
+                throw new Error("UID not found in order data.");
+              }
+            })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.statusText}`);
+              }
+              return response.json();
+            })
+            .then((userData) => {
+              // 確認 userData 中包含用戶信息
+              if (userData.cname && userData.cellphone) {
+                // 設定用戶信息到 input 框中
+                document.getElementById("field2").value = userData.cname;
+                document.getElementById("field3").value = userData.cellphone;
+              } else {
+                console.error("User information not found in response data.");
+              }
+            })
+            .catch((error) => {
+              console.error("Error fetching data:", error);
+            });
+        } else {
+          console.error("No room number found.");
+        }
+      });
+    });
+  });
+  // 抓寵物資料
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".pet-name").forEach((element) => {
+      element.addEventListener("click", function () {
+        // 獲取點擊的房間號碼
+        const roomNumber = this.getAttribute("data-room-number");
+
+        // 確保房間號碼有效
+        if (roomNumber) {
+          // 向後端發送請求，根據 roomNumber 獲取訂單的 pet_id
+          fetch(`http://localhost/happypet/happypet_back/public/api/getPetIdByRoomNumber?room_number=${roomNumber}`)
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.statusText}`);
+              }
+              return response.json();
+            })
+            .then((orderData) => {
+              // 確認 data 中包含 pet_id
+              if (orderData.pet_id) {
+                // 根據 pet_id 獲取寵物詳細信息
+                return fetch(`http://localhost/happypet/happypet_back/public/api/getPetDetailsById?pet_id=${orderData.pet_id}`);
+              } else {
+                throw new Error("Pet ID not found in response data.");
+              }
+            })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.statusText}`);
+              }
+              return response.json();
+            })
+            .then((petData) => {
+              // 確認 petData 中包含寵物信息
+              if (petData) {
+                // 設定寵物信息到 input 框中
+                document.getElementById("field4").value = petData.pet_name || '0'; // 寵物名字
+                document.getElementById("field5").value = petData.pet_species || '0'; // 寵物種類
+                document.getElementById("field6").value = petData.pet_variety || '0'; // 寵物品種
+                document.getElementById("field7").value = petData.pet_birthday || '0'; // 寵物生日
+                document.getElementById("field8").value = petData.pet_gender || '0'; // 寵物性別
+                document.getElementById("field9").value = petData.pet_weight || '0'; // 寵物體重
+              } else {
+                console.error("Pet information not found in response data.");
+              }
+            })
+            .then(() => {
+              // 根據 roomNumber 獲取訂單詳細信息
+              return fetch(`http://localhost/happypet/happypet_back/public/api/getOrderDetailsByRoomNumber?room_number=${roomNumber}`);
+            })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.statusText}`);
+              }
+              return response.json();
+            })
+            .then((orderData) => {
+              // 確認 orderData 中包含訂單信息
+              if (orderData) {
+                // 設定訂單信息到 input 框中
+                document.getElementById("field10").value = orderData.room_number || '0'; 
+                document.getElementById("field11").value = orderData.room_total || '0'; 
+                document.getElementById("field12").value = orderData.checkin || '0'; 
+                document.getElementById("field13").value = orderData.checkout || '0'; 
+                document.getElementById("field14").value = orderData.sameroom || '0'; 
+                document.getElementById("field15").value = orderData.nightday || '0'; 
+              
+              } else {
+                console.error("Order details not found in response data.");
+              }
+            })
+            .catch((error) => {
+              console.error("找不到資訊", error);
+            });
+        } else {
+          console.error("找不到房號");
+        }
+      });
+    });
+  });
+// 定義房間狀態對應的 CSS 類名
+const statusClasses = {
+      'inhotel': 'inpetNamehotel',
+      'nohotel': 'nopetName',
+      'outhotel': 'outpetName'
+    };
+
+    // 記錄要更新背景顏色的元素
+    let selectedPetElement = null;
+
+    // 監聽點擊事件以選擇要更改背景顏色的寵物名稱
+    document.querySelectorAll('p[data-room-number]').forEach((element) => {
+      element.addEventListener('click', () => {
+        console.log('Selected element:', element);
+        selectedPetElement = element;
+      });
+    });
+
+    // 根據選擇的狀態更新背景顏色
+    function updateBackgroundColor() {
+      const status = document.getElementById("status").value;
+
+      console.log('Updating background color. Status:', status);
+      console.log('Selected pet element:', selectedPetElement);
+
+      if (selectedPetElement) {
+        Object.values(statusClasses).forEach((className) => {
+          selectedPetElement.classList.remove(className);
+        });
+
+        if (statusClasses[status]) {
+          selectedPetElement.classList.add(statusClasses[status]);
+        }
+      } else {
+        console.log('No pet element selected.');
+      }
+    }
+
+    // 監聽儲存按鈕點擊事件
+    const saveBtn = document.getElementById("saveBtn");
+    saveBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      // 在儲存後更新背景顏色
+      updateBackgroundColor();
+
+      // 清空 selectedPetElement 以防下次未選中時影響結果
+      selectedPetElement = null;
+
+      // 關閉模態窗口並提示儲存成功
+      const modal = document.getElementById("myModal");
+      if (modal) {
+        modal.style.display = "none";
+      } else {
+        console.error('Modal not found.');
+      }
+      alert("儲存成功！");
+    });
+    
+    
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>旅館後台|當日住宿</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/back_header.css" />
+    <link rel="stylesheet" href="../../css/hotel_back.css" />
+    <!-- 使用CDN引入bootstrap-icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- 引用flatpickr -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+
+    <!-- 字型字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 引用flatpickr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/zh.js"></script>
+    <script src="../../js/flatpickr.js"></script>
+    <script src="../../js/bootstrap.bundle.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    
+  </head>
+  <body>
+    <!-- nav -->
+    <header id="navbar" class="sticky-top">
+      <div class="member nav_icon">
+        <a href="#" id="logout_btn">登出</a>
+      </div>
+      <div class="row align-items-center container-xl">
+        <div
+          class="text-center col-xxl-3 col-xl-3 col-lg-12 col-md-12 col-ms-12 col-12"
+        >
+          <a class="" href="../../00_index/back/index_back.html">
+            <img class="nav-logo m-2" src="../../img/LOGO.png" alt="" />
+          </a>
+        </div>
+        <div class="col-xxl-9 col-xl-9 col-lg-12 col-md-12 col-ms-12 col-12">
+          <ul class="nav justify-content-center text-center">
+            <li class="col-3 mt-3 mb-3 dropdown">
+              <a
+                href=""
+                data-toggle="dropdown"
+                class="dropdown-toggle"
+                role="button"
+                id="header_beauty"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >美容預約</a
+              >
+              <ul
+                class="dropdown-menu nav_drop"
+                aria-labelledby="header_beauty"
+              >
+                <li>
+                  <a href="../../20_beauty/back/beauty_back.html" class="dropdown-item" id="beauty1">美容預約表</a>
+                </li>
+              </ul>
+            </li>
+            <li class="col-3 mt-3 mb-3 dropdown">
+              <a
+                href=""
+                data-toggle="dropdown"
+                class="dropdown-toggle"
+                role="button"
+                id="header_hotel"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >寵物住宿</a
+              >
+              <ul class="dropdown-menu nav_drop" aria-labelledby="header_hotel">
+                <li>
+                  <a href="../../30_hotel/back/order_back.html" class="dropdown-item" id="hotel1">旅館訂單</a>
+                </li>
+                <li>
+                  <a href="../../30_hotel/back/hotel_today_back.html" class="dropdown-item" id="hotel2">當日住宿</a>
+                </li>
+              </ul>
+            </li>
+            <li class="col-3 mt-3 mb-3 dropdown">
+              <a
+                href=""
+                data-toggle="dropdown"
+                class="dropdown-toggle"
+                role="button"
+                id="header_product"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >產品專區</a
+              >
+              <ul
+                class="dropdown-menu nav_drop"
+                aria-labelledby="header_product"
+              >
+                <li>
+                  <a href="../../40_product/back/main_info.html" class="dropdown-item" id="product1"
+                    >產品主要內容</a
+                  >
+                </li>
+                <li>
+                  <a href="../../40_product/back/detail_info.html" class="dropdown-item" id="product2"
+                    >產品詳細資訊</a
+                  >
+                </li>
+                <li>
+                  <a href="../../40_product/back/warehouse.html" class="dropdown-item" id="product3">產品入庫</a>
+                </li>
+                <li>
+                  <a href="../../40_product/back/on_shelves.html" class="dropdown-item" id="product4">上架中產品</a>
+                </li>
+                <li>
+                  <a href="../../40_product/back/remove_shelves.html" class="dropdown-item" id="product5">未上架產品</a>
+                </li>
+                <li><a href="../../40_product/back/all_product.html" class="dropdown-item" id="product6">產品查詢</a></li>
+              </ul>
+            </li>
+            <li class="col-3 mt-3 mb-3 dropdown">
+              <a
+                href=""
+                data-toggle="dropdown"
+                class="dropdown-toggle"
+                role="button"
+                id="header_product_order"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >產品訂單</a
+              >
+              <ul
+                class="dropdown-menu nav_drop"
+                aria-labelledby="header_product_order"
+              >
+                <li>
+                  <a href="../../10_member/back/product_orders.html" class="dropdown-item" id="product_order1"
+                    >產品訂單資訊</a
+                  >
+                </li>
+                <li>
+                  <a href="../../10_member/back/member_orders.html" class="dropdown-item" id="product_order2"
+                    >會員訂單紀錄</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <h1 class="text-center mt-5 mb-5 fw-bold">當日住宿</h1>
+
+    <!-- calender -->
+    <div class="container my-3">
+      <form>
+        <div class="d-flex">
+          <h2>
+            狗狗房
+            <span class="remind">
+              (<span class="inhotel"></span>-入住中 ｜<span
+                class="nohotel"
+              ></span
+              >-尚未入住｜<span class="outhotel"></span>-已退房)
+            </span>
+          </h2>
+          <div class="input-icon">
+            <i class="bi bi-calendar"></i>
+            <input
+              id="checkin"
+              class="form-control-lg border-0 date-box-shadow ps-5"
+              placeholder="查詢入住時間"
+              data-date-format="Y/m/d"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="container text-strat">
+      <div class="row d-flex flex-wrap">
+        <div id="101" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          101
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="101"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="101"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="101"></p>
+        </div>
+        <div id="102" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          102
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="102"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="102"</p>
+          <p class="pet-name outpetName mb-2" data-room-number="102"></p>
+        </div>
+        <div id="103" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          103
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="103"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="103"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="103"></p>
+        </div>
+        <div id="201" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          201
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="201"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="201"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="201"></p>
+        </div>
+        <div id="202" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          202
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="202"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="202"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="202"></p>
+        </div>
+        <div id="203" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          203
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="203"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="203"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="203"></p>
+        </div>
+        <div id="301" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          301
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="301"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="301"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="301"></p>
+        </div>
+        <div id="302" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          302
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="302"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="302"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="302"></p>
+        </div>
+        <div id="303" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          303
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="303"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="303"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="303"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-strat mb-5">
+      <h3 class="my-3">
+        貓貓房
+        <span class="remind">
+          (<span class="inhotel"></span>-入住中 ｜<span class="nohotel"></span
+          >-尚未入住｜<span class="outhotel"></span>-已退房)
+        </span>
+      </h3>
+      <div class="row">
+        <div id="401" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          401
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="401"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="401"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="401"></p>
+        </div>
+        <div id="402" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          402
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="402"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="402"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="402"></p>
+        </div>
+        <div id="403" class="col-4 border bg-light aligntop fs-2 fixed-size">
+          403
+          <p class="pet-name inpetNamehotel mb-2" data-room-number="403"></p>
+          <p class="pet-name nopetName mb-2" data-room-number="403"></p>
+          <p class="pet-name outpetName mb-2" data-room-number="403"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- model -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close text-end fs-2 fw-bold"
+          ><i class="bi bi-x-lg"></i
+        ></span>
+        <h2 class="mb-3">訂房明細</h2>
+
+        <form id="orderForm">
+          <div>
+            <label for="field1">訂單編號</label>
+            <input type="text" id="field1" name="field1" readonly/>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <label for="field2">訂購人</label>
+              <input type="text" id="field2" name="field2" readonly/>
+            </div>
+            <div class="col-6">
+              <label for="field3">聯絡電話</label>
+              <input type="text" id="field3" name="field3" readonly/>
+            </div>
+          </div>
+          <hr />
+          <div class="row bg-secondary bg-opacity-25">
+            <div class="col-6">
+              <label for="field4">寵物名字</label>
+              <input type="text" id="field4" name="field4" readonly/>
+            </div>
+            <div class="col-6">
+              <label for="field5">寵物種類</label>
+              <input type="text" id="field5" name="field5" readonly/>
+            </div>
+          </div>
+          <div class="row bg-secondary bg-opacity-25">
+            <div class="col-6">
+              <label for="field6">寵物品種</label>
+              <input type="text" id="field6" name="field6" readonly/>
+            </div>
+            <div class="col-6">
+              <label for="field7">寵物生日</label>
+              <input type="text" id="field7" name="field7" readonly/>
+            </div>
+          </div>
+          <div class="row bg-secondary bg-opacity-25">
+            <div class="col-6">
+              <label for="field8">寵物性別</label>
+              <input type="text" id="field8" name="field8" readonly/>
+            </div>
+            <div class="col-6">
+              <label for="field9">寵物體重</label>
+              <input type="text" id="field9" name="field9" readonly/>
+            </div>
+          </div>
+          <hr />
+          <div class="row bg-primary bg-opacity-25">
+            <div class="col-6">
+              <label for="field10">房號</label>
+              <input type="text" id="field10" name="field10" readonly/>
+            </div>
+            <div class="col-6">
+              <label for="field11">金額</label>
+              <input type="text" id="field11" name="field11" readonly/>
+            </div>
+          </div>
+          <div class="row bg-primary bg-opacity-25">
+            <div class="col-6">
+              <label for="field12">入住日期</label>
+              <input type="text" id="field12" name="field12" readonly/>
+            </div>
+            <div class="col-6">
+              <label for="field13">退房日期</label>
+              <input type="text" id="field13" name="field13" readonly/>
+            </div>
+          </div>
+          <div class="row bg-primary bg-opacity-25">
+            <div class="col-6">
+              <label for="field14">同房數</label>
+              <input type="text" id="field14" name="field14" readonly/>
+            </div>
+            <div class="col-6">
+              <label for="field15">晚數</label>
+              <input type="text" id="field15" name="field15" readonly/>
+            </div>
+          </div>
+          <label for="status"
+            >訂單狀態<i class="bi bi-pencil-square ps-1"></i
+          ></label>
+          <select id="status" name="status" onclick="updateBackgroundColor()">
+            <option value="nohotel">尚未入住</option>
+            <option value="inhotel">入住中</option>
+            <option value="outhotel">已退房</option>
+          </select>
+          <div class="mb-3">
+            <label for="notes"
+              >訂單備註<i class="bi bi-pencil-square ps-1"></i
+            ></label>
+            <textarea id="notes" name="notes" rows="3"></textarea>
+          </div>
+          <div class="container mt-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <button
+                  type="button"
+                  class="me-2 fs-5"
+                  id="cancelBtn">
+                  取消
+                </button>
+                <span
+                  class="delete text-decoration-underline"
+                  onclick="deleteFormData()"
+                  >刪除訂單</span >
+              </div>
+              <button type="submit" class="fs-5 px-5" id="saveBtn">
+                儲存
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- 引入購物車數量 -->
+    <script src="../../js/queryQuantity.js"></script>
+    <script src="../../js/hotel_order_back.js"></script>
+    
+  </body>
+</html>

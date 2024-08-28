@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
+  <title>好寵你 | 未上架產品</title>
+
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/back_header.css">
+  <link rel="stylesheet" href="../../css/orders.css">
+
+
+  <script src="../../js/bootstrap.bundle.js"></script>
+
+  <!-- 使用CDN引入bootstrap-icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- 字型字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+  <script src="../../js/jquery-3.7.1.js" data-auto-replace-svg="nest"></script>
+  <!-- React -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+
+</head>
+
+<body>
+  <header id="navbar" class="sticky-top headerbackPage"></header>
+  <main>
+    <div class="m-auto  py-3 container position-relative">
+      <h2 class="fw-bolder m-0 py-3">未上架產品</h2>
+      <table class="table table-striped text-center align-middle justify-content-center">
+        <thead class="text-center">
+          <tr>
+            <th scope="col">產品料號</th>
+            <th scope="col">名稱</th>
+            <th scope="col">價格</th>
+            <th scope="col">庫存</th>
+            <th scope="col">首次上架日</th>
+            <th scope="col">異動日期</th>
+            <th scope="col">操作</th>
+          </tr>
+        </thead>
+        <tbody id="result_show">
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+
+
+
+  <!--上架 彈出視窗 Modal -->
+  <div class="modal fade" id="shelves_dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3>確定上架此產品嗎?</h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+          <button id="btn_shelves_sure" type="button" class="btn btn-primary" data-bs-dismiss="modal">確認</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+
+    $(".headerbackPage").load("../../99_Huei/header_back.html");
+
+    window.onload = function () {
+
+      //shelves_dialog 對話框呼叫
+      let shelves_dialog = document.getElementById('shelves_dialog')
+      let btn_shelves = document.getElementsByClassName('btn_shelves')
+
+      shelves_dialog.addEventListener('shown.bs.modal', function () {
+
+        // console.log(event);
+        // console.log('temp', event.relatedTarget.parentElement.parentElement.getElementsByClassName('product_id')[0].innerText);
+        //尋找product_id price inventory
+        // console.log($(event.relatedTarget).parents().find('.product_id').text());
+        let pid = event.relatedTarget.parentElement.parentElement.getElementsByClassName('product_id')[0].innerText;
+        let price = event.relatedTarget.parentElement.parentElement.children[2].querySelector('input').value;
+        let inventory = event.relatedTarget.parentElement.parentElement.children[3].querySelector('input').value;
+
+        btn_shelves_sure.onclick = function () {
+
+          try {
+            $.ajax({
+              url: `http://localhost/happypet/happypet_back/public/api/shelves/status_update/${pid}`,
+              method: 'PUT',
+              contentType: 'application/json',
+              data: JSON.stringify({
+                'status': 1,
+                'price': price,
+                'inventory': inventory
+              })
+            }).done(function (data) {
+              console.log('ok', data);
+              location.reload();
+            }).fail(function (e) { console.log(e); })
+          } catch (error) {
+            console.log(error);
+          }
+
+        }
+
+      })
+
+      //修改btn
+      $('#result_show').on('click', '.btn_modify', function () {
+        //更改價錢&&庫存樣式
+        $(this).parents('tr').children().find('input').css('outline', 'auto')
+        $(this).parents('tr').children().find('input').css('background-color', 'auto')
+        $(this).parents('tr').children().find('input').attr('disabled', false)
+
+        // console.log($(this).prev());
+        //更改'上架'btn
+        $(this).prev().attr('disabled', 'true');
+        //更改'修改'btn
+        $(this).text('儲存');
+        $(this).toggleClass('save_value', true);
+        $(this).toggleClass('btn_modify', false);
+      })
+
+      //儲存btn
+      $('#result_show').on('click', '.save_value', function () {
+        //更改價錢&&庫存樣式
+        $(this).parents('tr').children().find('input').css('outline', 'none')
+        $(this).parents('tr').children().find('input').css('background-color', 'none')
+        $(this).parents('tr').children().find('input').attr('disabled', true)
+
+        //更改'上架'btn
+        $(this).prev().removeAttr('disabled');
+        //更改'修改'btn
+        $(this).text('修改');
+        $(this).toggleClass('btn_modify', true);
+        $(this).toggleClass('save_value', false);
+        console.log($(this).parents('tr').children().find('input')[0].value);
+        console.log($(this).parents('tr').children()[0].innerText);
+
+        let price = $(this).parents('tr').children().find('input')[0].value;
+        let inventory = $(this).parents('tr').children().find('input')[1].value;
+        let pid = $(this).parents('tr').children()[0].innerText;
+        //儲存變更的價錢&庫存
+        try {
+          $.ajax({
+            url: `http://localhost/happypet/happypet_back/public/api/shelves/status_update/${pid}`,
+            method: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify({
+              'status': 0,
+              'price': price,
+              'inventory': inventory
+            })
+          }).done(function (data) {
+            console.log('ok', data);
+          })
+        } catch (error) {
+          console.log(error);
+        }
+      })
+
+
+      //抓資料
+      $.ajax({
+        url: 'http://localhost/happypet/happypet_back/public/api/shelves',
+        method: 'GET',
+        data: {
+          status: 0
+        }
+      }).done(function (data) {
+        // console.log(data);
+        $.each(data, function (i, value) {
+          // console.log('data', value);
+          let { product_id, product_name, inventory, price, create_date
+            , update_date } = value;
+          result_show.innerHTML += `<tr>
+            <td scope="row" class="product_id">${product_id}</td>
+            <td>${product_name}</td>
+            <td><input type="text" value=${price} class="text-center ons_input" disabled></td>
+            <td><input type="text" value=${inventory} class="text-center ons_input" disabled></td>
+            <td>${create_date.replaceAll('-', '/')}</td>
+            <td>${update_date ? update_date.replaceAll('-', '/') : ''}</td>
+            <td>
+              <button class="btn btn_shelves shadow-sm" data-bs-toggle="modal" data-bs-target="#shelves_dialog">上架</button>
+              <button class="btn btn_modify shadow-sm">修改</button>
+            </td>
+            </tr>`;
+        })
+      })
+
+    }
+
+
+  </script>
+
+
+</body>
+
+</html>
